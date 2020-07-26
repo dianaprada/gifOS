@@ -1,0 +1,115 @@
+
+
+$blue: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+$white:#fff;
+$font_color: #572EE5;
+$bg_menu:rgba(87,46,229,0.90);
+
+
+
+$Proxima-Bold: "ProximaNova-Bold";
+$Proxima-Regular: "ProximaNova-Regular";
+
+
+@mixin h1_mobile {
+  font-family: "ProximaNova-Bold";
+  font-size: 1.5625em;
+  color: $font_color;
+  letter-spacing: 0;
+  line-height: 33px;
+  font-weight: 700;
+}
+
+
+@mixin h1_laptop {
+  font-family: "ProximaNova-Bold";
+  font-size: 2.1875em;
+  color: $font_color;
+  letter-spacing: 0;
+  line-height: 50px;
+  font-weight: 700;
+}
+
+@mixin h2_mobile {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
+  color: $font_color;
+  letter-spacing: 0;
+  line-height: 25px;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+@mixin h2_laptop {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5625em;
+  color: $font_color;
+  letter-spacing: 0;
+  line-height: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+@mixin h3_mobile {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8em;
+  color: $font_color;
+  letter-spacing: 0;
+  font-weight: bold;
+  text-align: center;
+  line-height: 25px;
+
+}
+
+@mixin h3_laptop {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  color: $font_color;
+  letter-spacing: 0;
+  font-weight: bold;
+  text-align: center;
+  line-height: 25px;
+}
+
+@mixin h4_mobile {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875em;
+  color: $font_color;
+  letter-spacing: 0;
+  font-weight: 400;
+  text-align: center;
+  line-height: 25px;
+
+}
+
+@mixin h4_laptop {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  color: $font_color;
+  letter-spacing: 0;
+  font-weight: 400;
+  text-align: center;
+  line-height: 25px;
+}
+
+
+@mixin paragraph_mobile {
+  font-family: 'Roboto', sans-serif;
+  color: black;
+  letter-spacing: 0;
+  line-height: 15px;
+  font-weight: normal;
+}
+
+
+@mixin paragraph_laptop {
+font-family: 'Roboto', sans-serif;
+color: black;
+letter-spacing: 0;
+line-height: 15px;
+font-weight: 400;
+
+}
+

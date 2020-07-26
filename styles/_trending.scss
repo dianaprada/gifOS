@@ -1,0 +1,233 @@
+/* 
+========================================================================== */
+/* Trending
+==========================================================================
+ */
+
+ .trending{
+    background: #F3F5F8;
+    display: flex;
+    flex-direction: column;
+    height: 26.9em;
+
+    &__h2{
+        @include h2_mobile();
+        padding-top: 2em;
+     }
+
+    &__p--mobile{
+        @include paragraph_mobile();
+        font-size: 1em;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__p--laptop{
+        display: none;
+    }
+ }
+
+ /* 
+========================================================================== */
+/* Slideshow
+==========================================================================
+ */
+
+ .slideshow{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &__cards{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    
+    }
+
+    &__before{
+      display: none;  
+      
+    }
+
+    &__after{
+        display: none;  
+      }
+}
+
+
+
+.card{
+    position: relative;
+
+    width: 15.2em;
+    height: 11.7em;
+    border: 0em;
+    margin: 1em;
+
+    &__gif{
+        position: relative;
+        width: 15.2em;
+        height: 11.7em;
+
+    }
+
+    &__gif:hover{
+        background-color: $font_color;
+        opacity: 0.6;
+
+    }
+
+    &__info{
+        display: none;
+        
+    }
+
+    &__p1{
+        @include paragraph_mobile();
+        position: absolute;
+        left: 0.5em;
+        padding: 5px;
+        width: 100%;
+        top: 60%;
+        font-size: 0.9em;
+        color: $white;
+        width: 70%;
+    
+    }
+
+    &__p2{
+        @include paragraph_mobile();
+        position: absolute;
+        left: 0.5em;
+        padding: 5px;
+        width: 100%;
+        top: 70%;
+        font-size: 1em;
+        font-weight: bold;
+        color: $white;
+        width: 70%;
+    }
+}
+
+.card:hover{
+    background: $font_color;
+    opacity: 0.6;
+}
+
+
+
+
+/* 
+========================================================================== */
+/* Trending
+/* 64em = 1024px @ 16px font
+==========================================================================
+*/
+    
+    @media screen and (min-width:1024px) {
+
+        .trending{
+
+            height: 40em;
+
+            &__h2{
+                @include h2_laptop();
+                margin: 0em;
+                
+            }
+    
+
+            &__p--laptop{
+                @include paragraph_laptop();
+                font-size: 1.125em;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 2em;
+
+
+            }
+
+            &__p--mobile{
+                display: none;
+            }
+        }
+
+/* 
+========================================================================== */
+/* Slideshow
+/* 64em = 1024px @ 16px font
+==========================================================================
+*/
+   
+        .slideshow{
+
+            &__card{
+                width: 22em;
+                height: 17em;
+                border: 0em;
+                margin: 1em;
+            }
+        
+            &__card--gif{
+                width: 22em;
+                height: 17em;
+        
+            }
+
+
+            &__before{
+                display: flex;
+                justify-content: center;  
+                align-items: center;
+                color: $font_color;
+                background: $white;
+                border: 1px solid $font_color;
+                width: 2.5em;
+                height: 2.5em;
+                font-size: 1em;
+                font-family: "GifOs";
+                font-weight: bold;
+                margin: 1em;
+    
+            }
+    
+            &__before:hover{
+                color: $white;
+                background: $font_color;
+                border: 1px solid $font_color;
+                
+            }
+    
+          
+            &__after{ 
+                display: flex;
+                justify-content: center; 
+                align-items: center; 
+                color: $font_color; 
+                background: $white;
+                border: 1px solid $font_color;
+                width: 2.5em;
+                height: 2.5em;
+                font-size: 1em; 
+                font-family: "GifOs";
+                font-weight: bold;
+                margin: 1em;
+    
+            }
+    
+            &__after:hover{
+                color: $white;
+                background: $font_color;
+                border: 1px solid $font_color;
+                
+            }
+        }
+
+        
+    }

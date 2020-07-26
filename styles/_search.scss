@@ -1,0 +1,136 @@
+/* 
+========================================================================== */
+/* Search
+==========================================================================
+ */
+
+ .search{
+     position: relative;
+     display: flex;
+     flex-direction: column;
+
+     &__image{
+         margin: 0 auto;
+         padding-top: 1em;
+         width: 273px;
+         height: auto;
+     }
+
+     &__container{
+        
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid $font_color;
+        border-radius: 27px;
+        width: 334px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+
+     }
+
+     &__input{
+        position: relative;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        color: #000000;
+        border: 0em;
+        left: 2em;
+
+
+     }
+
+     &__input::placeholder{
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        color: #9CAFC3;
+        text-align: left;
+        padding-left: 3em;
+        border: 0em;
+       
+     }
+
+     &__submit{
+        margin-left: auto;
+        margin-right: 1em;
+     }
+
+ }
+
+ 
+
+.search_div{
+
+   &__h3{
+      @include h3_mobile();
+      margin: 0em;
+      padding-top: 2em;
+      
+   }
+
+   &__h4_mobile{
+      @include h4_mobile();
+      margin: 0em;
+      padding-bottom: 2em;
+    }
+    
+   &__h4_laptop{
+      display: none;
+    }
+
+}
+
+
+   
+
+/* 
+========================================================================== */
+/* Search
+/* 64em = 1024px @ 16px font
+==========================================================================
+*/
+
+
+    @media screen and (min-width:1024px) {
+
+      .search{
+    
+         &__image{
+             margin: 0 auto;
+             padding-top: 1em;
+             width: 25em;
+             height: auto;
+    
+         }
+
+         &__container{
+            width: 34.4em;
+            height: 3.125em;
+    
+         }
+
+      }  
+
+      .search_div{
+
+         &__h3{
+            @include h3_laptop();
+            padding-top: 4em;
+            margin: 0em;
+
+         }
+         
+         &__h4_mobile{
+            display: none;
+         }
+         
+         &__h4_laptop{
+            display: block;
+            @include h4_laptop();
+            padding-bottom: 4em;
+            padding-top: 0.5em;
+            margin: 0em;
+         }
+      }
+         
+    }
