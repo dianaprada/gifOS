@@ -949,50 +949,42 @@ h1 {
 }
 
 .card__gif:hover {
-  background-color: #572EE5;
   opacity: 0.6;
+  -webkit-transition: opacity 500ms;
+  transition: opacity 500ms;
 }
 
 .card__info {
+  width: 90%;
+  position: absolute;
   display: none;
+  top: 60%;
+  padding: 0.5em;
+  color: #fff;
 }
 
 .card__p1 {
   font-family: 'Roboto', sans-serif;
-  color: black;
-  letter-spacing: 0;
-  line-height: 15px;
-  font-weight: normal;
-  position: absolute;
-  left: 0.5em;
   padding: 5px;
-  width: 100%;
-  top: 60%;
   font-size: 0.9em;
   color: #fff;
-  width: 70%;
+  font-weight: normal;
 }
 
 .card__p2 {
   font-family: 'Roboto', sans-serif;
-  color: black;
-  letter-spacing: 0;
-  line-height: 15px;
-  font-weight: normal;
-  position: absolute;
-  left: 0.5em;
   padding: 5px;
-  width: 100%;
-  top: 70%;
   font-size: 1em;
   font-weight: bold;
   color: #fff;
-  width: 70%;
 }
 
 .card:hover {
-  background: #572EE5;
-  opacity: 0.6;
+  background-color: #572EE5;
+}
+
+.card:hover .card__info {
+  display: block;
 }
 
 /* 
@@ -1039,16 +1031,6 @@ h1 {
 /* 64em = 1024px @ 16px font
 ==========================================================================
 */
-  .slideshow__card {
-    width: 22em;
-    height: 17em;
-    border: 0em;
-    margin: 1em;
-  }
-  .slideshow__card--gif {
-    width: 22em;
-    height: 17em;
-  }
   .slideshow__before {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1098,6 +1080,16 @@ h1 {
     color: #fff;
     background: #572EE5;
     border: 1px solid #572EE5;
+  }
+  .card {
+    width: 22em;
+    height: 17em;
+    border: 0em;
+    margin: 1em;
+  }
+  .card__gif {
+    width: 22em;
+    height: 17em;
   }
 }
 

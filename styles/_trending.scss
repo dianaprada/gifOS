@@ -62,9 +62,8 @@
 
 
 
-.card{
+.card {
     position: relative;
-
     width: 15.2em;
     height: 11.7em;
     border: 0em;
@@ -78,46 +77,50 @@
     }
 
     &__gif:hover{
-        background-color: $font_color;
         opacity: 0.6;
+        transition: opacity 500ms;
 
     }
 
     &__info{
+        width: 90%;
+        position: absolute;
         display: none;
-        
+        top: 60%;
+        padding: 0.5em;
+        color: $white; 
+    
+       
     }
 
     &__p1{
-        @include paragraph_mobile();
-        position: absolute;
-        left: 0.5em;
+
+        font-family: 'Roboto', sans-serif;
         padding: 5px;
-        width: 100%;
-        top: 60%;
         font-size: 0.9em;
         color: $white;
-        width: 70%;
-    
+        font-weight: normal;
+       
     }
 
     &__p2{
-        @include paragraph_mobile();
-        position: absolute;
-        left: 0.5em;
+     
+        font-family: 'Roboto', sans-serif;
         padding: 5px;
-        width: 100%;
-        top: 70%;
         font-size: 1em;
         font-weight: bold;
         color: $white;
-        width: 70%;
+       
     }
+ 
 }
 
 .card:hover{
-    background: $font_color;
-    opacity: 0.6;
+    background-color: $font_color;
+}
+
+.card:hover .card__info {
+    display: block;
 }
 
 
@@ -139,7 +142,7 @@
             &__h2{
                 @include h2_laptop();
                 margin: 0em;
-                
+
             }
     
 
@@ -150,36 +153,21 @@
                 justify-content: center;
                 margin-bottom: 2em;
 
-
             }
 
             &__p--mobile{
                 display: none;
-            }
-        }
 
+            }
+       
+        }
 /* 
 ========================================================================== */
 /* Slideshow
 /* 64em = 1024px @ 16px font
 ==========================================================================
 */
-   
         .slideshow{
-
-            &__card{
-                width: 22em;
-                height: 17em;
-                border: 0em;
-                margin: 1em;
-            }
-        
-            &__card--gif{
-                width: 22em;
-                height: 17em;
-        
-            }
-
 
             &__before{
                 display: flex;
@@ -227,6 +215,22 @@
                 border: 1px solid $font_color;
                 
             }
+        }
+
+
+        .card{
+            width: 22em;
+            height: 17em;
+            border: 0em;
+            margin: 1em;
+        
+    
+            &__gif{
+                width: 22em;
+                height: 17em;
+        
+            }
+
         }
 
         
