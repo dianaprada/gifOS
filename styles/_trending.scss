@@ -33,7 +33,7 @@
 ==========================================================================
  */
 
- .slideshow{
+.slideshow{
     
     display: flex;
     flex-direction: row;
@@ -60,7 +60,7 @@
       }
 }
 
-
+/* cards */
 
 .card {
     position: relative;
@@ -68,60 +68,124 @@
     height: 11.7em;
     border: 0em;
     margin: 1em;
+    overflow: hidden;
+    background: #fff;
+}
 
-    &__gif{
+.card__gif{
         position: relative;
+        display: block;
         width: 15.2em;
         height: 11.7em;
+        transition: all 0.2s linear;  
+        
 
     }
 
-    &__gif:hover{
-        opacity: 0.6;
-        transition: opacity 500ms;
-
-    }
-
-    &__info{
-        width: 90%;
+.card__info{
+        top: 0;
+        left: 0;
         position: absolute;
-        display: none;
-        top: 60%;
-        padding: 0.5em;
-        color: $white; 
-    
-       
-    }
-
-    &__p1{
-
-        font-family: 'Roboto', sans-serif;
-        padding: 5px;
-        font-size: 0.9em;
+        overflow: hidden;
+        width: 15.2em;
+        height: 11.7em;
         color: $white;
-        font-weight: normal;
-       
+        opacity: 0;
+        background-color: rgba(87,46,229,0.60);
+        transition: all 0.3s ease-in-out;
+     
     }
 
-    &__p2{
+.card__info--divs{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
      
+
+}
+
+.card__info--span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        opacity: 0.7;
+        background: $white;
+        border-radius: 6px;
+        border-radius: 6px;
+        width: 1.5em;
+        height: 1.5em;
+        margin: 0.5em 0.25em 0.5em 0.25em;
+    }
+
+.card__info--span:last-child{
+    margin-right: 0.5em;
+}
+
+.card__info--span:hover{
+    opacity: 1;
+}
+
+.card__info--span:active .icon-icon-fav-hover{
+    display:none;
+}
+.card__info--span:active .icon-icon-fav-active{
+    display: block;
+}
+
+.icon-icon-fav-hover{
+    font-size: 0.75em;
+}
+
+.icon-icon-fav-active{
+    display:none;
+}
+
+.icon-icon-download{
+    font-size: 0.75em;
+
+}
+
+.icon-icon-max{
+    font-size: 0.75em;
+}
+
+.card__info--p1{
+        position: relative;
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.9em;
+        font-weight: normal;
+        padding-left: 0.5em;
+        top: 30%;  
+        transition: all 0.4s linear;
+    }   
+
+.card__info--p2{
+        position: relative;
         font-family: 'Roboto', sans-serif;
         padding: 5px;
         font-size: 1em;
         font-weight: bold;
-        color: $white;
+        padding-left: 0.5em;
+        top: 25%;
+        transition: all 0.4s linear;
        
     }
  
-}
-
-.card:hover{
-    background-color: $font_color;
-}
 
 .card:hover .card__info {
-    display: block;
+    opacity: 1;
+    transition: opacity 500ms;
 }
+
+.card:hover .card__info--p1 .card__info--p1 {
+    opacity: 1;
+    transition: opacity 500ms;
+}
+
+
+
+
 
 
 
@@ -142,7 +206,6 @@
             &__h2{
                 @include h2_laptop();
                 margin: 0em;
-
             }
     
 
@@ -179,7 +242,7 @@
                 width: 2.5em;
                 height: 2.5em;
                 font-size: 1em;
-                font-family: "GifOs";
+                font-family: 'gifOs';
                 font-weight: bold;
                 margin: 1em;
     
@@ -203,7 +266,7 @@
                 width: 2.5em;
                 height: 2.5em;
                 font-size: 1em; 
-                font-family: "GifOs";
+                font-family: 'gifOs';
                 font-weight: bold;
                 margin: 1em;
     
@@ -223,15 +286,56 @@
             height: 17em;
             border: 0em;
             margin: 1em;
-        
+        }
     
-            &__gif{
-                width: 22em;
-                height: 17em;
+        .card__gif{
+            width: 22em;
+             height: 17em;
         
             }
 
+        .card__info{
+            width: 22em;
+            height: 17em;
+          
+            }
+        
+            .card__info--span{
+
+                width: 2em;
+                height: 2em;
+                margin: 0.5em 0.25em 0.5em 0.25em;
+            }
+        
+        
+        .icon-icon-fav-hover{
+            font-size: 1em;
         }
+        
+        .icon-icon-fav-active{
+            display:none;
+        }
+        
+        .icon-icon-download{
+            font-size: 1em;
+        
+        }
+        
+        .icon-icon-max{
+            font-size: 1em;
+        }
+
+
+        .card__info--p1{
+                top: 50%;  
+            }   
+        
+        .card__info--p2{
+                top: 45%;
+               
+            }
+
+    
 
         
     }

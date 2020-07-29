@@ -17,15 +17,18 @@
      }
 
      &__container{
-        
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         margin-left: auto;
         margin-right: auto;
         border: 1px solid $font_color;
         border-radius: 27px;
-        width: 334px;
-        height: 50px;
-        display: flex;
-        align-items: center;
+        width: 20.9em;
+        height: 3.125em;
+        
+        
 
      }
 
@@ -36,8 +39,15 @@
         color: #000000;
         border: 0em;
         left: 2em;
+        width: 15em;
+        height: 2.5em;
+        outline: none;
+        
+     }
 
-
+     &__input:focus{
+        border: 0;
+        outline: none;
      }
 
      &__input::placeholder{
@@ -47,7 +57,6 @@
         text-align: left;
         padding-left: 3em;
         border: 0em;
-       
      }
 
      &__submit{
@@ -57,7 +66,6 @@
 
  }
 
- 
 
 .search_div{
 
@@ -107,6 +115,13 @@
             width: 34.4em;
             height: 3.125em;
     
+         }
+
+         &__input{
+            
+            width: 29.5em;
+            outline: none;
+            
          }
 
       }  
