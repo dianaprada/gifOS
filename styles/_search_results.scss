@@ -1,0 +1,213 @@
+/* 
+========================================================================== */
+/* Search Results
+==========================================================================
+ */
+
+.searchResults {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+    &__line {
+        border: 0; 
+        height: 0; 
+        box-shadow: 0 1px 1px 1px #9CAFC3;
+        width: 30%;
+        text-align: center;
+    }
+
+    &__title {
+        @include h2_mobile();
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+}
+
+.resultsGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+
+/* cards */
+
+.resultsCard {
+    position: relative;
+    width: 10em;
+    height: 8em;
+    border: 0em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    overflow: hidden;
+    background: $white;
+}
+
+.resultsCard__gif{
+        position: relative;
+        display: block;
+        width: 10em;
+        height: 8em;
+        transition: all 0.2s linear;  
+    }
+
+.resultsCard__info{
+        top: 0;
+        left: 0;
+        position: absolute;
+        overflow: hidden;
+        width: 10em;
+        height: 8em;
+        color: $white;
+        opacity: 0;
+        background-color: $hover_cards;
+        transition: all 0.3s ease-in-out;
+     
+    }
+
+.resultsCard__info--buttons{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    
+}
+
+
+.resultsCard__info--p1{
+        position: relative;
+        font-family: $Roboto;
+        text-align: left;
+        font-size: 0.7em;
+        font-weight: normal;
+        padding-left: 0.5em;
+        top: 19%;  
+        transition: all 0.4s linear;
+    }   
+
+.resultsCard__info--p2{
+        position: relative;
+        font-family: $Roboto;
+        text-align: left;
+        padding: 5px;
+        font-size: 0.7em;
+        font-weight: bold;
+        padding-left: 0.5em;
+        top: 10%;
+        transition: all 0.4s linear;
+        
+       
+    }
+ 
+
+.resultsCard:hover .resultsCard__info {
+    opacity: 1;
+    transition: opacity 500ms;
+}
+
+/* Botón Ver más */
+
+.searchResults__botton {
+    position: relative;
+    border: 1px solid $font-color;
+    border-radius: 25px;
+    color: $font-color;
+    background-color: $white;
+    width: 8em;
+    height: 3.125em;
+    margin: 4em;
+    font-family: $Montserrat;
+    font-size: 0.7em;
+    
+}
+
+.searchResults__botton:hover {
+    color: $white;
+    background-color: $font-color;
+
+}
+
+ /* 
+========================================================================== */
+/* Search Results
+/* 39em = 624px @ 16px font
+==========================================================================
+*/
+    
+@media screen and (min-width:624px) {
+
+    .resultsGrid {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+      }
+
+    }      
+
+ /* 
+========================================================================== */
+/* Search Results
+/* 48em = 768px @ 16px font
+==========================================================================
+*/
+    
+@media screen and (min-width:768px) {
+
+    .resultsGrid {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+      }
+
+      .resultsCard {
+        width: 12.5em;
+        height: 9.625em;
+      
+    }
+
+    .resultsCard__gif{
+        width: 12.5em;
+        height: 9.625em
+
+        }
+
+    .resultsCard__info{
+        width: 12.5em;
+        height: 9.625em
+        
+        }
+
+    .resultsCard__info--p1{
+            top: 20%;  
+            font-size: 0.8em;
+
+        }   
+
+    .resultsCard__info--p2{
+            top: 12%;
+            font-size: 0.8em;
+            
+        }
+
+}
+
+ /* 
+========================================================================== */
+/* Search Results
+/* 64em = 1024px @ 16px font
+==========================================================================
+*/
+    
+@media screen and (min-width:1024px) {
+
+    .resultsGrid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr ;
+      }
+
+     
+    
+
+}

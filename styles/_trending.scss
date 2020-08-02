@@ -69,7 +69,7 @@
     border: 0em;
     margin: 1em;
     overflow: hidden;
-    background: #fff;
+    background: $white;
 }
 
 .card__gif{
@@ -91,12 +91,12 @@
         height: 11.7em;
         color: $white;
         opacity: 0;
-        background-color: rgba(87,46,229,0.60);
+        background-color: $hover_cards;
         transition: all 0.3s ease-in-out;
      
     }
 
-.card__info--divs{
+.card__info--buttons{
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
@@ -111,6 +111,7 @@
         position: relative;
         opacity: 0.7;
         background: $white;
+        border: 0em;
         border-radius: 6px;
         border-radius: 6px;
         width: 1.5em;
@@ -131,6 +132,7 @@
 }
 .card__info--span:active .icon-icon-fav-active{
     display: block;
+    font-size: 0.75em;
 }
 
 .icon-icon-fav-hover{
@@ -152,7 +154,7 @@
 
 .card__info--p1{
         position: relative;
-        font-family: 'Roboto', sans-serif;
+        font-family: $Roboto;
         font-size: 0.9em;
         font-weight: normal;
         padding-left: 0.5em;
@@ -162,7 +164,7 @@
 
 .card__info--p2{
         position: relative;
-        font-family: 'Roboto', sans-serif;
+        font-family: $Roboto;
         padding: 5px;
         font-size: 1em;
         font-weight: bold;
@@ -177,17 +179,6 @@
     opacity: 1;
     transition: opacity 500ms;
 }
-
-.card:hover .card__info--p1 .card__info--p1 {
-    opacity: 1;
-    transition: opacity 500ms;
-}
-
-
-
-
-
-
 
 
 /* 
@@ -224,12 +215,12 @@
             }
        
         }
-/* 
-========================================================================== */
-/* Slideshow
-/* 64em = 1024px @ 16px font
-==========================================================================
-*/
+    /* 
+    ========================================================================== */
+    /* Slideshow
+    /* 64em = 1024px @ 16px font
+    ==========================================================================
+    */
         .slideshow{
 
             &__before{
@@ -242,7 +233,7 @@
                 width: 2.5em;
                 height: 2.5em;
                 font-size: 1em;
-                font-family: 'gifOs';
+                font-family: $font_gifos;
                 font-weight: bold;
                 margin: 1em;
     
@@ -251,10 +242,8 @@
             &__before:hover{
                 color: $white;
                 background: $font_color;
-                border: 1px solid $font_color;
                 
             }
-    
           
             &__after{ 
                 display: flex;
@@ -266,7 +255,7 @@
                 width: 2.5em;
                 height: 2.5em;
                 font-size: 1em; 
-                font-family: 'gifOs';
+                font-family: $font_gifos;
                 font-weight: bold;
                 margin: 1em;
     
@@ -301,7 +290,6 @@
             }
         
             .card__info--span{
-
                 width: 2em;
                 height: 2em;
                 margin: 0.5em 0.25em 0.5em 0.25em;
@@ -318,13 +306,13 @@
         
         .icon-icon-download{
             font-size: 1em;
+            color:tomato;
         
         }
         
         .icon-icon-max{
             font-size: 1em;
         }
-
 
         .card__info--p1{
                 top: 50%;  
@@ -334,8 +322,10 @@
                 top: 45%;
                
             }
-
-    
-
+        
+        .card__info--span:active .icon-icon-fav-active{
+            display: block;
+            font-size: 1em;
+        }
         
     }

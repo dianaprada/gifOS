@@ -4,11 +4,16 @@ $blue: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
 $white:#fff;
 $font_color: #572EE5;
 $bg_menu:rgba(87,46,229,0.90);
+$hover_cards: rgba(87,46,229,0.60);
+$green: #50E3C2;
+$font_gifos: 'gifOs';
 
 
 
 $Proxima-Bold: "ProximaNova-Bold";
 $Proxima-Regular: "ProximaNova-Regular";
+$Roboto: 'Roboto', sans-serif;
+$Montserrat: 'Montserrat', sans-serif;
 
 
 @mixin h1_mobile {

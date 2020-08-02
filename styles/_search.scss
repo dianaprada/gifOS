@@ -27,31 +27,29 @@
         border-radius: 27px;
         width: 20.9em;
         height: 3.125em;
-        
-        
 
      }
 
      &__input{
         position: relative;
-        font-family: 'Roboto', sans-serif;
+        font-family: $Roboto;
         font-size: 16px;
         color: #000000;
         border: 0em;
         left: 2em;
         width: 15em;
         height: 2.5em;
-        outline: none;
+        /*outline: none;*/
         
      }
-
+     /*
      &__input:focus{
         border: 0;
         outline: none;
-     }
+     }*/
 
      &__input::placeholder{
-        font-family: 'Roboto', sans-serif;
+        font-family: $Roboto;
         font-size: 16px;
         color: #9CAFC3;
         text-align: left;
@@ -62,6 +60,8 @@
      &__submit{
         margin-left: auto;
         margin-right: 1em;
+        background-color: $white;
+        border: 0em;
      }
 
  }
@@ -117,11 +117,9 @@
     
          }
 
-         &__input{
-            
+         &__input{ 
             width: 29.5em;
-            outline: none;
-            
+            outline: none;   
          }
 
       }  

@@ -13,7 +13,7 @@
 
 /* 
 ========================================================================== */
-/* Navigation
+/* MENU
 ==========================================================================
  */
 
@@ -28,34 +28,36 @@
 }
 
 .navigation ul {
-  display: block;
+  /*display: block;*/
+
   margin: 0;
   padding: 0;
   padding-right: 5%;
   list-style: none;
   overflow: hidden;
-  background-color: $white;
+  background: $white;
   text-align: center;
-
+  
 }
 
 .navigation li a {
   display: block;
   padding: 20px 20px;
   color: $white;
-  font-family: 'Montserrat', sans-serif;
+  font-family: $Montserrat;
   font-weight: bold;
   font-size: 0.938em;
   width: 100%;
   background: $bg_menu;
   text-decoration: none;
+  
 
 }
 
 .line{
   width: 2.563em;
   height: 1px;
-  background: white;
+  background: $white;
   position: absolute;
   margin: 0 auto;
   opacity: 50%;
@@ -116,7 +118,7 @@
 
 .navigation .menu-icon .nav-icon:before,
 .navigation .menu-icon .nav-icon:after {
-  background: #572EE5;
+  background: $font_color;
   content: '';
   display: block;
   height: 100%;
@@ -163,6 +165,11 @@
   top:0;
 
 }
+/* 
+========================================================================== */
+/* FIN DEL MENU
+==========================================================================
+ */
 
 /* New Gifo */
 
@@ -189,7 +196,7 @@
 }
 
 .h1_green{
-  color: #50E3C2;
+  color: $green;
 
 }
 
@@ -204,10 +211,14 @@
 
   @media screen and (min-width:1024px) {
 
-   
+   /* 
+    ========================================================================== */
+    /* MENU
+    ==========================================================================
+    */
+
     /* nav */
 
-  
     .navigation .navigation__logo{
       position: relative;
       display: inline-block;
@@ -224,7 +235,7 @@
     .navigation li {
         float: left;
         font-size: 13px;
-        color: #572EE5;
+        color: $font_color;
         letter-spacing: 0;
         text-align: center;
       }
@@ -242,7 +253,7 @@
       .navigation .menu-btn:hover {
         background: $white;
         text-decoration: underline;
-        text-decoration-color: #5ED7C6;
+        text-decoration-color: $green;
         text-decoration-style: solid;
         
       }
@@ -262,6 +273,13 @@
     .navigation .menu-icon {
       display: none;
     }
+
+    /* 
+    ========================================================================== */
+    /* FIN DEL MENU
+    ==========================================================================
+    */
+
 
     /* New Gifo */
 
