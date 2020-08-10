@@ -66,7 +66,6 @@
 
  }
 
-
 .search_div{
 
    &__h3{
@@ -76,20 +75,18 @@
       
    }
 
-   &__h4_mobile{
+   &__h4{
       @include h4_mobile();
+      position: relative;
       margin: 0em;
       padding-bottom: 2em;
+      padding-left: 5em;
+      padding-right: 5em;
     }
-    
-   &__h4_laptop{
-      display: none;
-    }
+
 
 }
-
-
-   
+ 
 
 /* 
 ========================================================================== */
@@ -98,51 +95,44 @@
 ==========================================================================
 */
 
-
     @media screen and (min-width:1024px) {
 
       .search{
     
-         &__image{
+         &__image {
              margin: 0 auto;
              padding-top: 1em;
              width: 25em;
              height: auto;
-    
          }
 
-         &__container{
+         &__container {
             width: 34.4em;
             height: 3.125em;
-    
          }
 
-         &__input{ 
+         &__input { 
             width: 29.5em;
             outline: none;   
          }
-
       }  
 
       .search_div{
 
-         &__h3{
+         &__h3 {
             @include h3_laptop();
             padding-top: 4em;
             margin: 0em;
+         }
+         
 
-         }
-         
-         &__h4_mobile{
-            display: none;
-         }
-         
-         &__h4_laptop{
-            display: block;
+         &__h4 {
             @include h4_laptop();
             padding-bottom: 4em;
             padding-top: 0.5em;
-            margin: 0em;
+            margin: 0em; 
+            padding-left: 10em;
+            padding-right: 10em;
          }
       }
          

@@ -26,56 +26,41 @@
         <header class="header" id="header">
             <hr class="header__hr">
             <nav class="header__navbar">
-                <a href="#"><img class="header__navbar--logo" src="./assets/logo_gifos.png" alt="GIFOS"></a>
+                <a href="index.html"><img class="header__navbar--logo" src="./assets/logo_gifos.png" alt="GIFOS"></a>
                 <input class="header__navbar--checkbox" type="checkbox">
                 <img class="header__navbar--ham-menu" src="./assets/burger.svg" alt="Menú">
                 <img class="header__navbar--close-ham-menu" src="./assets/close.svg" alt="Menú">
                 <div class="header__navbar--menu">
                     <ul class="list">
-                        <li class="list__item"><a href="#">Modo Nocturno</a></li>
-                        <li class="list__item"><a href="favorites.html">Favoritos</a></li>
+                        <li class="list__item"><a href="index.html">Modo Nocturno</a></li>
+                        <li class="list__item"><a href="#"><span class="current_link">Favoritos</span></a></li>
                         <li class="list__item"><a href="mygifos.html">Mis GIFOS</a></li>
                     </ul>
                 </div>
                 <a  class="header__navbar--new_gifo" href="newgifo.html"> + </a>
-              
             </nav>
 
-            <h1>Inspírate, busca, guarda, y crea
-                los mejores <span class="h1_green">GIFOS</span></h1>
 
         </header>
 
         <main>
-            <section class="search" id="search" >
+            <section class="fav" id="fav"> 
 
-                <img class="search__image" src="./assets/ilustra_header.svg" alt="Imagen GifOS">
+                <img class="fav__image" src="./assets/icon-favoritos.svg" alt="Mis Gifos Favoritos">
+                <h2 class="fav__title">Favoritos</h2>
 
-                <div class="search__container">
-                    <form action="#" name="search_form" autocomplete="on">
-                        <input class="search__input" id="search__input" type="text" name="search__input" tabindex="1"
-                            placeholder="Busca GIFOS y más">
-                    </form>
-
-                    <button class="search__submit"><span class="icon-icon-search"></span></button>
-                </div>
-
-
-                <div class="search_div">
-                    <h3 class="search_div__h3">Trending: </h3>
-    
-                    <h4 class="search_div__h4">
-                        Reactions, Entertainment, Sports, Stickers, Artists
-                    </h4>
-                </div>
             </section>
-
-            <section class="searchResults">
-                <hr class="searchResults__line">
-
-                <h2 class="searchResults__title">${search_words}</h2>
-
-                <div class="resultsGrid">
+            
+            <section class="favNoContent" id="favNoContent" >
+                <div class="favNoContent__div">
+                    <img class="favNoContent__image" src="./assets/sinfavoritos.png" alt="Mis Gifos Favoritos">
+                </div>
+                <h2 class="favNoContent__title">"¡Guarda tu primer GIFO en Favoritos 
+                    para que se muestre aquí!"</h2>
+            </section>
+        
+            <section class="favResults" id="favResults">
+                <div class="favResultsGrid">
                     <div class="resultsCard">
                         <img class="resultsCard__gif" src="https://media.giphy.com/media/xThtaw7GpGP73bWwYU/giphy.gif"
                             alt="${title}">
@@ -272,7 +257,7 @@
 
 
                 </div>
-                <button class="searchResults__button" id="searchResults__button">Ver más</button>
+                <button class="favResults__button" id="favResults__button">Ver más</button>
 
             </section>
 
@@ -291,7 +276,6 @@
 
 
                 <div class="slideshow">
-
                     <button class="slideshow__before"> &#xe903; </button>
 
                     <div class="slideshow__cards">
@@ -301,7 +285,6 @@
                     </div>
 
                     <button class="slideshow__after"> &#xe904; </button>
-
                 </div>
 
             </section>

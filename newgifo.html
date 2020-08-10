@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proyecto: gifOS - DianaP3</title>
+    <meta name="title" content="Proyecto gifOS">
+    <meta name="description" content="Proyecto: gifOS">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link rel="icon" sizes="32x32" href="./assets/logo-desktop.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/gifos_font.css">
+    <link rel="stylesheet" href="styles/styles.css">
+
+</head>
+<body>
+
+    <div class="content">
+
+        <header class="header" id="header">
+            <hr class="header__hr">
+            <nav class="header__navbar">
+                <div><a href="index.html"><img class="header__navbar--logo" src="./assets/logo_gifos.png" alt="GIFOS"></a></div>
+                
+                <input class="header__navbar--checkbox" type="checkbox">
+                <img class="header__navbar--ham-menu" src="./assets/burger.svg" alt="Menú">
+                <img class="header__navbar--close-ham-menu" src="./assets/close.svg" alt="Menú">
+                <div class="header__navbar--menu">
+                    <ul class="list">
+                        <li class="list__item"><a href="#">Modo Nocturno</a></li>
+                        <li class="list__item"><a href="favorites.html">Favoritos</a></li>
+                        <li class="list__item"><a href="mygifos.html">Mis GIFOS</a></li>
+                    </ul>
+                </div>
+                <a class="header__navbar--new_gifoactive" href="#"> + </a>
+            </nav>
+
+
+        </header>
+
+        <main class="newGifo_main">
+
+            
+
+            <section class="newGifo_record" id="newGifo_record">
+                <div class="newGifo__cameraImage" id="newGifo_cameraImage">
+                    <div class="newGifo__camera"> </div>
+                    <img class="newGifo__light" src="../assets/element-luz-camara.svg"> 
+                </div>
+               
+                    <div class="record_video" id="record_video">
+                        <div class="record_video__corners" id="record_video__corners">
+                            <h3 class="record_video__h3" id="record_video__h3">Aquí podrás <br /> crear tus propios <span class="h1_green">GIFOS</span></h3>
+                            <p class="record_video__p" id="record_video__p">¡Crea tu GIFO en sólo 3 pasos! <br />
+                                (sólo necesitas una cámara para grabar un</p>
+                        </div>
+                    </div>
+            </section>
+
+            <section class="record_steps" id="record_steps"> 
+                <div class="record_steps__numbers" id="record_steps__numbers">
+                    <a class="record_steps__buttons" id="button_numbers__1">1</a>
+                    <a class="record_steps__buttons" id="button_numbers__2">2</a>
+                    <a class="record_steps__buttons" id="button_numbers__3">3</a>
+                </div>
+            </section>
+
+            <section class="record_hr" id="record_hr"> 
+                <hr class="record_hr__hr">
+                <div class="record_hr__tape_image" id="tape_image"> </div> 
+            </section>
+
+            <section class="record__button">
+                <button class="record__buttons start" id="record__buttons--start">Comenzar</button>
+                <button class="record__buttons record" id="record__buttons--record">Grabar</button>
+                <button class="record__buttons finish" id="record__buttons--finish">Finalizar</button>
+                <button class="record__buttons upload" id="record__buttons--upload">Subir Gifo</button>
+
+            </section>
+
+        </main>
+
+        <footer class="footer" aria-label="Footer" id="footer">
+
+            <p class="footer__p">
+                Compartir en:
+            </p>
+
+            <div class="footer__socialmedia">
+                <div>
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a> </div>
+
+                <div>
+                    <a href="https://twitter.com/" target="_blank">
+                        <i class="fab fa-twitter"> </i> </a> </div>
+
+                <div>
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <i class="fab fa-instagram"> </i> </a> </div>
+            </div>
+
+            <p class="footer__copyright">
+                © GIFOS 2020 All Rights Reserved.
+            </p>
+
+        </footer>
+        <hr class="footer__hr">
+
+    </div>
+    <div class="gifos-msg"></div>
+    <script src="https://kit.fontawesome.com/7396023e43.js" crossorigin="anonymous"></script>
+    <!-- <script type="module" src="scripts/main.js"></script> -->
+
+</body>
+
+</html>

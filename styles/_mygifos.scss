@@ -1,0 +1,149 @@
+
+
+.myGifos{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &__image{
+        margin: 0 auto;
+        padding-top: 1em;
+        width: 2.5em;
+        height: auto;
+    }
+
+    &__title {
+        @include h2_mobile();
+        padding-bottom: 1em;
+        
+    }
+}
+ 
+ .myGifosNoContent{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__div{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 7em;
+        height: 7em;
+        border-radius: 50%;
+        background-color: #F3F5F8;
+    }
+
+    &__image{
+        margin: 0 auto;
+        width: 4em;
+        height: auto;
+    }
+
+    &__title {
+        @include h2_mobile();
+        padding: 1em;
+        color: $green;
+    }
+}
+
+ .myGifosResults {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+ }
+
+ .myGifosResultsGrid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+
+
+  
+  
+/* See More Button */
+
+.myGifosResults__button {
+    @include more_button();
+    
+}
+
+.myGifosResults__button:hover {
+    color: $white;
+    background-color: $font-color;
+
+}
+
+ /* 
+========================================================================== */
+/* My Gifos Page Styles
+/* 39em = 624px @ 16px font
+==========================================================================
+*/
+    
+@media screen and (min-width:624px) {
+
+    .myGifosResultsGrid {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+      }
+
+    }      
+
+ /* 
+========================================================================== */
+/* My Gifos Page Styles
+/* 48em = 768px @ 16px font
+==========================================================================
+*/
+    
+@media screen and (min-width:768px) {
+
+    .myGifosResultsGrid {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+      }
+
+}
+
+ /* 
+========================================================================== */
+/* My Gifos Page Styles
+/* 64em = 1024px @ 16px font
+==========================================================================
+*/
+    
+@media screen and (min-width:1024px) {
+
+    .myGifosNoContent{
+        
+        &__div{
+            width: 9em;
+            height: 9em;
+    
+            }
+    
+        &__image{          
+            width: 5em;
+            height: auto;
+            }
+    
+        &__title {
+            @include h2_laptop();
+            color: $green;
+               
+            }
+        }
+
+
+    .myGifosResultsGrid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr ;
+      }  
+
+}

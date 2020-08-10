@@ -5,7 +5,7 @@
  */
 
  .trending{
-    background: #F3F5F8;
+    background: $bg_trending;
     display: flex;
     flex-direction: column;
     height: 26.9em;
@@ -27,11 +27,7 @@
     }
  }
 
- /* 
-========================================================================== */
-/* Slideshow
-==========================================================================
- */
+ /* Slideshow */
 
 .slideshow{
     
@@ -51,7 +47,7 @@
     }
 
     &__before{
-      display: none;  
+        display: none;  
       
     }
 
@@ -60,127 +56,6 @@
       }
 }
 
-/* cards */
-
-.card {
-    position: relative;
-    width: 15.2em;
-    height: 11.7em;
-    border: 0em;
-    margin: 1em;
-    overflow: hidden;
-    background: $white;
-}
-
-.card__gif{
-        position: relative;
-        display: block;
-        width: 15.2em;
-        height: 11.7em;
-        transition: all 0.2s linear;  
-        
-
-    }
-
-.card__info{
-        top: 0;
-        left: 0;
-        position: absolute;
-        overflow: hidden;
-        width: 15.2em;
-        height: 11.7em;
-        color: $white;
-        opacity: 0;
-        background-color: $hover_cards;
-        transition: all 0.3s ease-in-out;
-     
-    }
-
-.card__info--buttons{
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
-     
-
-}
-
-.card__info--span{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        opacity: 0.7;
-        background: $white;
-        border: 0em;
-        border-radius: 6px;
-        border-radius: 6px;
-        width: 1.5em;
-        height: 1.5em;
-        margin: 0.5em 0.25em 0.5em 0.25em;
-    }
-
-.card__info--span:last-child{
-    margin-right: 0.5em;
-}
-
-.card__info--span:hover{
-    opacity: 1;
-}
-
-.card__info--span:active .icon-icon-fav-hover{
-    display:none;
-}
-.card__info--span:active .icon-icon-fav-active{
-    display: block;
-    font-size: 0.75em;
-}
-
-.icon-icon-fav-hover{
-    font-size: 0.75em;
-}
-
-.icon-icon-fav-active{
-    display:none;
-}
-
-.icon-icon-download{
-    font-size: 0.75em;
-
-}
-
-.icon-icon-max{
-    font-size: 0.75em;
-}
-
-.card__info--p1{
-        position: relative;
-        font-family: $Roboto;
-        font-size: 0.9em;
-        font-weight: normal;
-        padding-left: 0.5em;
-        top: 30%;  
-        transition: all 0.4s linear;
-    }   
-
-.card__info--p2{
-        position: relative;
-        font-family: $Roboto;
-        padding: 5px;
-        font-size: 1em;
-        font-weight: bold;
-        padding-left: 0.5em;
-        top: 25%;
-        transition: all 0.4s linear;
-       
-    }
- 
-
-.card:hover .card__info {
-    opacity: 1;
-    transition: opacity 500ms;
-}
-
-
 /* 
 ========================================================================== */
 /* Trending
@@ -188,11 +63,11 @@
 ==========================================================================
 */
     
-    @media screen and (min-width:1024px) {
+@media screen and (min-width:1024px) {
 
         .trending{
 
-            height: 40em;
+            height: 35em;
 
             &__h2{
                 @include h2_laptop();
@@ -215,12 +90,9 @@
             }
        
         }
-    /* 
-    ========================================================================== */
-    /* Slideshow
-    /* 64em = 1024px @ 16px font
-    ==========================================================================
-    */
+
+    /* Slideshow */
+
         .slideshow{
 
             &__before{
@@ -235,8 +107,7 @@
                 font-size: 1em;
                 font-family: $font_gifos;
                 font-weight: bold;
-                margin: 1em;
-    
+               
             }
     
             &__before:hover{
@@ -256,8 +127,7 @@
                 height: 2.5em;
                 font-size: 1em; 
                 font-family: $font_gifos;
-                font-weight: bold;
-                margin: 1em;
+                font-weight: bold;          
     
             }
     
@@ -267,65 +137,6 @@
                 border: 1px solid $font_color;
                 
             }
-        }
-
-
-        .card{
-            width: 22em;
-            height: 17em;
-            border: 0em;
-            margin: 1em;
-        }
-    
-        .card__gif{
-            width: 22em;
-             height: 17em;
-        
-            }
-
-        .card__info{
-            width: 22em;
-            height: 17em;
-          
-            }
-        
-            .card__info--span{
-                width: 2em;
-                height: 2em;
-                margin: 0.5em 0.25em 0.5em 0.25em;
-            }
-        
-        
-        .icon-icon-fav-hover{
-            font-size: 1em;
-        }
-        
-        .icon-icon-fav-active{
-            display:none;
-        }
-        
-        .icon-icon-download{
-            font-size: 1em;
-            color:tomato;
-        
-        }
-        
-        .icon-icon-max{
-            font-size: 1em;
-        }
-
-        .card__info--p1{
-                top: 50%;  
-            }   
-        
-        .card__info--p2{
-                top: 45%;
-               
-            }
-        
-        .card__info--span:active .icon-icon-fav-active{
-            display: block;
-            font-size: 1em;
         }
         
     }

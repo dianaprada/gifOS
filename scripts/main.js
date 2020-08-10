@@ -70,7 +70,7 @@ const getTrendingGif = (() => {
  const Cards = ((img, title, username) => {
      return(
         `<div class="card">
-                <img  class="card__gif" src=${img} alt="Trending Gif" >
+                <img  class="card__gif" src=${img} alt="${title}" >
                 <div class="card__info" >
                     <div class="card__info--buttons">
                         <button class="card__info--span">

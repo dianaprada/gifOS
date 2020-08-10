@@ -1,10 +1,14 @@
 @font-face {
   font-family: 'gifOs';
   src:  url('../fonts/gifOs.eot?5m70gm');
-  src:  url('../fonts/gifOs.eot?5m70gm#iefix') format('embedded-opentype'),
+  src:  url('../fonts/gifOs.eot'),
+    url('../fonts/gifOs.ttf'),
+    url('../fonts/gifOs.svg') format('svg'),
+    url('../fonts/gifOs.woff') format('woff'),
+    url('../fonts/gifOs.eot?5m70gm#iefix') format('embedded-opentype'),
     url('../fonts/gifOs.ttf?5m70gm') format('truetype'),
     url('../fonts/gifOs.woff?5m70gm') format('woff'),
-    url('../fonts/gifOs.svg?5m70gm#gifOs') format('svg');
+    url('../fonts/gifOs.svg?5m70gm#gifOs') format('svg'); 
   font-weight: normal;
   font-style: normal;
   font-display: block;
