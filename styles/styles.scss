@@ -1,13 +1,25 @@
-@import './root';
-@import './fonts';
 @import './variables_mixins';
-@import './content';
+@import './fonts';
+@import './root';
 @import './header';
 @import './search';
-@import './search_results';
 @import './trending';
+// @import './trendigcards_dark';
 @import './cards';
 @import './footer';
+
+/* 
+========================================================================== */
+/* Dark Mode
+==========================================================================
+ */
+
+ @import './header_dark';
+ @import './search_dark';
+ @import './buttons_dark';
+ @import './trending_dark';
+ @import './footer_dark';
+ @import './newgifo_dark';
 
 /* 
 ========================================================================== */
@@ -31,3 +43,4 @@
 ==========================================================================
  */
  @import './newgifo';
+ 

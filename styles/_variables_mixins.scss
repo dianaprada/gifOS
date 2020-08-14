@@ -1,18 +1,30 @@
 
+/*   Light Mode Color Variables   */
 $white:#fff;
+$black: black;
+$green: #50E3C2;
 $font_color: #572EE5;
 $bg_menu:rgba(87,46,229,0.90);
-$hover_cards: rgba(87,46,229,0.60);
-$green: #50E3C2;
-$active_color:#9CAFC3;
 $bg_trending: #F3F5F8;
+$hover_cards: rgba(87,46,229,0.60);
+$active_color:#9CAFC3;
 
+/*  Dark Mode Color Variables  */
+
+$bgc_dark: #37383C;
+$font_color_dark: white;
+$bg_trending_dark: #222326;
+
+
+/*   Fonts Varibles  */
 
 $Proxima-Bold: "ProximaNova-Bold";
 $Proxima-Regular: "ProximaNova-Regular";
 $Roboto: 'Roboto', sans-serif;
 $Montserrat: 'Montserrat', sans-serif;
 $font_gifos: 'gifOs';
+
+/*   Mixins  */
 
 
 @mixin h1_mobile {
@@ -101,7 +113,7 @@ $font_gifos: 'gifOs';
 
 @mixin paragraph_mobile {
   font-family: 'Roboto', sans-serif;
-  color: black;
+  color: $black;
   letter-spacing: 0;
   line-height: 15px;
   font-weight: normal;
@@ -110,7 +122,7 @@ $font_gifos: 'gifOs';
 
 @mixin paragraph_laptop {
 font-family: 'Roboto', sans-serif;
-color: black;
+color: $black;
 letter-spacing: 0;
 line-height: 15px;
 font-weight: 400;
@@ -123,11 +135,11 @@ font-weight: 400;
     border-radius: 25px;
     color: $font-color;
     background-color: $white;
-    width: 8vw;
-    height: 3.125vw;
+    width: 8em;
+    height: 3.125em;
     margin: 4em;
     font-family: $Montserrat;
-    font-size: 0.8vw;
+    font-size: 0.8em;
     text-align: center;
     
 }
@@ -148,4 +160,16 @@ font-weight: 400;
     font-size: 2.3em;
     font-weight: bold;
     text-decoration: none;
+}
+
+@mixin buttons_dark {
+    background-color: $bgc_dark;
+    color: $white;
+    border: 1px solid $white;
+}
+
+@mixin buttons_dark_hover {
+  background-color: $white;
+  color: $bgc_dark;
+
 }

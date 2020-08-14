@@ -1,19 +1,14 @@
-/* 
-========================================================================== */
-/* Root
-==========================================================================
- */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
-:root {
-  font-size: 16px;
-}
-
+/*   Light Mode Color Variables   */
+/*  Dark Mode Color Variables  */
+/*   Fonts Varibles  */
+/*   Mixins  */
 /* 
 ========================================================================== */
 /* Fonts
 ==========================================================================
  */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
 @font-face {
   font-family: "ProximaNova-Bold";
   src: url("../fonts/FontsFree-Net-Proxima-Nova-Bold.otf");
@@ -33,6 +28,24 @@
   src: url("../fonts/Roboto-Black.ttf");
   font-weight: bold;
   font-style: italic;
+}
+
+/* 
+========================================================================== */
+/* Root
+==========================================================================
+ */
+:root {
+  font-size: 16px;
+}
+
+/* 
+========================================================================== */
+/* Dark Mode
+==========================================================================
+ */
+body.dark {
+  background-color: #37383C;
 }
 
 /* 
@@ -69,7 +82,6 @@
 .header__navbar {
   width: 100%;
   height: 95px;
-  border-top: 5px solid #572EE5;
 }
 
 .header__navbar--logo {
@@ -78,7 +90,9 @@
   left: 5.87%;
   width: 48.8px;
   height: 48.8px;
-  font-size: 16px;
+  background-image: url(../assets/logo_gifos.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   cursor: pointer;
 }
 
@@ -101,10 +115,12 @@
   left: unset;
   right: 7%;
   top: 52px;
+  color: #572EE5;
 }
 
 .header__navbar--close-ham-menu {
   display: none;
+  color: #572EE5;
 }
 
 .header__navbar--checkbox:checked ~ .header__navbar--ham-menu, .header__navbar--checkbox:checked ~ .header__navbar--close-ham-menu {
@@ -173,7 +189,7 @@
 }
 
 /*   H1    */
-h1 {
+.header__h1 {
   font-family: "ProximaNova-Bold";
   font-size: 1.5625em;
   color: #572EE5;
@@ -184,6 +200,7 @@ h1 {
   text-align: center;
   margin: 0 auto;
   padding-top: 1em;
+  color: #572EE5;
 }
 
 .h1_green {
@@ -249,6 +266,7 @@ h1 {
     font-weight: 700;
     line-height: 16px;
     color: #572EE5;
+    text-decoration: none;
   }
   .header__navbar--menu .list .list__item a:hover {
     border-bottom: 2px solid #50E3C2;
@@ -295,7 +313,7 @@ h1 {
     color: #fff;
   }
   /*   H1    */
-  h1 {
+  .header__h1 {
     font-family: "ProximaNova-Bold";
     font-size: 2.1875em;
     color: #572EE5;
@@ -408,6 +426,7 @@ h1 {
   margin-right: 1em;
   background-color: #fff;
   border: 0em;
+  color: #572EE5;
 }
 
 .search_div__h3 {
@@ -435,54 +454,6 @@ h1 {
   padding-bottom: 2em;
   padding-left: 5em;
   padding-right: 5em;
-}
-
-/* 
-========================================================================== */
-/* Search
-/* 64em = 1024px @ 16px font
-==========================================================================
-*/
-@media screen and (min-width: 1024px) {
-  .search__image {
-    margin: 0 auto;
-    padding-top: 1em;
-    width: 25em;
-    height: auto;
-  }
-  .search__container {
-    width: 34.4em;
-    height: 3.125em;
-  }
-  .search__input {
-    width: 29.5em;
-    outline: none;
-  }
-  .search_div__h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1em;
-    color: #572EE5;
-    letter-spacing: 0;
-    font-weight: bold;
-    text-align: center;
-    line-height: 25px;
-    padding-top: 4em;
-    margin: 0em;
-  }
-  .search_div__h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1em;
-    color: #572EE5;
-    letter-spacing: 0;
-    font-weight: 400;
-    text-align: center;
-    line-height: 25px;
-    padding-bottom: 4em;
-    padding-top: 0.5em;
-    margin: 0em;
-    padding-left: 10em;
-    padding-right: 10em;
-  }
 }
 
 /* 
@@ -542,11 +513,11 @@ h1 {
   border-radius: 25px;
   color: #572EE5;
   background-color: #fff;
-  width: 8vw;
-  height: 3.125vw;
+  width: 8em;
+  height: 3.125em;
   margin: 4em;
   font-family: "Montserrat", sans-serif;
-  font-size: 0.8vw;
+  font-size: 0.8em;
   text-align: center;
 }
 
@@ -572,11 +543,56 @@ h1 {
 
 /* 
 ========================================================================== */
-/* Search Results
+/* Search
 /* 64em = 1024px @ 16px font
 ==========================================================================
 */
 @media screen and (min-width: 1024px) {
+  .search__image {
+    margin: 0 auto;
+    padding-top: 1em;
+    width: 25em;
+    height: auto;
+  }
+  .search__container {
+    width: 34.4em;
+    height: 3.125em;
+  }
+  .search__input {
+    width: 29.5em;
+    outline: none;
+  }
+  .search_div__h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    color: #572EE5;
+    letter-spacing: 0;
+    font-weight: bold;
+    text-align: center;
+    line-height: 25px;
+    padding-top: 4em;
+    margin: 0em;
+  }
+  .search_div__h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    color: #572EE5;
+    letter-spacing: 0;
+    font-weight: 400;
+    text-align: center;
+    line-height: 25px;
+    padding-bottom: 4em;
+    padding-top: 0.5em;
+    margin: 0em;
+    padding-left: 10em;
+    padding-right: 10em;
+  }
+  /* 
+   ========================================================================== */
+  /* Search Results
+   /* 64em = 1024px @ 16px font
+   ==========================================================================
+   */
   .resultsGrid {
     -ms-grid-columns: 1fr 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -591,6 +607,7 @@ h1 {
 ==========================================================================
  */
 .trending {
+  position: relative;
   background: #F3F5F8;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -599,7 +616,14 @@ h1 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 26.9em;
+  width: 100%;
 }
 
 .trending__h2 {
@@ -632,6 +656,7 @@ h1 {
 
 /* Slideshow */
 .slideshow {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -639,13 +664,13 @@ h1 {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
+  width: 94%;
 }
 
 .slideshow__cards {
@@ -656,13 +681,15 @@ h1 {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  overflow: scroll;
+  overflow: hidden;
 }
 
 .slideshow__before {
@@ -730,6 +757,7 @@ h1 {
     font-size: 1em;
     font-family: "gifOs";
     font-weight: bold;
+    margin: 0.5em;
   }
   .slideshow__before:hover {
     color: #fff;
@@ -753,6 +781,7 @@ h1 {
     font-size: 1em;
     font-family: "gifOs";
     font-weight: bold;
+    margin: 0.5em;
   }
   .slideshow__after:hover {
     color: #fff;
@@ -773,7 +802,6 @@ h1 {
   height: 10em;
   border: 0em;
   margin: 1em;
-  overflow: hidden;
   background: transparent url(../assets/ajax-loader.gif) center no-repeat;
 }
 
@@ -790,7 +818,6 @@ h1 {
   top: 0;
   left: 0;
   position: absolute;
-  overflow: hidden;
   width: 13em;
   height: 10em;
   color: #fff;
@@ -906,7 +933,6 @@ h1 {
   margin-right: 0.5em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  overflow: hidden;
   background: transparent url(../assets/ajax-loader.gif) center no-repeat;
 }
 
@@ -923,7 +949,6 @@ h1 {
   top: 0;
   left: 0;
   position: absolute;
-  overflow: hidden;
   width: 10em;
   height: 8em;
   color: #fff;
@@ -1066,7 +1091,6 @@ h1 {
  */
 .footer {
   position: relative;
-  background-color: #fff;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1173,6 +1197,385 @@ h1 {
     padding-right: 8em;
     margin-left: auto;
     font-size: 13px;
+  }
+}
+
+/* 
+========================================================================== */
+/* Dark Mode
+==========================================================================
+ */
+/* 
+========================================================================== */
+/* HEADER
+==========================================================================
+ */
+/*   Hr   */
+body.dark .header__hr {
+  background-color: black;
+}
+
+/*   MENU    */
+body.dark .header__navbar--logo {
+  background-image: url(../assets/logo_gifos_noc.png);
+}
+
+body.dark .header__navbar--ham-menu, body.dark .header__navbar--close-ham-menu {
+  color: #fff;
+}
+
+body.dark .header__navbar--checkbox:checked ~ body.dark .header__navbar--close-ham-menu {
+  display: inline-block;
+  color: #fff;
+}
+
+body.dark .header__navbar--menu {
+  background-color: black;
+}
+
+/*   H1    */
+body.dark .header__h1 {
+  color: #fff;
+}
+
+/* 
+========================================================================== */
+/* Header
+/* 64em = 1024px @ 16px font
+==========================================================================
+*/
+@media screen and (min-width: 1024px) {
+  /*   MENU    */
+  body.dark .header__navbar--menu {
+    background-color: transparent;
+  }
+  body.dark .header__navbar--menu .list .list__item a {
+    color: #fff;
+  }
+  body.dark .current_link:hover {
+    background-color: #fff;
+    color: black;
+  }
+  /*   NEW GIFO BUTTON   */
+  body.dark .header__navbar--new_gifo {
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: #37383C;
+  }
+  body.dark .header__navbar--new_gifo:hover {
+    background-color: #fff;
+    color: black;
+  }
+  body.dark .header__navbar--new_gifo:active {
+    background-color: #9CAFC3;
+    border: 1px solid #9CAFC3;
+    color: #fff;
+  }
+  /*   H1    */
+  h1 {
+    color: #fff;
+  }
+}
+
+/* 
+========================================================================== */
+/* Search Dark Mode
+==========================================================================
+ */
+body.dark .search__container {
+  border: 1px solid #fff;
+  background-color: #37383C;
+}
+
+body.dark .search__input {
+  color: #fff;
+  background-color: #37383C;
+}
+
+body.dark .search__submit {
+  background-color: #37383C;
+  color: #fff;
+}
+
+body.dark .search_div__h3 {
+  color: #fff;
+}
+
+body.dark .search_div__h4 {
+  color: #fff;
+}
+
+/* 
+========================================================================== */
+/* Search Results Dark Mode
+==========================================================================
+ */
+body.dark .searchResults__title {
+  color: #fff;
+}
+
+/* 
+========================================================================== */
+/* Search
+/* 64em = 1024px @ 16px font
+==========================================================================
+*/
+@media screen and (min-width: 1024px) {
+  body.dark .search_div__h3 {
+    color: #fff;
+  }
+  body.dark .search_div__h4 {
+    color: #fff;
+  }
+}
+
+/* Search See More Button */
+body.dark .searchResults__button {
+  background-color: #37383C;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+body.dark .searchResults__button:hover {
+  background-color: #fff;
+  color: #37383C;
+}
+
+/* Favorites See More Button */
+body.dark .favResults__button {
+  background-color: #37383C;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+body.dark .favResults__button:hover {
+  background-color: #fff;
+  color: #37383C;
+}
+
+/* My Gifos See More Button */
+body.dark .myGifosResults__button {
+  background-color: #37383C;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+body.dark .myGifosResults__button:hover {
+  background-color: #fff;
+  color: #37383C;
+}
+
+/* New Gifo See More Button */
+body.dark .record__buttons {
+  background-color: #37383C;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+body.dark .record__buttons:hover {
+  background-color: #fff;
+  color: #37383C;
+}
+
+/* 
+========================================================================== */
+/* Trending Dark Mode
+==========================================================================
+ */
+body.dark .trending {
+  background: #222326;
+}
+
+body.dark .trending__h2 {
+  color: #fff;
+}
+
+body.dark .trending__p--mobile {
+  color: #fff;
+}
+
+body.dark .icon-icon-search {
+  color: #fff;
+}
+
+/* 
+========================================================================== */
+/* Trending Dark Mode
+/* 64em = 1024px @ 16px font
+==========================================================================
+*/
+@media screen and (min-width: 1024px) {
+  body.dark .trending {
+    height: 35em;
+  }
+  body.dark .trending__h2 {
+    color: #fff;
+  }
+  body.dark .trending__p--laptop {
+    color: #fff;
+  }
+  /* Slideshow */
+  body.dark .slideshow__before {
+    color: #fff;
+    background: #222326;
+    border: 1px solid #fff;
+  }
+  body.dark .slideshow__before:hover {
+    color: #222326;
+    background: #fff;
+  }
+  body.dark .slideshow__after {
+    color: #fff;
+    background: #222326;
+    border: 1px solid #fff;
+  }
+  body.dark .slideshow__after:hover {
+    color: #222326;
+    background: #fff;
+  }
+}
+
+/* 
+========================================================================== */
+/* Footer Dark Mode
+==========================================================================
+ */
+body.dark .footer__p {
+  color: #fff;
+}
+
+body.dark .footer__socialmedia a {
+  color: #CDD6E0;
+}
+
+body.dark .footer__socialmedia a:hover {
+  color: #fff;
+}
+
+body.dark .footer__copyright {
+  color: #fff;
+}
+
+body.dark .footer__hr {
+  background-color: black;
+}
+
+/* 
+========================================================================== */
+/* Footer Dark Mode
+/* 64em = 1024px @ 16px font
+==========================================================================
+*/
+@media screen and (min-width: 1024px) {
+  body.dark .footer__p {
+    color: #fff;
+  }
+}
+
+/*   Camera Image Dark Mode   */
+body.dark .newGifo__camera {
+  background-image: url(../assets/camara-modo-noc.svg);
+}
+
+/*   Ligth Image Dark Mode */
+body.dark .record_video {
+  border: 1px solid #fff;
+  background-color: #37383C;
+}
+
+/*   $green Corners   */
+body.dark .record_video__corners {
+  background-color: #37383C;
+}
+
+body.dark .record_video__corners:after {
+  border: 1px solid #37383C;
+  background-color: #37383C;
+}
+
+body.dark .video {
+  background-color: #37383C;
+}
+
+body.dark .record_video__h3 {
+  color: #fff;
+  z-index: 3;
+}
+
+body.dark .record_video__p {
+  color: #fff;
+  z-index: 3;
+}
+
+/*   Nimber Buttons 1 2 3  */
+body.dark .record_steps__buttons {
+  background-color: #37383C;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+body.dark .record_steps__buttons:hover {
+  background-color: #fff;
+  color: #37383C;
+}
+
+/*   Purple line  */
+body.dark .record_hr__hr {
+  background-color: #fff;
+}
+
+body.dark .record_hr__tape_image {
+  background-image: url(../assets/pelicula-modo-noc.svg);
+}
+
+/*   BUTTONS  */
+body.dark .record__buttons {
+  background-color: #37383C;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+body.dark .record__buttons:hover {
+  background-color: #fff;
+  color: #37383C;
+}
+
+/* 
+========================================================================== */
+/* New Gifo Dark Mode
+/* 64em = 1024px @ 16px font
+==========================================================================
+*/
+@media screen and (min-width: 1024px) {
+  body.dark .header__navbar--new_gifoactive {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    cursor: pointer;
+    left: unset;
+    right: 7%;
+    top: 1em;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 2.3em;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid #9CAFC3;
+    background-color: #9CAFC3;
+    color: #fff;
+  }
+  body.dark .header__navbar--new_gifoactive:hover {
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: #37383C;
   }
 }
 
@@ -1290,11 +1693,11 @@ h1 {
   border-radius: 25px;
   color: #572EE5;
   background-color: #fff;
-  width: 8vw;
-  height: 3.125vw;
+  width: 8em;
+  height: 3.125em;
   margin: 4em;
   font-family: "Montserrat", sans-serif;
-  font-size: 0.8vw;
+  font-size: 0.8em;
   text-align: center;
 }
 
@@ -1483,11 +1886,11 @@ h1 {
   border-radius: 25px;
   color: #572EE5;
   background-color: #fff;
-  width: 8vw;
-  height: 3.125vw;
+  width: 8em;
+  height: 3.125em;
   margin: 4em;
   font-family: "Montserrat", sans-serif;
-  font-size: 0.8vw;
+  font-size: 0.8em;
   text-align: center;
 }
 
@@ -1564,11 +1967,6 @@ h1 {
 /* New Gifos Page Styles
 ==========================================================================
  */
-body {
-  width: 100vw;
-  height: 100vw;
-}
-
 .header__navbar--new_gifoactive {
   display: none;
 }
@@ -1687,7 +2085,7 @@ body {
   border: 1px solid #50E3C2;
 }
 
-.record_video__corners:before {
+.record_video__corners:after {
   content: '';
   position: absolute;
   top: -1px;
@@ -1696,6 +2094,26 @@ body {
   height: 100%;
   width: 100%;
   border-radius: 6%;
+}
+
+.video {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+  height: 80%;
+  border: 0em;
 }
 
 .record_video__h3 {
@@ -1707,6 +2125,7 @@ body {
   text-align: center;
   line-height: 25px;
   text-align: center;
+  z-index: 3;
 }
 
 .record_video__p {
@@ -1716,6 +2135,9 @@ body {
   line-height: 15px;
   font-weight: 400;
   text-align: center;
+  font-size: 1.2vw;
+  line-height: 2vw;
+  z-index: 3;
 }
 
 /*   Nimber Buttons 1 2 3  */
@@ -1828,13 +2250,23 @@ body {
   border-radius: 25px;
   color: #572EE5;
   background-color: #fff;
-  width: 8vw;
-  height: 3.125vw;
+  width: 8em;
+  height: 3.125em;
   margin: 4em;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8em;
+  text-align: center;
+  position: relative;
+  border: 1px solid #572EE5;
+  border-radius: 25px;
+  color: #572EE5;
+  background-color: #fff;
+  margin: 1vw;
   font-family: "Montserrat", sans-serif;
   font-size: 0.8vw;
   text-align: center;
-  margin: 1vw;
+  width: 8vw;
+  height: 3.125vw;
   text-transform: uppercase;
 }
 
@@ -1855,6 +2287,12 @@ body {
   display: none;
 }
 
+/* 
+========================================================================== */
+/* New Gifo Page Styles
+/* 64em = 1024px @ 16px font
+==========================================================================
+*/
 @media screen and (min-width: 1024px) {
   .header__navbar--new_gifoactive {
     position: absolute;

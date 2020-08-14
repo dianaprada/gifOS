@@ -1,0 +1,53 @@
+/* Search See More Button */
+
+body.dark .searchResults__button {
+    @include buttons_dark();
+    
+}
+
+body.dark .searchResults__button:hover {
+    @include buttons_dark_hover ();
+
+}
+
+
+
+/* Favorites See More Button */
+
+
+body.dark .favResults__button {
+    @include buttons_dark();
+    
+}
+
+body.dark .favResults__button:hover {
+    @include buttons_dark_hover ();
+
+}
+
+
+
+/* My Gifos See More Button */
+
+body.dark .myGifosResults__button {
+    @include buttons_dark();
+    
+  }
+  
+body.dark .myGifosResults__button:hover {
+    @include buttons_dark_hover ();
+  
+  }
+
+/* New Gifo See More Button */
+
+body.dark .record__buttons {
+    @include buttons_dark();
+
+    
+}   
+
+body.dark .record__buttons:hover {
+    @include buttons_dark_hover ();
+
+}

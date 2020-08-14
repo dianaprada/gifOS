@@ -5,10 +5,15 @@
  */
 
  .trending{
+    position: relative;
     background: $bg_trending;
+    //background: var(--bg_trending);
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 26.9em;
+    width: 100%;
 
     &__h2{
         @include h2_mobile();
@@ -30,19 +35,21 @@
  /* Slideshow */
 
 .slideshow{
-    
+    position: relative; 
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    position: relative;
+    width: 94%;
 
     &__cards{
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         position: relative;
+        overflow: scroll;
+        overflow: hidden;
     
     }
 
@@ -106,8 +113,8 @@
                 height: 2.5em;
                 font-size: 1em;
                 font-family: $font_gifos;
-                font-weight: bold;
-               
+                font-weight: bold; 
+                margin: 0.5em;
             }
     
             &__before:hover{
@@ -127,7 +134,8 @@
                 height: 2.5em;
                 font-size: 1em; 
                 font-family: $font_gifos;
-                font-weight: bold;          
+                font-weight: bold;  
+                margin: 0.5em;        
     
             }
     

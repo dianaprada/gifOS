@@ -11,6 +11,13 @@ const api_key = 'FXvt5yHvROwhxmFNSs87LoAAc6qhfrwz';
 let allHTMLGifs = '';
 const divElementContainerCards = document.querySelector('.slideshow__cards');
 
+const before_slideshow = document.getElementById("slideshow__before");
+const after_slideshow = document.getElementById("slideshow__after");
+
+let darkMode = localStorage.getItem('darkMode'); 
+const darkModeToggle = document.querySelector('.dark_mode');
+
+
 
 
 /**
@@ -22,7 +29,7 @@ const divElementContainerCards = document.querySelector('.slideshow__cards');
 const getTrendingGif = (() => {
     allHTMLGifs = '';
     const { trendingData } = api;
-    trendingData(URL, api_key, 3)
+    trendingData(URL, api_key, 15)
     .then((response) => {
         getTrendingJson(response.data);
     }).catch((error) => {
@@ -95,3 +102,83 @@ const renderMsg = ((msg) => document.querySelector('.gifos-msg').innerHTML = msg
 
 
 getTrendingGif ();
+
+  /**
+ * @method create_EventListener_Slideshow
+ * @description Enable DarkMode and Update darkMode in localStorage
+ * @param {}
+ * @returns {}
+ */
+
+const create_EventListener_Slideshow = (() =>{
+	after_slideshow.addEventListener("click", () => {
+		divElementContainerCards.scrollLeft += 280;
+	
+  })
+
+	before_slideshow.addEventListener("click", () => {
+		divElementContainerCards.scrollLeft += -280;
+	
+  })
+});
+
+create_EventListener_Slideshow();
+
+
+
+  /**
+ * @method enableDarkMode
+ * @description Enable DarkMode and Update darkMode in localStorage
+ * @param {}
+ * @returns {}
+ */
+
+const enableDarkMode = () => {
+  document.body.classList.add('dark');
+  document.getElementById("dark_ligth").innerHTML = "Modo Diurno";
+
+  localStorage.setItem('darkMode', 'enabled');
+}
+
+   /**
+ * @method disableDarkMode
+ * @description Disable DarkMode and Update darkMode in localStorage
+ * @param {}
+ * @returns {}
+ */
+
+const disableDarkMode = () => {
+  document.body.classList.remove('dark');
+  document.getElementById("dark_ligth").innerHTML = "Modo Nocturno";
+
+  localStorage.setItem('darkMode', null);
+}
+ 
+// If the user already visited and enabled darkMode
+// start things off with it on
+if (darkMode === 'enabled') {
+  enableDarkMode();
+}
+
+  /**
+ * @method 
+ * @description When someone clicks the button
+ * @param {}
+ * @returns {}
+ */
+
+darkModeToggle.addEventListener('click', () => {
+  darkMode = localStorage.getItem('darkMode'); 
+  if (darkMode !== 'enabled') {
+    enableDarkMode();
+  } 
+  else {  
+    disableDarkMode(); 
+  }
+});
+
+
+
+
+
+

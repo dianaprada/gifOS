@@ -1,0 +1,74 @@
+/* 
+========================================================================== */
+/* Search Dark Mode
+==========================================================================
+ */
+
+body.dark .search{
+
+     &__container{
+        border: 1px solid $white;
+        background-color: $bgc_dark;
+     }
+
+     &__input{
+        color: $white;  
+        background-color: $bgc_dark;
+     }
+
+     &__submit{
+        background-color: $bgc_dark;
+        color:$white;
+     
+
+     }
+
+ }
+
+ body.dark .search_div{
+
+   &__h3{
+      color: $white      
+   }
+
+   &__h4{
+      color: $white;
+    }
+
+
+}
+
+/* 
+========================================================================== */
+/* Search Results Dark Mode
+==========================================================================
+ */
+
+ body.dark .searchResults {
+   &__title {
+       color: $white;
+   }
+}
+
+ 
+/* 
+========================================================================== */
+/* Search
+/* 64em = 1024px @ 16px font
+==========================================================================
+*/
+
+    @media screen and (min-width:1024px) {
+
+      body.dark .search_div{
+
+         &__h3 {
+            color: $white;
+         }
+      
+         &__h4 {
+            color: $white;
+         }  
+       }
+
+   }

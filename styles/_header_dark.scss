@@ -1,0 +1,112 @@
+/* 
+========================================================================== */
+/* HEADER
+==========================================================================
+ */
+
+/*   Hr   */
+
+body.dark .header__hr {
+  background-color: $black;
+
+}
+
+/*   MENU    */
+
+body.dark .header__navbar {
+
+    &--logo { 
+      background-image: url(../assets/logo_gifos_noc.png);
+
+    }
+
+    &--ham-menu {
+      color: $white;
+    }
+        
+    &--checkbox:checked ~ &--close-ham-menu {
+      display: inline-block;
+      color: $white;
+     
+    }
+      
+    &--menu {
+      background-color: $black;
+        
+    }
+
+ }
+
+
+/*   H1    */
+
+body.dark .header__h1{
+  color: $white;
+  
+}
+
+
+/* 
+========================================================================== */
+/* Header
+/* 64em = 1024px @ 16px font
+==========================================================================
+*/
+
+
+  @media screen and (min-width:1024px) {
+
+   /*   MENU    */
+
+    body.dark .header__navbar {
+
+      &--menu {
+        background-color: transparent;
+   
+        .list {   
+
+          .list__item a {
+            color: $white;
+          }        
+        }
+      }
+    }
+
+    body.dark .current_link:hover {
+      background-color: $white;
+      color: $black;
+     
+    }
+
+    /*   NEW GIFO BUTTON   */
+
+    body.dark  .header__navbar--new_gifo {
+      border: 1px solid $white;
+      color: $white;
+      background-color: $bgc_dark;
+     
+    }
+
+    body.dark .header__navbar--new_gifo:hover {
+        background-color: $white;
+        color: $black;
+      }
+
+      body.dark .header__navbar--new_gifo:active {
+        background-color: $active_color;
+        border: 1px solid $active_color;
+        color: $white;
+       
+      }
+
+   /*   H1    */
+
+    h1{
+      color: $white;
+    }
+
+  }
+
+    
+
+    

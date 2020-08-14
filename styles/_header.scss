@@ -1,9 +1,23 @@
+
+/* 
+========================================================================== */
+/* Content
+==========================================================================
+ */
+
+.content{
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
 /* 
 ========================================================================== */
 /* HEADER
 ==========================================================================
  */
-
 
 /*   Hr   */
 
@@ -19,7 +33,7 @@
  .header__navbar {
   width: 100%;
   height: 95px;
-  border-top: 5px solid $font_color;
+
 
   &--logo { 
     position: absolute;
@@ -27,7 +41,9 @@
     left: 5.87%;
     width: 48.8px;
     height: 48.8px;
-    font-size: 16px;
+    background-image: url(../assets/logo_gifos.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     cursor: pointer;
   }
       
@@ -50,11 +66,13 @@
     left: unset;
     right: 7%;
     top: 52px;
+    color: $font_color;
   }
 
   &--close-ham-menu {
     @extend .header__navbar--ham-menu;
     display: none;
+    color: $font_color
   }
 
   &--checkbox:checked ~ &--ham-menu {
@@ -63,6 +81,8 @@
 
   &--checkbox:checked ~ &--close-ham-menu {
     display: inline-block;
+    
+   
   }
     
   &--menu {
@@ -115,6 +135,7 @@
 
  }
 
+
 /*   NEW GIFO BUTTON   */
 
 .header__navbar--new_gifo{
@@ -124,13 +145,19 @@
 
 /*   H1    */
 
- h1{
-  
-  @include h1_mobile();
+.header__h1{
+
+  font-family: "ProximaNova-Bold";
+  font-size: 1.5625em;
+  color: $font_color;
+  letter-spacing: 0;
+  line-height: 33px;
+  font-weight: 700;
   width: 70%;
   text-align: center;
   margin: 0 auto;
   padding-top: 1em;
+  color: $font_color;
   
 
 }
@@ -196,6 +223,7 @@
             font-weight: 700;
             line-height: 16px;
             color: $font_color;
+            text-decoration: none;
   
             &:hover {
               border-bottom: 2px solid $green;
@@ -238,7 +266,7 @@
 
    /*   H1    */
 
-    h1{
+   .header__h1{
       @include h1_laptop();
       padding-top: 1.5em;
       width: 50%;

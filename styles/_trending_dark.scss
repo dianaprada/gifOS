@@ -1,0 +1,76 @@
+/* 
+========================================================================== */
+/* Trending Dark Mode
+==========================================================================
+ */
+
+body.dark .trending{
+    background: $bg_trending_dark;
+
+    &__h2{
+        color: $white;
+     }
+
+    &__p--mobile{
+        color: $white;
+    }
+
+ }
+
+ body.dark .icon-icon-search{
+     color: $white;
+ }
+
+/* 
+========================================================================== */
+/* Trending Dark Mode
+/* 64em = 1024px @ 16px font
+==========================================================================
+*/
+    
+@media screen and (min-width:1024px) {
+
+    body.dark .trending{
+
+        height: 35em;
+
+        &__h2{
+            color: $white;
+        }
+    
+        &__p--laptop{
+            color: $white;
+        }
+  
+    }
+
+    /* Slideshow */
+
+    body.dark .slideshow{
+
+        &__before{
+            color: $white;
+            background: $bg_trending_dark;
+            border: 1px solid $white;
+            }
+    
+            &__before:hover{
+                color: $bg_trending_dark;
+                background: $white;
+                
+            }
+          
+        &__after{ 
+            color: $white;
+            background: $bg_trending_dark;
+            border: 1px solid $white;       
+        }
+    
+            &__after:hover{
+                color: $bg_trending_dark;
+                background: $white;
+                
+            }
+        }
+        
+    }

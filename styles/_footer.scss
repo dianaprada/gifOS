@@ -6,7 +6,6 @@
 
  .footer{
     position: relative;
-    background-color: $white;
     align-items: center;
     padding-bottom: 1em;
     
@@ -16,7 +15,6 @@
 
     &__p{
         @include paragraph_mobile();
-
         font-size: 15px;  
         text-align: center;
         padding: 0.5em;

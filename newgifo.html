@@ -25,14 +25,15 @@
         <header class="header" id="header">
             <hr class="header__hr">
             <nav class="header__navbar">
-                <div><a href="index.html"><img class="header__navbar--logo" src="./assets/logo_gifos.png" alt="GIFOS"></a></div>
-                
+                <a href="index.html" class="header__navbar--logo"></a>
+               
+
                 <input class="header__navbar--checkbox" type="checkbox">
                 <img class="header__navbar--ham-menu" src="./assets/burger.svg" alt="Menú">
                 <img class="header__navbar--close-ham-menu" src="./assets/close.svg" alt="Menú">
                 <div class="header__navbar--menu">
                     <ul class="list">
-                        <li class="list__item"><a href="#">Modo Nocturno</a></li>
+                        <li class="list__item"><a class="dark_mode"><span id="dark_ligth">Modo Nocturno</span></a></li>
                         <li class="list__item"><a href="favorites.html">Favoritos</a></li>
                         <li class="list__item"><a href="mygifos.html">Mis GIFOS</a></li>
                     </ul>
@@ -55,9 +56,11 @@
                
                     <div class="record_video" id="record_video">
                         <div class="record_video__corners" id="record_video__corners">
+                            <div class="video">
                             <h3 class="record_video__h3" id="record_video__h3">Aquí podrás <br /> crear tus propios <span class="h1_green">GIFOS</span></h3>
                             <p class="record_video__p" id="record_video__p">¡Crea tu GIFO en sólo 3 pasos! <br />
-                                (sólo necesitas una cámara para grabar un</p>
+                                (sólo necesitas una cámara para grabar un video)</p>
+                            </div>
                         </div>
                     </div>
             </section>
@@ -116,7 +119,7 @@
     </div>
     <div class="gifos-msg"></div>
     <script src="https://kit.fontawesome.com/7396023e43.js" crossorigin="anonymous"></script>
-    <!-- <script type="module" src="scripts/main.js"></script> -->
+    <script type="module" src="scripts/main.js"></script>
 
 </body>
 

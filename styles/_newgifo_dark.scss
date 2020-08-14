@@ -1,0 +1,114 @@
+
+/*   Camera Image Dark Mode   */
+
+
+body.dark .newGifo__camera {
+    background-image: url(../assets/camara-modo-noc.svg);
+
+}
+
+/*   Ligth Image Dark Mode */
+
+body.dark .record_video {
+    border: 1px solid $white;
+    background-color: $bgc_dark;
+
+}
+
+/*   $green Corners   */
+
+body.dark .record_video__corners {
+    background-color:$bgc_dark;
+
+    &:after {
+        border:1px solid $bgc_dark;
+        background-color:$bgc_dark;
+    }  
+ 
+}
+
+body.dark .video {
+    background-color: $bgc_dark;  
+}
+
+body.dark .record_video__h3 {
+    color:$white;
+    z-index: 3;
+    
+}
+
+body.dark .record_video__p {
+    color:$white;
+    z-index: 3;
+    
+}
+
+/*   Nimber Buttons 1 2 3  */
+
+
+body.dark .record_steps__buttons {
+    
+    background-color: $bgc_dark;
+    color: $white;
+    border: 1px solid $white;
+
+
+}
+
+body.dark .record_steps__buttons:hover {
+    background-color: $white;
+    color: $bgc_dark;
+}
+
+/*   Purple line  */
+
+body.dark .record_hr {
+    
+    &__hr {
+        background-color: $white;
+      }
+
+    &__tape_image {
+        background-image: url(../assets/pelicula-modo-noc.svg);      
+    }
+
+}
+
+/*   BUTTONS  */
+
+body.dark .record__buttons {
+    @include buttons_dark();
+
+    
+}   
+
+body.dark .record__buttons:hover {
+    @include buttons_dark_hover ();
+
+}
+
+ /* 
+========================================================================== */
+/* New Gifo Dark Mode
+/* 64em = 1024px @ 16px font
+==========================================================================
+*/
+
+ @media screen and (min-width:1024px) {
+
+
+    body.dark .header__navbar--new_gifoactive {
+            @include new_gifo();
+            border: 1px solid $active_color;
+            background-color: $active_color;
+            color: $white;
+            
+        }
+    
+    body.dark .header__navbar--new_gifoactive:hover {
+            background-color: $white;
+            border: 1px solid $white;
+            color: $bgc_dark;
+            }
+    
+ }

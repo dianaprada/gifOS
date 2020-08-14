@@ -1,11 +1,7 @@
 @font-face {
   font-family: 'gifOs';
   src:  url('../fonts/gifOs.eot?5m70gm');
-  src:  url('../fonts/gifOs.eot'),
-    url('../fonts/gifOs.ttf'),
-    url('../fonts/gifOs.svg') format('svg'),
-    url('../fonts/gifOs.woff') format('woff'),
-    url('../fonts/gifOs.eot?5m70gm#iefix') format('embedded-opentype'),
+  src:  url('../fonts/gifOs.eot?5m70gm#iefix') format('embedded-opentype'),
     url('../fonts/gifOs.ttf?5m70gm') format('truetype'),
     url('../fonts/gifOs.woff?5m70gm') format('woff'),
     url('../fonts/gifOs.svg?5m70gm#gifOs') format('svg'); 
@@ -28,14 +24,24 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-burger {
+  content: "\e900";
+  /* color: #572ee5; */
+}
+
+
+.icon-button-close {
+  content: "\e901";
+  /* color: #572ee5; */
+}
 
 .icon-burger:before {
   content: "\e900";
-  color: #572ee5;
+  /* color: #572ee5; */
 }
 .icon-button-close:before {
   content: "\e901";
-  color: #572ee5;
+  /* color: #572ee5; */
 }
 .icon-button-crear-gifo:before {
   content: "\e902";
