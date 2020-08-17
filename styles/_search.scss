@@ -4,19 +4,19 @@
 ==========================================================================
  */
 
- .search{
+ .search {
      position: relative;
      display: flex;
      flex-direction: column;
 
-     &__image{
+     &__image {
          margin: 0 auto;
          padding-top: 1em;
          width: 273px;
          height: auto;
      }
 
-     &__container{
+     &__container {
         position: relative;
         display: flex;
         flex-direction: row;
@@ -30,7 +30,7 @@
 
      }
 
-     &__input{
+     &__input {
         position: relative;
         font-family: $Roboto;
         font-size: 16px;
@@ -48,7 +48,7 @@
         outline: none;
      }*/
 
-     &__input::placeholder{
+     &__input::placeholder {
         font-family: $Roboto;
         font-size: 16px;
         color: #9CAFC3;
@@ -57,7 +57,7 @@
         border: 0em;
      }
 
-     &__submit{
+     &__submit {
         margin-left: auto;
         margin-right: 1em;
         background-color: $white;
@@ -67,16 +67,16 @@
 
  }
 
-.search_div{
+.search_div {
 
-   &__h3{
+   &__h3 {
       @include h3_mobile();
       margin: 0em;
       padding-top: 2em;
       
    }
 
-   &__h4{
+   &__h4 {
       @include h4_mobile();
       position: relative;
       margin: 0em;
@@ -84,8 +84,6 @@
       padding-left: 5em;
       padding-right: 5em;
     }
-
-
 }
 
 
@@ -129,7 +127,6 @@
 .searchResults__button {
    @include more_button();
 
-   
 }
 
 .searchResults__button:hover {

@@ -1,0 +1,130 @@
+/* 
+========================================================================== */
+/* Modal Popup
+==========================================================================
+*/
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+
+.modal-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 80%; 
+    background:transparent url(../assets/ajax-loader.gif) center no-repeat;  
+}
+
+.close-button {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0em;
+    font-size: 0.7em;
+    align-self: flex-end;
+    margin-bottom: 5em;
+  
+}
+
+.modal__gif_img {
+    width: 100%; 
+    height: auto;  
+}
+  
+.modal__p-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;    
+    margin: 0.5em; 
+  }
+
+.modal__p {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;  
+  }
+
+.modal__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;  
+    
+  }
+
+.show_modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+
+
+/* 
+========================================================================== */
+/* Modal Popup Dark Mode
+==========================================================================
+*/
+
+body.dark .modal {
+    background-color: rgba(55, 56, 60, 0.9);
+}
+
+body.dark  .modal__p {
+    color: $white; 
+}
+
+body.dark .close-button {
+    color: $white; 
+}
+
+/* 
+========================================================================== */
+/* Modal Popup
+/* 64em = 1024px @ 16px font
+==========================================================================
+*/
+
+@media screen and (min-width:1024px) {
+
+    .modal-content {
+        top: 23em;
+        width: 70%;
+    }
+
+    .close-button {
+        color: $font_color;
+      }
+    
+    
+    .modal__gif_img {
+        width: 100%; 
+        height: 60%;  
+    }
+
+}
+

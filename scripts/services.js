@@ -6,6 +6,7 @@ const api = {
         .catch((error) => reject(error))
       });
     })
+    
   };
   
   export default api;
