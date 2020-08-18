@@ -5,9 +5,18 @@ const api = {
         .then((response) => resolve(response.json()))
         .catch((error) => reject(error))
       });
+    }),
+
+    searchData: ((URL, api_key, keyword, limit, offset, rating = 'g') => {
+      return new Promise((resolve, reject) => {
+        fetch(`${URL}?api_key=${api_key}&q=${keyword}&limit=${limit}&offset=${offset}&rating=${rating}`)
+        .then((response) => resolve(response.json()))
+        .catch((error) => reject(error))
+      });
     })
     
   };
   
   export default api;
+
 
