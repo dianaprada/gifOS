@@ -175,6 +175,7 @@ body.dark {
   font-weight: 600;
   line-height: 60px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .header__navbar--checkbox:checked ~ .header__navbar--menu {
@@ -298,6 +299,7 @@ body.dark {
     font-size: 2.3em;
     font-weight: bold;
     text-decoration: none;
+    cursor: pointer;
     border: 1px solid #572EE5;
     color: #572EE5;
   }
@@ -425,6 +427,7 @@ body.dark {
   background-color: #fff;
   border: 0em;
   color: #572EE5;
+  cursor: pointer;
 }
 
 .search_div__h3 {
@@ -454,11 +457,63 @@ body.dark {
   padding-right: 5em;
 }
 
+.trending_words {
+  cursor: pointer;
+}
+
+.trending_words:hover {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
 /* 
 ========================================================================== */
 /* Search Results
 ==========================================================================
  */
+.search__noResults {
+  position: relative;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search__noResults__noResults--h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8em;
+  color: #572EE5;
+  letter-spacing: 0;
+  font-weight: bold;
+  text-align: center;
+  line-height: 25px;
+  position: relative;
+  margin: 0em;
+  padding-bottom: 2em;
+  padding-left: 5em;
+  padding-right: 5em;
+  padding-top: 3em;
+  color: #50E3C2;
+}
+
+.search__noResults--visible {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .searchResults {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -494,6 +549,10 @@ body.dark {
   padding-bottom: 2em;
 }
 
+.searchResultsHidden {
+  display: none;
+}
+
 .resultsGrid {
   position: relative;
   display: -ms-grid;
@@ -517,6 +576,7 @@ body.dark {
   font-family: "Montserrat", sans-serif;
   font-size: 0.8em;
   text-align: center;
+  cursor: pointer;
 }
 
 .searchResults__button:hover {
@@ -595,6 +655,16 @@ body.dark {
    /* 64em = 1024px @ 16px font
    ==========================================================================
    */
+  .search__noResults__noResults--h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    color: #572EE5;
+    letter-spacing: 0;
+    font-weight: bold;
+    text-align: center;
+    line-height: 25px;
+    color: #50E3C2;
+  }
   .resultsGrid {
     -ms-grid-columns: 1fr 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -1030,6 +1100,7 @@ body.dark .close-button {
   width: 1.5em;
   height: 1.5em;
   margin: 0.5em 0.25em 0.5em 0.25em;
+  cursor: pointer;
 }
 
 .card__info--span:last-child {
@@ -1140,6 +1211,7 @@ body.dark .close-button {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  cursor: pointer;
 }
 
 .resultsCard__info--p1 {
@@ -1506,11 +1578,13 @@ body.dark .searchResults__button {
   background-color: #37383C;
   color: #fff;
   border: 1px solid #fff;
+  cursor: pointer;
 }
 
 body.dark .searchResults__button:hover {
   background-color: #fff;
   color: #37383C;
+  cursor: pointer;
 }
 
 /* Favorites See More Button */
@@ -1518,11 +1592,13 @@ body.dark .favResults__button {
   background-color: #37383C;
   color: #fff;
   border: 1px solid #fff;
+  cursor: pointer;
 }
 
 body.dark .favResults__button:hover {
   background-color: #fff;
   color: #37383C;
+  cursor: pointer;
 }
 
 /* My Gifos See More Button */
@@ -1530,11 +1606,13 @@ body.dark .myGifosResults__button {
   background-color: #37383C;
   color: #fff;
   border: 1px solid #fff;
+  cursor: pointer;
 }
 
 body.dark .myGifosResults__button:hover {
   background-color: #fff;
   color: #37383C;
+  cursor: pointer;
 }
 
 /* New Gifo See More Button */
@@ -1542,11 +1620,13 @@ body.dark .record__buttons {
   background-color: #37383C;
   color: #fff;
   border: 1px solid #fff;
+  cursor: pointer;
 }
 
 body.dark .record__buttons:hover {
   background-color: #fff;
   color: #37383C;
+  cursor: pointer;
 }
 
 /* 
@@ -1705,11 +1785,13 @@ body.dark .record__buttons {
   background-color: #37383C;
   color: #fff;
   border: 1px solid #fff;
+  cursor: pointer;
 }
 
 body.dark .record__buttons:hover {
   background-color: #fff;
   color: #37383C;
+  cursor: pointer;
 }
 
 /* 
@@ -1740,6 +1822,7 @@ body.dark .record__buttons:hover {
     font-size: 2.3em;
     font-weight: bold;
     text-decoration: none;
+    cursor: pointer;
     border: 1px solid #9CAFC3;
     background-color: #9CAFC3;
     color: #fff;
@@ -1871,6 +1954,7 @@ body.dark .record__buttons:hover {
   font-family: "Montserrat", sans-serif;
   font-size: 0.8em;
   text-align: center;
+  cursor: pointer;
 }
 
 .favResults__button:hover {
@@ -2064,6 +2148,7 @@ body.dark .record__buttons:hover {
   font-family: "Montserrat", sans-serif;
   font-size: 0.8em;
   text-align: center;
+  cursor: pointer;
 }
 
 .myGifosResults__button:hover {
@@ -2428,6 +2513,7 @@ body.dark .record__buttons:hover {
   font-family: "Montserrat", sans-serif;
   font-size: 0.8em;
   text-align: center;
+  cursor: pointer;
   position: relative;
   border: 1px solid #572EE5;
   border-radius: 25px;
@@ -2487,6 +2573,7 @@ body.dark .record__buttons:hover {
     font-size: 2.3em;
     font-weight: bold;
     text-decoration: none;
+    cursor: pointer;
     border: 1px solid #9CAFC3;
     background-color: #9CAFC3;
     color: #fff;

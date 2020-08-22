@@ -1,3 +1,10 @@
+/**
+ * @method CardsTrending
+ * @description Crea el HTML de cada Card
+ * @param {id, img, title, username} 
+ * @returns {}
+*/
+
 const CardsTrending = ((id, img, title, username) => {
     return(
        `<div class="card">
@@ -18,6 +25,14 @@ const CardsTrending = ((id, img, title, username) => {
            </div>`
     );
 });
+
+
+/**
+ * @method CardsSearchResults
+ * @description Crea el HTML de cada Card
+ * @param {id, img, title, username} 
+ * @returns {}
+*/
 
 const CardsSearchResults = ((id, img, title, username) => {
     return(

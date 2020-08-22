@@ -30,6 +30,7 @@ const getSearchResultsGif = ((keyword, offset) => {
     const { searchData } = api;
     searchData(searchURL, searchGlobalParam.api_key, keyword, 12, offset)
     .then((response) => {
+        // verificar response.data si está vacío muestra el div noResults .lenght 
         getSearchResultsJson(response.data, searchGlobalParam.divSearchResultsContainer);
         searchResultsPagination(response.pagination);
         setAttributeViewMore(keyword, (parseInt(offset) + 12));

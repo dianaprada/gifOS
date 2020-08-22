@@ -13,6 +13,14 @@ const api = {
         .then((response) => resolve(response.json()))
         .catch((error) => reject(error))
       });
+    }),
+
+    trendingWordsData: ((URL, api_key) => {
+      return new Promise((resolve, reject) => {
+        fetch(`${URL}?api_key=${api_key}`)
+        .then((response) => resolve(response.json()))
+        .catch((error) => reject(error))
+      });
     })
     
   };

@@ -141,6 +141,7 @@ font-weight: 400;
     font-family: $Montserrat;
     font-size: 0.8em;
     text-align: center;
+    cursor: pointer;
     
 }
 
@@ -160,16 +161,19 @@ font-weight: 400;
     font-size: 2.3em;
     font-weight: bold;
     text-decoration: none;
+    cursor: pointer;
 }
 
 @mixin buttons_dark {
     background-color: $bgc_dark;
     color: $white;
     border: 1px solid $white;
+    cursor: pointer;
 }
 
 @mixin buttons_dark_hover {
   background-color: $white;
   color: $bgc_dark;
+  cursor: pointer;
 
 }

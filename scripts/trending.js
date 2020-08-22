@@ -13,9 +13,6 @@ import {addEventOpenModal} from './modal.js';
 const URL = 'http://api.giphy.com/v1/gifs/trending';
 let allHTMLTrendingGifs = '';
 
-/* Modal Popup */
-
-const modal = document.getElementById("myModal");
 
 /* Slideshow Trending */
 const before_slideshow = document.getElementById("slideshow__before");
