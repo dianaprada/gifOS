@@ -4,8 +4,14 @@
 
 import {getTrendingGif, EventListener_Slideshow} from './trending.js';
 import {addEventCloseModal} from './modal.js';
-import {getSearchResultsGif, searchGlobalParam, addEventListenerViewMore} from './search.js';
+import {getSearchResultsGif, searchGlobalParam, addEventListenerViewMore, hideDivNoSearchResults, cleaninputSearch} from './search.js';
 import {getTrendingWords, getTrendingWordsPromise} from './trending_words.js';
+
+/**
+ * Exports
+ */
+export {getSearchResultsGif, searchGlobalParam, addEventListenerViewMore};
+
 
 /**
  * Global variables
@@ -42,12 +48,13 @@ const trendingWordClick = document.getElementById('searchBtn');
  */
 
 let _listenerSearch = (() => {
-    //ocultar div noResults
+    hideDivNoSearchResults();
     //limpiar div resultados debe borrar todo el innerHTML 
     cleanDivSearchResultsContainer();
     let keyword = inputSearch.value;
     document.getElementById('keywordSearch').innerHTML = keyword;
     getSearchResultsGif(keyword, 0);
+    showDivSearchResults();
     //mostrar el div resultados 
 
 }) ;
@@ -67,6 +74,7 @@ const _listenerTrendingWords = (() => {
             inputSearch.value = keyword;
             document.getElementById('keywordSearch').innerHTML = keyword;
             getSearchResultsGif(keyword, 0);
+            showDivSearchResults();
         }, false);
     
     });
@@ -107,19 +115,40 @@ const cleanDivSearchResultsContainer = (() => {
 });
 
 
+
+
+/**
+ * Show and Hidden
+ */
+
   /**
- * @method cleaninputSearch
- * @description Clear the search form
+ * @method showDivSearchResults
+ * @description Change the class of the results div
  * @param {}
  * @returns {}
 */
 
-const cleaninputSearch = (() => {
-        document.getElementById("search_form").reset();
-
+const showDivSearchResults = (() => {
+    const showResults = document.getElementById('searchResults');
+    showResults.classList.remove("searchResultsHidden");
+    showResults.classList.add("searchResults");
+    
 });
 
 
+  /**
+ * @method showDivNoSearchResults
+ * @description Change the class of the No Results Div
+ * @param {}
+ * @returns {}
+*/
+
+const showDivNoSearchResults = (() => {
+    const showNoResults = document.getElementById('searchNoResults');
+    showNoResults.classList.remove("search__noResultsHidden");
+    showNoResults.classList.add("search__noResults");
+    
+});
 
 
 
@@ -183,7 +212,6 @@ const setSearchGlobalParam = (() => {
 
 });
 
-
   /**
  * @method addEventListenerSearch
  * @description: 
@@ -215,8 +243,8 @@ const renderMsg = ((msg) => document.querySelector('.gifos-msg').innerHTML = msg
  /**
  * Run
  */
- //limpiar input text y los resultados de la búsqueda
 
+ //limpiar input text y los resultados de la búsqueda
 cleaninputSearch();
 cleanDivSearchResultsContainer();
 

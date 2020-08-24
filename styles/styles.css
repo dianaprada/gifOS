@@ -472,8 +472,10 @@ body.dark {
 ==========================================================================
  */
 .search__noResults {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
-  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -483,7 +485,7 @@ body.dark {
           align-items: center;
 }
 
-.search__noResults__noResults--h3 {
+.search__noResults--h3 {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.8em;
   color: #572EE5;
@@ -498,20 +500,11 @@ body.dark {
   padding-right: 5em;
   padding-top: 3em;
   color: #50E3C2;
+  margin-bottom: 2em;
 }
 
-.search__noResults--visible {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.search__noResultsHidden {
+  display: none;
 }
 
 .searchResults {
@@ -1897,6 +1890,7 @@ body.dark .record__buttons:hover {
   height: 7em;
   border-radius: 50%;
   background-color: #F3F5F8;
+  margin: 0 auto;
 }
 
 .favNoContent__image {
@@ -2091,12 +2085,11 @@ body.dark .record__buttons:hover {
   height: 7em;
   border-radius: 50%;
   background-color: #F3F5F8;
+  margin: 0 auto;
 }
 
 .myGifosNoContent__image {
   margin: 0 auto;
-  width: 4em;
-  height: auto;
 }
 
 .myGifosNoContent__title {

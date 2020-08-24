@@ -71,21 +71,21 @@
                 </div>
             </section>
 
-            <section class="search__noResults" id="searchNoResults" >
-                <hr class="searchResults__line">
-                <h2 class="searchResults__title">Lorem Ipsum</h2>
-                <div class="favNoContent__div">
-                    <img class="favNoContent__image" src="./assets/icon-busqueda-sin-resultado.svg" alt="Búsqueda sin Resultados">
-                </div>
-                <h3 class="search__noResults--h3">
-                    Intenta con otra búsqueda.
-                </h3>
-            </section>
+         
 
-            <section class="searchResults">
+            <section class="searchResultsHidden" id="searchResults">
                 <hr class="searchResults__line">
 
                 <h2 class="searchResults__title" id="keywordSearch">${search_words}</h2>
+
+                <div class="search__noResultsHidden" id="searchNoResults" >
+                    <div class="favNoContent__div">
+                        <img class="favNoContent__image" src="./assets/icon-busqueda-sin-resultado.svg" alt="Búsqueda sin Resultados">
+                    </div>
+                    <h3 class="search__noResults--h3">
+                        Intenta con otra búsqueda.
+                    </h3>
+                </div>
 
                 <div class="resultsGrid" id="resultsGrid" >
                     

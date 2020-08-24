@@ -79,16 +79,23 @@ const allSearchResultsCards = ((onlyonegif) => {
  */
 
 const searchResultsPagination = ((resultsPagination) => {
-    const {total_count, offset} = resultsPagination;
+    const {total_count, offset, count} = resultsPagination;
     let total_count_int = parseInt(total_count);
     let offset_int = parseInt(offset);
+    let count_int = parseInt(count);
 
     if (total_count_int === 0) {
         hiddenViewMoreButton();
-        // ocultar botón, y mostrar no hay resultados
+        showDivNoSearchResults();
+        // Cuando no hay resultados
     }
     else if (total_count_int == (offset_int + 1)) {
         hiddenViewMoreButton();
+        // Cuando llega al final de los resultados de búsqueda
+    }
+    else if (total_count_int == count_int ) {
+        hiddenViewMoreButton();
+        // Cuando los resultados son menos de 12
     }
 
     else {
@@ -96,6 +103,42 @@ const searchResultsPagination = ((resultsPagination) => {
     }
 
 });
+
+/**
+ * Show and Hidden
+ */
+
+
+  /**
+ * @method showDivNoSearchResults
+ * @description Change the class of the No Results Div
+ * @param {}
+ * @returns {}
+*/
+
+const showDivNoSearchResults = (() => {
+    const showNoResults = document.getElementById('searchNoResults');
+    showNoResults.classList.remove("search__noResultsHidden");
+    showNoResults.classList.add("search__noResults");
+    
+});
+
+  /**
+ * @method hideDivNoSearchResults
+ * @description Change the class of the No Results Div
+ * @param {}
+ * @returns {}
+*/
+
+const hideDivNoSearchResults = (() => {
+    const hideNoResults = document.getElementById('searchNoResults');
+    hideNoResults.classList.remove("search__noResults");
+    hideNoResults.classList.add("search__noResultsHidden");
+    
+    
+});
+
+
 
   /**
  * @method hiddenViewMoreButton
@@ -108,6 +151,20 @@ const hiddenViewMoreButton =( () => {
 
 });
 
+
+  /**
+ * @method cleaninputSearch
+ * @description Clear the search form
+ * @param {}
+ * @returns {}
+*/
+
+const cleaninputSearch = (() => {
+    document.getElementById("search_form").reset();
+
+});
+
+
   /**
  * @method showViewMoreButton
  * @description: 
@@ -118,6 +175,10 @@ const showViewMoreButton =( () => {
     viewMoreButton.classList.remove("searchResults__button--hidden");
 
 });
+
+/**
+ * Listeners
+ */
 
   /**
  * @method _listener
@@ -166,4 +227,4 @@ const renderMsg = ((msg) => document.querySelector('.gifos-msg').innerHTML = msg
 
 
 
-export {getSearchResultsGif, searchGlobalParam, addEventListenerViewMore};
+export {getSearchResultsGif, searchGlobalParam, addEventListenerViewMore, hideDivNoSearchResults, cleaninputSearch};

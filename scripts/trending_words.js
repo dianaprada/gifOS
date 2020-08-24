@@ -10,7 +10,7 @@ import api from './services.js';
  * Global variables
  */
 
-const URL = 'http://api.giphy.com/v1/trending/searches';
+const URLTrendingWords = 'http://api.giphy.com/v1/trending/searches';
 
 let divTrendingWordsContainer = document.getElementById('trendingWordsContainer');
 let allHTMLTrendingGifs = '';
@@ -25,7 +25,7 @@ let allHTMLTrendingGifs = '';
 
 const getTrendingWords = ((api_key) => {
     const { trendingWordsData } = api;
-    trendingWordsData(URL, api_key).then((response) => {getTrendingWordsJson(response.data);}).catch((error) => {renderMsg(error);});
+    trendingWordsData(URLTrendingWords, api_key).then((response) => {getTrendingWordsJson(response.data);}).catch((error) => {renderMsg(error);});
   });
 
 
@@ -41,7 +41,7 @@ const getTrendingWords = ((api_key) => {
 
         const { trendingWordsData } = api;
 
-        trendingWordsData(URL, api_key)
+        trendingWordsData(URLTrendingWords, api_key)
         .then((response) => {
             getTrendingWordsJson(response.data);
         }).catch((error) => {

@@ -10,7 +10,7 @@ import {addEventOpenModal} from './modal.js';
  * Global variables
  */
 
-const URL = 'http://api.giphy.com/v1/gifs/trending';
+const URLTrending = 'http://api.giphy.com/v1/gifs/trending';
 let allHTMLTrendingGifs = '';
 
 
@@ -28,7 +28,7 @@ const after_slideshow = document.getElementById("slideshow__after");
 const getTrendingGif = ((divTrendingContainer, api_key) => {
     allHTMLTrendingGifs = '';
     const { trendingData } = api;
-    trendingData(URL, api_key, 15)
+    trendingData(URLTrending, api_key, 15)
     .then((response) => {
         getTrendingJson(response.data, divTrendingContainer);
     }).catch((error) => {
