@@ -70,7 +70,7 @@ const getTrendingWords = ((api_key) => {
   /**
  * @method trendingWords
  * @description Crea el HTML
- * @param {array} allTrendingWords
+ * @param {array} 
  * @returns {}
  */
 

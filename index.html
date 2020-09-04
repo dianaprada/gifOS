@@ -53,13 +53,24 @@
                 <img class="search__image" src="./assets/ilustra_header.svg" alt="Imagen GifOS">
 
                 <div class="search__container">
-                    <form action="#" name="search_form" id="search_form" autocomplete="on">
-                        <input class="search__input" id="searchInput" type="text" name="search_input" tabindex="1"
-                            placeholder="Busca GIFOS y más">
-                    </form>
+                    <div  class="search__bar">
+                        <button class="suggested-words__buttonLeft hidden" id="searchBtnLeft" value="Send"><i class="icon-icon-search"></i></button>
+                        <form action="#" name="search_form" id="search_form">
+                            <input class="search__input" id="searchInput" type="text" name="search_input" tabindex="1"
+                                placeholder="Busca GIFOS y más">
+                        </form>
+    
+                        <button class="search__submit" id="searchBtn" value="Send"><i class="icon-icon-search"></i></button>
+                        <button class="search__submit search__submit--close hidden" id="searchBtnClose" ><i class="icon-button-close"></i></button>
+                    </div>
 
-                    <button class="search__submit" id="searchBtn" value="Send"><i class="fas fa-search"></i></button>
+                    <ul class="suggested-words hidden" id="suggestedWords">
+        
+                    </ul>
+                    
+
                 </div>
+                
 
 
                 <div class="search_div">

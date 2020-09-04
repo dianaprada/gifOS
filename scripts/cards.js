@@ -11,10 +11,10 @@ const CardsTrending = ((id, img, title, username) => {
                <img  class="card__gif" src=${img} alt="${title}" >
                <div class="card__info" id="cards_hover">
                    <div class="card__info--buttons" id="buttons_card">
-                       <button class="card__info--span" id="favorite_gif">
-                           <span class="icon-icon-fav-hover"></span>
-                           <span class="icon-icon-fav-active"></span></button>
-                       <button class="card__info--span" id="download-gif">
+                       <button class="card__info--span addFavorite" id="favorite-gif" data-gif_id="${id}">
+                           <span class="icon-icon-fav-hover" id="favButton-inactive"></span>
+                           <span class="icon-icon-fav-active" id="favButton-active"></span></button>
+                       <button class="card__info--span" id="download-gif" data-gif_id="${id}">
                            <span class="icon-icon-download"></span></button>
                        <button class="card__info--span show-modal" id="show-modal" data-gif_id="${id}" data-gif_img="${img}" data-gif_title="${title}" data-gif_username="${username}">
                            <span class="icon-icon-max"></span></button>
@@ -40,10 +40,10 @@ const CardsSearchResults = ((id, img, title, username) => {
             <img class="resultsCard__gif" src=${img} alt="${title}">
             <div class="resultsCard__info" id="cards_hover">
                 <div class="card__info--buttons" id="buttons_card">
-                    <button class="card__info--span" id="favorite_gif">
-                        <span class="icon-icon-fav-hover"></span>
-                        <span class="icon-icon-fav-active"></span></button>
-                    <button class="card__info--span" id="download-gif">
+                    <button class="card__info--span addFavorite" id="favorite-gif" data-gif_id="${id}">
+                        <span class="icon-icon-fav-hover" id="favButton-inactive"></span>
+                        <span class="icon-icon-fav-active" id="favButton-active"></span></button>
+                    <button class="card__info--span" id="download-gif" data-gif_id="${id}">
                         <span class="icon-icon-download"></span></button>
                     <button class="card__info--span show-modal" id="show-modal" data-gif_id="${id}" data-gif_img="${img}" data-gif_title="${title}" data-gif_username="${username}">
                         <span class="icon-icon-max"></span></button>

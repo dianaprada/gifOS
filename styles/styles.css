@@ -339,11 +339,6 @@ body.dark {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  /*
-     &__input:focus{
-        border: 0;
-        outline: none;
-     }*/
 }
 
 .search__image {
@@ -355,34 +350,32 @@ body.dark {
 
 .search__container {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-left: auto;
-  margin-right: auto;
   border: 1px solid #572EE5;
-  border-radius: 27px;
   width: 20.9em;
+  min-height: 3.125em;
+  border-radius: 27px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.search__bar {
+  position: relative;
   height: 3.125em;
 }
 
 .search__input {
-  position: relative;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   color: #000000;
-  border: 0em;
-  left: 2em;
-  width: 15em;
-  height: 2.5em;
-  /*outline: none;*/
+  position: absolute;
+  left: 55px;
+  top: 15px;
+  max-width: 26.25em;
+  border: 0;
+  padding: 0;
+  margin: 0px;
+  outline: none;
 }
 
 .search__input::-webkit-input-placeholder {
@@ -390,7 +383,7 @@ body.dark {
   font-size: 16px;
   color: #9CAFC3;
   text-align: left;
-  padding-left: 3em;
+  padding-left: 1em;
   border: 0em;
 }
 
@@ -399,7 +392,7 @@ body.dark {
   font-size: 16px;
   color: #9CAFC3;
   text-align: left;
-  padding-left: 3em;
+  padding-left: 1em;
   border: 0em;
 }
 
@@ -408,7 +401,7 @@ body.dark {
   font-size: 16px;
   color: #9CAFC3;
   text-align: left;
-  padding-left: 3em;
+  padding-left: 1em;
   border: 0em;
 }
 
@@ -417,17 +410,71 @@ body.dark {
   font-size: 16px;
   color: #9CAFC3;
   text-align: left;
-  padding-left: 3em;
+  padding-left: 1em;
   border: 0em;
 }
 
 .search__submit {
-  margin-left: auto;
-  margin-right: 1em;
-  background-color: #fff;
-  border: 0em;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 20px;
+  background-color: white;
+  outline: none;
   color: #572EE5;
+  border: 0em;
   cursor: pointer;
+}
+
+.search__submit--close {
+  top: 18px;
+  font-size: 14px;
+}
+
+/* Hide */
+.hidden {
+  display: none;
+}
+
+/* Suggested search */
+.suggested-words {
+  border-top: 1px solid #9CAFC3;
+  position: relative;
+  max-width: 503px;
+  padding: 14px 0 8px;
+  margin: 0 24px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.suggested-words__li {
+  list-style: none;
+  color: #9CAFC3;
+  margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: capitalize;
+  letter-spacing: 0;
+  line-height: 15px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.suggested-words__li .icon-icon-search {
+  margin-right: 1em;
+}
+
+.suggested-words__buttonLeft {
+  position: relative;
+  color: #9CAFC3;
+  left: 1em;
+  top: 1em;
+  border: 0em;
+  background-color: transparent;
+}
+
+/* Div H's - Trending Words */
+.search_div {
+  position: relative;
 }
 
 .search_div__h3 {
@@ -470,7 +517,7 @@ body.dark {
 ========================================================================== */
 /* Search Results
 ==========================================================================
- */
+*/
 .search__noResults {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -611,7 +658,6 @@ body.dark {
   }
   .search__container {
     width: 34.4em;
-    height: 3.125em;
   }
   .search__input {
     width: 29.5em;
@@ -643,11 +689,11 @@ body.dark {
     padding-right: 10em;
   }
   /* 
-   ========================================================================== */
+ ========================================================================== */
   /* Search Results
-   /* 64em = 1024px @ 16px font
-   ==========================================================================
-   */
+ /* 64em = 1024px @ 16px font
+ ==========================================================================
+ */
   .search__noResults__noResults--h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1em;

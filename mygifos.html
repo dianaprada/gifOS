@@ -302,7 +302,8 @@
 
 
                 <div class="slideshow">
-                    <button class="slideshow__before"> &#xe903; </button>
+
+                    <button class="slideshow__before" id="slideshow__before"> &#xe903; </button>
 
                     <div class="slideshow__cards">
 
@@ -310,15 +311,16 @@
 
                     </div>
 
-                    <button class="slideshow__after"> &#xe904; </button>
+                    <button class="slideshow__after" id="slideshow__after"> &#xe904; </button>
+
                 </div>
 
             </section>
 
-             <!-- MODAL -->
+            <!-- MODAL -->
 
            
-             <div class="modal" id="myModal">
+            <div class="modal" id="myModal">
 
                 <div class="modal-content">
 
@@ -327,13 +329,13 @@
                     </button>
 
                     <div class="modal__gif">
-                        <img class="modal__gif_img" id="modal_gif_img" src="https://media.giphy.com/media/5pYo6sWTaoHs7pnXaK/giphy.gif"
+                        <img class="modal__gif_img" id="modal_gif_img" >
                     </div>
 
                     <div class="modal__p-buttons"> 
                         <div class="modal__p">
-                            <p class="resultsCard__info--p1 modal_p" id="show_username_gif">${username}</p>
-                            <p class="resultsCard__info--p2 modal_p" id="show_title_gif">${title}</p>
+                            <p class="modal_p" id="show_username_gif"></p>
+                            <p class="modal_p" id="show_title_gif"></p>
                         </div>
                     
                         <div class="card__info--buttons modal__buttons" id="buttons_card">
@@ -381,7 +383,7 @@
     </div>
     <div class="gifos-msg"></div>
     <script src="https://kit.fontawesome.com/7396023e43.js" crossorigin="anonymous"></script>
-    <script type="module" src="scripts/main.js"></script>
+    <script type="module" src="scripts/main_mygifos.js"></script>
 
 </body>
 

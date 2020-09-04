@@ -21,7 +21,31 @@ const api = {
         .then((response) => resolve(response.json()))
         .catch((error) => reject(error))
       });
-    })
+    }),
+
+    autocompleteData: ((URL, api_key, keyword, offset=5) => {
+      return new Promise((resolve, reject) => {
+        fetch(`${URL}?api_key=${api_key}&q=${keyword}&offset=${offset}`)
+        .then((response) => resolve(response.json()))
+        .catch((error) => reject(error))
+      });
+    }),
+
+    gifByIDData: ((URL, gif_id, api_key) => {
+      return new Promise((resolve, reject) => {
+        fetch(`${URL}/${gif_id}?api_key=${api_key}`)
+        .then((response) => resolve(response.json()))
+        .catch((error) => reject(error))
+      });
+    }),
+
+    gifsByIDData: ((URL, api_key, ids ) => {
+      return new Promise((resolve, reject) => {
+        fetch(`${URL}?api_key=${api_key}&ids=${ids}`)
+        .then((response) => resolve(response.json()))
+        .catch((error) => reject(error))
+      });
+    }),
     
   };
   

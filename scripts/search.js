@@ -37,6 +37,7 @@ const getSearchResultsGif = ((keyword, offset) => {
     }).catch((error) => {
       renderMsg(error);
     });
+    
   });
 
 
@@ -72,9 +73,14 @@ const allSearchResultsCards = ((onlyonegif) => {
 
 });
 
+
+/**
+ * Pagination
+ */
+
   /**
  * @method searchResultsPagination
- * @description: Extraer la información para crear el HTML
+ * @description: Pagination of search results with view more button 
  * @returns {}
  */
 
@@ -125,7 +131,7 @@ const showDivNoSearchResults = (() => {
 
   /**
  * @method hideDivNoSearchResults
- * @description Change the class of the No Results Div
+ * @description hide Div No search results
  * @param {}
  * @returns {}
 */
@@ -139,10 +145,9 @@ const hideDivNoSearchResults = (() => {
 });
 
 
-
   /**
  * @method hiddenViewMoreButton
- * @description: Extraer la información para crear el HTML
+ * @description: hide the view more button
  * @returns {}
  */
 
@@ -150,6 +155,23 @@ const hiddenViewMoreButton =( () => {
     viewMoreButton.classList.add("searchResults__button--hidden");
 
 });
+
+
+  /**
+ * @method showViewMoreButton
+ * @description: Show the view more button 
+ * @returns {}
+ */
+
+const showViewMoreButton =( () => {
+    viewMoreButton.classList.remove("searchResults__button--hidden");
+
+});
+
+
+/**
+ * Cleaners
+ */
 
 
   /**
@@ -164,17 +186,6 @@ const cleaninputSearch = (() => {
 
 });
 
-
-  /**
- * @method showViewMoreButton
- * @description: 
- * @returns {}
- */
-
-const showViewMoreButton =( () => {
-    viewMoreButton.classList.remove("searchResults__button--hidden");
-
-});
 
 /**
  * Listeners

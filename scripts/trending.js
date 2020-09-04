@@ -4,13 +4,13 @@
 import api from './services.js';
 import {CardsTrending} from './cards.js';
 import {addEventOpenModal} from './modal.js';
+import {api_key, URLTrending} from './global_variables.js';
 
 
 /**
  * Global variables
  */
 
-const URLTrending = 'http://api.giphy.com/v1/gifs/trending';
 let allHTMLTrendingGifs = '';
 
 
@@ -25,7 +25,7 @@ const after_slideshow = document.getElementById("slideshow__after");
  * @returns {}
  */
 
-const getTrendingGif = ((divTrendingContainer, api_key) => {
+const getTrendingGif = ((divTrendingContainer) => {
     allHTMLTrendingGifs = '';
     const { trendingData } = api;
     trendingData(URLTrending, api_key, 15)

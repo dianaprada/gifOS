@@ -23,10 +23,8 @@ const addEventOpenModal = (buttonCards) => {
         let gif_title = buttonCard.getAttribute("data-gif_title");
         buttonCard.addEventListener("click",  () => {
             toggleModal(gif_id, gif_img, gif_username, gif_title);
-        }, false);
-    
+        }, false);    
 });
-
 }
 
 /**

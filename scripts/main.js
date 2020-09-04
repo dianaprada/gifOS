@@ -6,6 +6,8 @@ import {getTrendingGif, EventListener_Slideshow} from './trending.js';
 import {addEventCloseModal} from './modal.js';
 import {getSearchResultsGif, searchGlobalParam, addEventListenerViewMore, hideDivNoSearchResults, cleaninputSearch} from './search.js';
 import {getTrendingWords, getTrendingWordsPromise} from './trending_words.js';
+import {getAutocompleteWord, toggleActiveSearchStyles, toggleInactiveSearchStyles} from './autocomplete.js';
+
 
 /**
  * Exports
@@ -19,10 +21,10 @@ export {getSearchResultsGif, searchGlobalParam, addEventListenerViewMore};
 
 const api_key = 'FXvt5yHvROwhxmFNSs87LoAAc6qhfrwz';
 
-
 /* Trending Cards and Slideshow Trending */
 const divElementContainerCards = document.querySelector('.slideshow__cards');
 const divSearchResultsContainer = document.querySelector('.resultsGrid');
+
 /* DarkMode */
 let darkMode = localStorage.getItem('darkMode'); 
 const darkModeToggle = document.querySelector('.dark_mode');
@@ -37,9 +39,11 @@ const inputSearch = document.getElementById('searchInput');
 /* Keyword Search - Input - Button */
 const trendingWordClick = document.getElementById('searchBtn');
 
+
 /**
  * Listeners
- */
+*/
+
 
 /**
  * @method _listenerSearch
@@ -56,8 +60,8 @@ let _listenerSearch = (() => {
     getSearchResultsGif(keyword, 0);
     showDivSearchResults();
     //mostrar el div resultados 
+});
 
-}) ;
 
 /**
  * @method _listenerTrendingWords
@@ -69,6 +73,7 @@ const _listenerTrendingWords = (() => {
     let trendingWords = trendingWordsContainer.querySelectorAll('.trending_words');
     trendingWords.forEach(trendingWord => {        
         trendingWord.addEventListener("click",  () => {
+            hideDivNoSearchResults();
             cleanDivSearchResultsContainer();
             let keyword = trendingWord.innerHTML;
             inputSearch.value = keyword;
@@ -81,7 +86,12 @@ const _listenerTrendingWords = (() => {
 });
 
 
- /**
+/**
+ * Trending words Promise
+*/
+
+
+/**
  * @method getTrendingWordsAwait
  * @description Hace que el _listenerTrendingWords espere a que el getTrendingWordsPromise se resuelva para continuar
  * @param {}
@@ -95,14 +105,15 @@ const getTrendingWordsAwait = (() => {
     }).catch((error) => {
       renderMsg(error);
     });
-  });
+});
 
 
 /**
  * Clean
  */
 
-  /**
+
+/**
  * @method cleanDivSearchResultsContainer
  * @description Clean search results
  * @param {}
@@ -115,15 +126,27 @@ const cleanDivSearchResultsContainer = (() => {
 });
 
 
+/**
+ * @method cleansuggestedWordsUL
+ * @description Clean Suggested Words UL (Autocomplete) 
+ * @param {}
+ * @returns {}
+*/
+
+const cleansuggestedWordsUL = (() => {
+    document.getElementById("suggestedWords").innerHTML = "";
+
+});
 
 
 /**
  * Show and Hidden
  */
 
-  /**
+
+/**
  * @method showDivSearchResults
- * @description Change the class of the results div
+ * @description Change the class of the Search Results div
  * @param {}
  * @returns {}
 */
@@ -136,9 +159,9 @@ const showDivSearchResults = (() => {
 });
 
 
-  /**
+/**
  * @method showDivNoSearchResults
- * @description Change the class of the No Results Div
+ * @description Change the class of the No Search Results Div
  * @param {}
  * @returns {}
 */
@@ -151,10 +174,9 @@ const showDivNoSearchResults = (() => {
 });
 
 
-
 /**
  * Dark Mode
- */
+*/
 
 
 /**
@@ -170,6 +192,7 @@ const enableDarkMode = () => {
 
     localStorage.setItem('darkMode', 'enabled');
 }
+
 
 /**
  * @method disableDarkMode
@@ -199,6 +222,12 @@ darkModeToggle.addEventListener('click', () => {
     }
 });
 
+
+/**
+ * Search Global Parameters
+*/
+
+
 /**
  * @method setSearchGlobalParam
  * @description 
@@ -212,13 +241,19 @@ const setSearchGlobalParam = (() => {
 
 });
 
-  /**
+
+/**
+ * Add Event Listeners
+*/
+
+
+/**
  * @method addEventListenerSearch
  * @description: 
  * @returns {}
  */
 
- const addEventListenerSearch = (() => {
+const addEventListenerSearch = (() => {
     btnSearch.addEventListener("click", _listenerSearch, false);
     inputSearch.addEventListener('keypress', function (e) {
         if (e.keyCode == 13) {
@@ -229,7 +264,47 @@ const setSearchGlobalParam = (() => {
  });
 
 
+ /**
+ * @method addEventListenerAutocomplete
+ * @description: 
+ * @returns {}
+ */
 
+const addEventListenerAutocomplete = (() => {
+    inputSearch.addEventListener('input', function (e) {
+        if (e.keyCode !== 13) {
+            cleansuggestedWordsUL();
+            getAutocompleteWord(api_key, inputSearch.value);
+            toggleActiveSearchStyles();   
+            addEventListenerCloseAutocomplete();
+        }
+    });  
+ });
+
+
+  /**
+ * @method addEventListenerAutocomplete
+ * @description: 
+ * @returns {}
+ */
+
+const addEventListenerCloseAutocomplete = (() => {
+    const closeIcon = document.getElementById('searchBtnClose');
+    closeIcon.addEventListener('click', function (e) {
+        const autocompleteWordsContainer = document.getElementById('suggestedWords');
+        autocompleteWordsContainer.classList.add("hidden");
+        cleansuggestedWordsUL(); 
+        toggleInactiveSearchStyles();
+        
+    });
+ });
+
+ 
+/**
+ * Error Messages
+*/
+
+ 
  /**
  * @method renderMsg
  * @description Render message on the DOM  revizar
@@ -239,21 +314,27 @@ const setSearchGlobalParam = (() => {
 const renderMsg = ((msg) => document.querySelector('.gifos-msg').innerHTML = msg );
 
 
-
- /**
+/**
  * Run
- */
+*/
 
- //limpiar input text y los resultados de la búsqueda
+//limpiar input text y los resultados de la búsqueda
 cleaninputSearch();
 cleanDivSearchResultsContainer();
 
-getTrendingGif (divElementContainerCards, api_key);
-EventListener_Slideshow(divElementContainerCards);
-addEventCloseModal(closeButton);
-setSearchGlobalParam();
+getTrendingGif (divElementContainerCards);
 getTrendingWordsAwait();
 
+//Global Parameters
+setSearchGlobalParam();
+
+//Listeners
+EventListener_Slideshow(divElementContainerCards);
+addEventCloseModal(closeButton);
 addEventListenerViewMore();
 addEventListenerSearch();
+addEventListenerAutocomplete();
+
+
+
 
