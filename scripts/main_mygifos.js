@@ -4,6 +4,7 @@
 
 import {getTrendingGif, EventListener_Slideshow} from './trending.js';
 import {addEventCloseModal} from './modal.js';
+import {changeTheme, verifyTheme} from './darkmode.js';
 import {addEventFavModal} from './favorites.js';
 
 
@@ -39,9 +40,13 @@ const renderMsg = ((msg) => document.querySelector('.gifos-msg').innerHTML = msg
 
 getTrendingGif (divElementContainerCards);
 
+/*  DarkMode  */
+verifyTheme();
+
 /*  Listeners  */
 EventListener_Slideshow(divElementContainerCards);
 addEventFavModal();
 addEventCloseModal(closeButton);
+changeTheme();
 
 

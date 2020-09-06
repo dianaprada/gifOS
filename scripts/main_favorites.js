@@ -4,6 +4,7 @@
 
 import {getTrendingGif, EventListener_Slideshow} from './trending.js';
 import {addEventCloseModal} from './modal.js';
+import {changeTheme, verifyTheme} from './darkmode.js';
 import {loadFavorites, addEventListenerFavViewMore} from './favorites.js';
 import {addEventFavModal} from './favorites.js';
 
@@ -59,11 +60,15 @@ loadFavorites(0);
 
 getTrendingGif (divElementContainerCards);
 
+/*  DarkMode  */
+verifyTheme();
+
 /*  Listeners  */
 EventListener_Slideshow(divElementContainerCards);
 addEventFavModal();
 addEventCloseModal(closeButton);
 addEventListenerCloseModal();
 addEventListenerFavViewMore();
+changeTheme();
 
 

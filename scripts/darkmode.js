@@ -1,8 +1,9 @@
-
 /**
- * Dark Mode
-*/
+ * Global variables
+ */
 
+let darkMode = localStorage.getItem('darkMode'); 
+const darkModeToggle = document.querySelector('.dark_mode');
 
 /**
  * @method enableDarkMode
@@ -30,24 +31,37 @@ const disableDarkMode = () => {
     document.body.classList.remove('dark');
     document.getElementById("dark_ligth").innerHTML = "Modo Nocturno";
 
-    localStorage.setItem('darkMode', null);
+    localStorage.setItem('darkMode', 'disable');
 }
- 
-  if (darkMode === 'enabled') {
-    enableDarkMode();
-  }
 
-darkModeToggle.addEventListener('click', () => {
+const verifyTheme = (() => {
     darkMode = localStorage.getItem('darkMode'); 
-    if (darkMode !== 'enabled') {
+    if (!darkMode){
+        localStorage.setItem('darkMode', 'disable');
+    }
+    if (darkMode == 'enabled') {
         enableDarkMode();
      } 
     else {  
         disableDarkMode(); 
     }
-});
+})
+ 
+const changeTheme = (() => {
+    darkModeToggle.addEventListener('click', () => {
+        darkMode = localStorage.getItem('darkMode'); 
+        if (darkMode !== 'enabled') {
+            enableDarkMode();
+         } 
+        else {  
+            disableDarkMode(); 
+        }
+    });
+
+})
+
 
 /**
  * Exports
  */
-export { };
+export {changeTheme, verifyTheme};

@@ -4,6 +4,7 @@
 
 import {getTrendingGif, EventListener_Slideshow} from './trending.js';
 import {addEventCloseModal} from './modal.js';
+import {changeTheme, verifyTheme} from './darkmode.js';
 import {addEventFavModal} from './favorites.js';
 import {getSearchResultsGif, searchGlobalParam, addEventListenerViewMore, hideDivNoSearchResults, cleaninputSearch} from './search.js';
 import {getTrendingWords, getTrendingWordsPromise} from './trending_words.js';
@@ -21,9 +22,7 @@ const api_key = 'FXvt5yHvROwhxmFNSs87LoAAc6qhfrwz';
 const divElementContainerCards = document.querySelector('.slideshow__cards');
 const divSearchResultsContainer = document.querySelector('.resultsGrid');
 
-/* DarkMode */
-let darkMode = localStorage.getItem('darkMode'); 
-const darkModeToggle = document.querySelector('.dark_mode');
+
 
 /* Modal Popup */
 const closeButton = document.getElementById("close-button");
@@ -170,51 +169,6 @@ const showDivNoSearchResults = (() => {
 });
 
 
-/**
- * Dark Mode
-*/
-
-
-/**
- * @method enableDarkMode
- * @description Enable DarkMode and Update darkMode in localStorage
- * @param {}
- * @returns {}
- */
-
-const enableDarkMode = () => {
-    document.body.classList.add('dark');
-    document.getElementById("dark_ligth").innerHTML = "Modo Diurno";
-
-    localStorage.setItem('darkMode', 'enabled');
-}
-
-
-/**
- * @method disableDarkMode
- * @description Disable DarkMode and Update darkMode in localStorage
- * @param {}
- * @returns {}
-*/
-
-const disableDarkMode = () => {
-    document.body.classList.remove('dark');
-    document.getElementById("dark_ligth").innerHTML = "Modo Nocturno";
-
-    localStorage.setItem('darkMode', null);
-}
- 
-darkModeToggle.addEventListener('click', () => {
-    darkMode = localStorage.getItem('darkMode'); 
-    if (darkMode !== 'enabled') {
-        enableDarkMode();
-     } 
-    else {  
-        disableDarkMode(); 
-    }
-});
-
-
 
 /**
  * Search Global Parameters
@@ -317,6 +271,9 @@ const renderMsg = ((msg) => document.querySelector('.gifos-msg').innerHTML = msg
 cleaninputSearch();
 cleanDivSearchResultsContainer();
 
+/*  DarkMode  */
+verifyTheme();
+
 /*  API callers  */
 getTrendingGif (divElementContainerCards);
 getTrendingWordsAwait();
@@ -331,6 +288,7 @@ addEventCloseModal(closeButton);
 addEventListenerViewMore();
 addEventListenerSearch();
 addEventListenerAutocomplete();
+changeTheme();
 
 /**
  * Exports
