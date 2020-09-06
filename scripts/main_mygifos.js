@@ -4,6 +4,8 @@
 
 import {getTrendingGif, EventListener_Slideshow} from './trending.js';
 import {addEventCloseModal} from './modal.js';
+import {addEventFavModal} from './favorites.js';
+
 
 /**
  * Global variables
@@ -37,6 +39,9 @@ const renderMsg = ((msg) => document.querySelector('.gifos-msg').innerHTML = msg
 
 getTrendingGif (divElementContainerCards);
 
-//Listeners
+/*  Listeners  */
 EventListener_Slideshow(divElementContainerCards);
+addEventFavModal();
 addEventCloseModal(closeButton);
+
+

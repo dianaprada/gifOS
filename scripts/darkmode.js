@@ -47,3 +47,7 @@ darkModeToggle.addEventListener('click', () => {
     }
 });
 
+/**
+ * Exports
+ */
+export { };

@@ -39,7 +39,7 @@ const api = {
       });
     }),
 
-    gifsByIDData: ((URL, api_key, ids ) => {
+    gifsByIDData: ((URL, api_key, ids) => {
       return new Promise((resolve, reject) => {
         fetch(`${URL}?api_key=${api_key}&ids=${ids}`)
         .then((response) => resolve(response.json()))

@@ -53,56 +53,60 @@
                 <img class="search__image" src="./assets/ilustra_header.svg" alt="Imagen GifOS">
 
                 <div class="search__container">
-                    <div  class="search__bar">
-                        <button class="suggested-words__buttonLeft hidden" id="searchBtnLeft" value="Send"><i class="icon-icon-search"></i></button>
+                    <div class="search__bar">
+                        <button class="suggested-words__buttonLeft hidden" id="searchBtnLeft" value="Send"><i
+                                class="icon-icon-search"></i></button>
                         <form action="#" name="search_form" id="search_form">
                             <input class="search__input" id="searchInput" type="text" name="search_input" tabindex="1"
                                 placeholder="Busca GIFOS y más">
                         </form>
-    
-                        <button class="search__submit" id="searchBtn" value="Send"><i class="icon-icon-search"></i></button>
-                        <button class="search__submit search__submit--close hidden" id="searchBtnClose" ><i class="icon-button-close"></i></button>
+
+                        <button class="search__submit" id="searchBtn" value="Send"><i
+                                class="icon-icon-search"></i></button>
+                        <button class="search__submit search__submit--close hidden" id="searchBtnClose"><i
+                                class="icon-button-close"></i></button>
                     </div>
 
                     <ul class="suggested-words hidden" id="suggestedWords">
-        
+
+                        <!-- autocompleteWordsContainer -->
+
                     </ul>
-                    
 
                 </div>
-                
-
 
                 <div class="search_div">
                     <h3 class="search_div__h3">Trending: </h3>
 
                     <h4 class="search_div__h4" id="trendingWordsContainer">
                         
+                        <!-- divTrendingWordsContainer -->
+
                     </h4>
                 </div>
             </section>
-
-         
 
             <section class="searchResultsHidden" id="searchResults">
                 <hr class="searchResults__line">
 
                 <h2 class="searchResults__title" id="keywordSearch">${search_words}</h2>
 
-                <div class="search__noResultsHidden" id="searchNoResults" >
+                <div class="search__noResultsHidden" id="searchNoResults">
                     <div class="favNoContent__div">
-                        <img class="favNoContent__image" src="./assets/icon-busqueda-sin-resultado.svg" alt="Búsqueda sin Resultados">
+                        <img class="favNoContent__image" src="./assets/icon-busqueda-sin-resultado.svg"
+                            alt="Búsqueda sin Resultados">
                     </div>
                     <h3 class="search__noResults--h3">
                         Intenta con otra búsqueda.
                     </h3>
                 </div>
 
-                <div class="resultsGrid" id="resultsGrid" >
-                    
+                <div class="resultsGrid" id="resultsGrid">
+
+                    <!-- divSearchResultsContainer -->
 
                 </div>
-                
+
                 <button class="searchResults__button" id="searchResults_button">Ver más</button>
 
             </section>
@@ -120,14 +124,13 @@
                     </p>
                 </div>
 
-
                 <div class="slideshow">
 
                     <button class="slideshow__before" id="slideshow__before"> &#xe903; </button>
 
                     <div class="slideshow__cards">
 
-
+                        <!-- divTrendingContainer -->
 
                     </div>
 
@@ -139,7 +142,7 @@
 
             <!-- MODAL -->
 
-           
+
             <div class="modal" id="myModal">
 
                 <div class="modal-content">
@@ -149,25 +152,26 @@
                     </button>
 
                     <div class="modal__gif">
-                        <img class="modal__gif_img" id="modal_gif_img" >
+                        <img class="modal__gif_img" id="modal_gif_img">
                     </div>
 
-                    <div class="modal__p-buttons"> 
+                    <div class="modal__p-buttons">
                         <div class="modal__p">
                             <p class="modal_p" id="show_username_gif"></p>
                             <p class="modal_p" id="show_title_gif"></p>
                         </div>
-                    
+
                         <div class="card__info--buttons modal__buttons" id="buttons_card">
-                            <button class="card__info--span" id="favorite_gif">
+                            <button class="card__info--span" id="favorite-gif-Modal">
                                 <span class="icon-icon-fav-hover"></span>
-                                <span class="icon-icon-fav-active"></span></button>
+                            </button>
                             <button class="card__info--span" id="download-gif">
                                 <span class="icon-icon-download"></span></button>
                         </div>
                     </div>
                 </div>
             </div>
+
             <!-- FIN MODAL -->
 
         </main>

@@ -4,7 +4,9 @@
 
 import {getTrendingGif, EventListener_Slideshow} from './trending.js';
 import {addEventCloseModal} from './modal.js';
-import {loadFavorites} from './favorites.js';
+import {loadFavorites, addEventListenerFavViewMore} from './favorites.js';
+import {addEventFavModal} from './favorites.js';
+
 
 /**
  * Global variables
@@ -16,6 +18,22 @@ const divElementContainerCards = document.querySelector('.slideshow__cards');
 /* Modal Popup */
 const closeButton = document.getElementById("close-button");
 
+
+const prueba = (() => {
+    loadFavorites(0);
+})
+
+
+/**
+* @method addEventListenerCloseModal
+* @description: 
+* @returns {}
+*/
+
+const addEventListenerCloseModal = (() => {
+    closeButton.addEventListener("click", prueba);
+  });
+  
 
 
 /**
@@ -35,10 +53,17 @@ const renderMsg = ((msg) => document.querySelector('.gifos-msg').innerHTML = msg
 /**
  * Run
 */
-let ids = 'KpLPyE3D6HJPa,efgsSvAvMjOpy';
-loadFavorites();
+
+
+loadFavorites(0);
+
 getTrendingGif (divElementContainerCards);
 
-//Listeners
+/*  Listeners  */
 EventListener_Slideshow(divElementContainerCards);
+addEventFavModal();
 addEventCloseModal(closeButton);
+addEventListenerCloseModal();
+addEventListenerFavViewMore();
+
+

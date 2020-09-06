@@ -41,6 +41,15 @@
 
 /* 
 ========================================================================== */
+/* Hide
+==========================================================================
+ */
+.hidden {
+  display: none;
+}
+
+/* 
+========================================================================== */
 /* Dark Mode
 ==========================================================================
  */
@@ -429,11 +438,6 @@ body.dark {
 .search__submit--close {
   top: 18px;
   font-size: 14px;
-}
-
-/* Hide */
-.hidden {
-  display: none;
 }
 
 /* Suggested search */
@@ -1150,21 +1154,12 @@ body.dark .close-button {
   opacity: 1;
 }
 
-.card__info--span:active .icon-icon-fav-hover {
-  display: none;
-}
-
-.card__info--span:active .icon-icon-fav-active {
-  display: block;
-  font-size: 0.75em;
-}
-
 .icon-icon-fav-hover {
   font-size: 0.75em;
 }
 
 .icon-icon-fav-active {
-  display: none;
+  font-size: 0.75em;
 }
 
 .icon-icon-download {
@@ -1344,7 +1339,7 @@ body.dark .close-button {
     font-size: 1em;
   }
   .icon-icon-fav-active {
-    display: none;
+    font-size: 1em;
   }
   .icon-icon-download {
     font-size: 1em;
@@ -1359,10 +1354,6 @@ body.dark .close-button {
   .card__info--p2 {
     top: 25%;
     font-size: 0.9em;
-  }
-  .card__info--span:active .icon-icon-fav-active {
-    display: block;
-    font-size: 1em;
   }
 }
 

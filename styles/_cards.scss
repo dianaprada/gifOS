@@ -71,21 +71,15 @@
     opacity: 1;
 }
 
-.card__info--span:active .icon-icon-fav-hover{
-    display:none;
-}
-.card__info--span:active .icon-icon-fav-active{
-    display: block;
-    font-size: 0.75em;
-}
 
 .icon-icon-fav-hover{
     font-size: 0.75em;
 }
 
 .icon-icon-fav-active{
-    display:none;
+    font-size: 0.75em;
 }
+
 
 .icon-icon-download{
     font-size: 0.75em;
@@ -285,7 +279,7 @@
         }
     
     .icon-icon-fav-active{
-        display:none;
+        font-size: 1em;
         }
     
     .icon-icon-download{
@@ -308,10 +302,6 @@
            
         }
     
-    .card__info--span:active .icon-icon-fav-active{
-        display: block;
-        font-size: 1em;
-    }
 
 
 

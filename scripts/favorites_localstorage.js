@@ -15,7 +15,6 @@ import {LOCAL_STORAGE_FAVORITE_GIFS} from './global_variables.js';
 /** Add and remove to Localstorage
 */
 
-
 /**
  * @method addGifLocalStorage
  * @description Add localstorage method of all cards

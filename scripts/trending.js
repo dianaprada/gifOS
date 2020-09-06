@@ -5,6 +5,7 @@ import api from './services.js';
 import {CardsTrending} from './cards.js';
 import {addEventOpenModal} from './modal.js';
 import {api_key, URLTrending} from './global_variables.js';
+import {addEventFavButtonTrendingSearch} from './favorites.js';
 
 
 /**
@@ -50,6 +51,7 @@ const getTrendingGif = ((divTrendingContainer) => {
         divTrendingContainer.innerHTML = allCards(everygif);        
     });
     addEventOpenModal(divTrendingContainer.querySelectorAll('.show-modal'));
+    addEventFavButtonTrendingSearch(divTrendingContainer.querySelectorAll('.addFavorite'));
  });
 
   /**

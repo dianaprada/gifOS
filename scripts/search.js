@@ -4,6 +4,8 @@
 import api from './services.js';
 import {CardsSearchResults} from './cards.js';
 import {addEventOpenModal} from './modal.js';
+import {addEventFavButtonTrendingSearch} from './favorites.js';
+import {api_key, divFavGridContainer} from './global_variables.js';
 
 
 
@@ -28,7 +30,7 @@ const searchGlobalParam = {api_key: undefined, divSearchResultsContainer: undefi
 const getSearchResultsGif = ((keyword, offset) => {
     allHTMLSearchGifs = '';
     const { searchData } = api;
-    searchData(searchURL, searchGlobalParam.api_key, keyword, 12, offset)
+    searchData(searchURL, api_key, keyword, 12, offset)
     .then((response) => {
         // verificar response.data si está vacío muestra el div noResults .lenght 
         getSearchResultsJson(response.data, searchGlobalParam.divSearchResultsContainer);
@@ -56,6 +58,7 @@ const getSearchResultsGif = ((keyword, offset) => {
     });
     divSearchResultsContainer.innerHTML += innerHTMLResult;
     addEventOpenModal(divSearchResultsContainer.querySelectorAll('.show-modal'));
+    addEventFavButtonTrendingSearch(divSearchResultsContainer.querySelectorAll('.addFavorite'));
  });
 
 

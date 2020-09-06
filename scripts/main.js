@@ -4,15 +4,11 @@
 
 import {getTrendingGif, EventListener_Slideshow} from './trending.js';
 import {addEventCloseModal} from './modal.js';
+import {addEventFavModal} from './favorites.js';
 import {getSearchResultsGif, searchGlobalParam, addEventListenerViewMore, hideDivNoSearchResults, cleaninputSearch} from './search.js';
 import {getTrendingWords, getTrendingWordsPromise} from './trending_words.js';
 import {getAutocompleteWord, toggleActiveSearchStyles, toggleInactiveSearchStyles} from './autocomplete.js';
 
-
-/**
- * Exports
- */
-export {getSearchResultsGif, searchGlobalParam, addEventListenerViewMore};
 
 
 /**
@@ -109,7 +105,7 @@ const getTrendingWordsAwait = (() => {
 
 
 /**
- * Clean
+ * Cleaners
  */
 
 
@@ -208,10 +204,6 @@ const disableDarkMode = () => {
     localStorage.setItem('darkMode', null);
 }
  
-  if (darkMode === 'enabled') {
-    enableDarkMode();
-  }
-
 darkModeToggle.addEventListener('click', () => {
     darkMode = localStorage.getItem('darkMode'); 
     if (darkMode !== 'enabled') {
@@ -221,6 +213,7 @@ darkModeToggle.addEventListener('click', () => {
         disableDarkMode(); 
     }
 });
+
 
 
 /**
@@ -283,7 +276,7 @@ const addEventListenerAutocomplete = (() => {
 
 
   /**
- * @method addEventListenerAutocomplete
+ * @method addEventListenerCloseAutocomplete
  * @description: 
  * @returns {}
  */
@@ -298,6 +291,8 @@ const addEventListenerCloseAutocomplete = (() => {
         
     });
  });
+
+
 
  
 /**
@@ -318,22 +313,29 @@ const renderMsg = ((msg) => document.querySelector('.gifos-msg').innerHTML = msg
  * Run
 */
 
-//limpiar input text y los resultados de la búsqueda
+/*  Cleaners  */
 cleaninputSearch();
 cleanDivSearchResultsContainer();
 
+/*  API callers  */
 getTrendingGif (divElementContainerCards);
 getTrendingWordsAwait();
 
-//Global Parameters
+/*  Global Parameters  */
 setSearchGlobalParam();
 
-//Listeners
+/*  Listeners  */
 EventListener_Slideshow(divElementContainerCards);
+addEventFavModal();
 addEventCloseModal(closeButton);
 addEventListenerViewMore();
 addEventListenerSearch();
 addEventListenerAutocomplete();
+
+/**
+ * Exports
+ */
+export {getSearchResultsGif, searchGlobalParam};
 
 
 

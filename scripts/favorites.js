@@ -1,4 +1,4 @@
-//Carga el trending, necesitamos api_key 
+//Cargar el trending, necesito api_key 
 //
 
 /**
@@ -6,9 +6,9 @@
  */
 
  import api from './services.js';
- import {CardsSearchResults} from './cards.js';
+ import {CardsFavorites} from './cards.js';
  import {addEventOpenModal} from './modal.js';
- import {api_key, getGIFbyIDURL} from './global_variables.js';
+ import {api_key, getGIFbyIDURL, divFavGridContainer, favModal} from './global_variables.js';
  import {addGifLocalStorage, removeGifLocalStorage, getAllGifLocalStorage, existGifIDLocalStorage} from './favorites_localstorage.js';
 
 
@@ -17,12 +17,10 @@
  */
 
 let allHTMLFavResults;
+const favViewMoreButton = document.getElementById('favResultsButton');
+const maxGifsToShow = 12;
 
-const divFavGridContainer = document.getElementById('favResultsGrid');
 
-
-
-const LOCAL_STORAGE_GIF_SELECTED = '';
 
 
 /**
@@ -32,23 +30,21 @@ const LOCAL_STORAGE_GIF_SELECTED = '';
  * @returns {}
  */
 
-const loadFavorites = (() => {
+const loadFavorites = ((offset) => {
     //validar que haya IDS 
-    // let ids = 'KpLPyE3D6HJPa,efgsSvAvMjOpy';
-    // if (ids !== '')
-    // {
-    //   getGIFSbyID(ids);
-    // }
-    if (existGifIDLocalStorage()) {
+    if(divFavGridContainer){
+      if(offset === 0)
+        cleanDivFavsContainer();
+
       let ids = getAllGifLocalStorage();
-      if (ids.length > 0) {
-        getGIFSbyID(ids);
+      if (ids.length>0) {
+        getGIFSbyID(ids.split(","), offset);
       }
-      getGIFSbyID(ids);
+      else{
+        showDivNoFavResults();
+      }
     }
-    else{
-      showDivNoFavResults();
-    }
+    
     // si hay IDS llama a getGIFSbyID(ids) con lenhgt
     // sino llama a  showDivNoFavResults
     //getAllGifLocalStorage
@@ -64,12 +60,29 @@ const loadFavorites = (() => {
  * @returns {}
  */
 
-const getGIFSbyID = ((ids) => {
+const getGIFSbyID = ((ids, offset) => {
   allHTMLFavResults = '';
+  let favIDS = [];
+  let topOffset = 0;
   const { gifsByIDData } = api;
-  gifsByIDData(getGIFbyIDURL, api_key, ids)
+
+  if((offset + maxGifsToShow) < ids.length){
+    topOffset = offset + maxGifsToShow;
+  }
+  else{
+    topOffset = ids.length;
+  }
+  
+  for( let i = offset; i < topOffset; i++){
+    favIDS.push(ids[i]);
+  }
+  
+  gifsByIDData(getGIFbyIDURL, api_key, favIDS)
   .then((response) => {
     getGIFbyIDJson(response.data);
+    favoritesPagination(ids.length, topOffset);
+    setAttributeViewMore(offset + maxGifsToShow);
+    
   }).catch((error) => {
     renderMsg(error);
   });
@@ -90,7 +103,7 @@ const getGIFbyIDJson= ((allFavoritesGifs) => {
   });
   divFavGridContainer.innerHTML += innerHTMLResult;
   addEventOpenModal(divFavGridContainer.querySelectorAll('.show-modal'));
-  //addEventFavButton(divFavGridContainer.querySelectorAll('.favorite'))
+  addEventFavButton(divFavGridContainer.querySelectorAll('.addFavorite'))
 
 });
 
@@ -103,7 +116,7 @@ const getGIFbyIDJson= ((allFavoritesGifs) => {
 
 const allFavoriteCards = ((onlyOneFavGif) => {
   const {id, images, title, username} = onlyOneFavGif;
-  allHTMLFavResults += CardsSearchResults(id, images.fixed_height.url, title, username);
+  allHTMLFavResults += CardsFavorites(id, images.fixed_height.url, title, username);
   return allHTMLFavResults;
 
 });
@@ -111,8 +124,75 @@ const allFavoriteCards = ((onlyOneFavGif) => {
 
 
 /**
- * Show and Hidden
+ * Pagination
  */
+
+/**
+ * @method favoritesPagination
+ * @description: Pagination of search results with view more button 
+ * @returns {}
+ */
+
+const favoritesPagination = ((total_count, topOffset) => {
+  if (total_count === 0) {
+      hiddenFavViewMoreButton(); // ToDo cambiar y ocultar la sección
+      showDivNoFavResults();
+      // Cuando no hay resultados
+  }
+  else if (total_count === topOffset) {
+      hiddenFavViewMoreButton();
+      hideDivNoFavResults();
+      // Cuando llega al final de los resultados de búsqueda
+  }
+  else {
+      showFavViewMoreButton();
+  }
+
+});
+
+ /**
+* @method setAttributeViewMore
+* @description: 
+* @returns {}
+*/
+
+const setAttributeViewMore = ((offset) => {
+  favViewMoreButton.setAttribute("data-offset", offset);
+  
+});
+
+
+
+/**
+* Show and Hidden
+*/
+
+
+/**
+* @method hiddenFavViewMoreButton
+* @description: hide the view more button
+* @returns {}
+*/
+
+const hiddenFavViewMoreButton =( () => {
+  favViewMoreButton.classList.remove("favResults__button");
+  favViewMoreButton.classList.add("hidden");
+
+});
+
+
+/**
+* @method showFavViewMoreButton
+* @description: Show the view more button 
+* @returns {}
+*/
+
+const showFavViewMoreButton =( () => {
+  favViewMoreButton.classList.remove("hidden");
+  favViewMoreButton.classList.add("favResults__button");
+  
+
+});
 
 
 /**
@@ -126,9 +206,11 @@ const showDivNoFavResults = (() => {
   const showNoFavs = document.getElementById('favNoContent');
   showNoFavs.classList.remove("hidden");
   showNoFavs.classList.add("search__noResults--h3");
-  document.getElementById('favResults').innerHTML = '';
+  divFavGridContainer.innerHTML = '';
+  favViewMoreButton.classList.add("hidden");
 
 });
+
 
 /**
 * @method hideDivNoFavResults
@@ -142,8 +224,24 @@ const hideDivNoFavResults = (() => {
   hideNoFavs.classList.remove("search__noResults--h3");
   hideNoFavs.classList.add("hidden");
   
+  
 });
 
+/**
+ * Event Listener Favorites Button
+*/
+
+/**
+ * @method cleanDivFavsContainer
+ * @description Clean search results
+ * @param {}
+ * @returns {}
+*/
+
+const cleanDivFavsContainer = (() => {
+  divFavGridContainer.innerHTML = "";
+
+});
 
 
 /**
@@ -153,67 +251,171 @@ const hideDivNoFavResults = (() => {
 /**
  * @method addEventFavButton
  * @description Event Listener Favorites Button
- * @param {} 
+ * @param {array}  favoriteGifs Recibe el array de gif con la clase .addFavorites
  * @returns {}
 */
 
 const addEventFavButton = ((favoriteGifs) => {
   favoriteGifs.forEach(favoriteGif => {
-      let gif_id = favoriteGif.getAttribute("data-gif_id");
+      let gif_id = favoriteGif.getAttribute("data-gif_favIDS");
+      refreshFavButton(gif_id);
       
       favoriteGif.addEventListener("click",  () => {
         if (existGifIDLocalStorage(gif_id)) {
           removeGifLocalStorage(gif_id);
+          toogleFavButtonInactive(gif_id);
         }
         else{
           addGifLocalStorage(gif_id);
+          toogleFavButtonActive(gif_id);
         }
-        loadFavorites();
+        loadFavorites(0);
       }, false);    
 });
 });
 
 
+/**
+ * @method addEventFavButtonTrendingSearch
+ * @description Event Listener Favorites Button
+ * @param {array}  favoriteGifs Recibe el array de gif con la clase .addFavorites
+ * @returns {}
+*/
+
+const addEventFavButtonTrendingSearch = ((favoriteGifs) => {
+  favoriteGifs.forEach(favoriteGif => {
+      let gif_id = favoriteGif.getAttribute("data-gif_favIDS");
+      refreshFavButton(gif_id);
+    
+      favoriteGif.addEventListener("click",  () => {
+        if (existGifIDLocalStorage(gif_id)) {
+          removeGifLocalStorage(gif_id);
+          toogleFavButtonInactive(gif_id);
+        }
+        else{
+          addGifLocalStorage(gif_id);
+          toogleFavButtonActive(gif_id);
+        }
+        loadFavorites(0);
+      }, false);    
+});
+});
 
 /**
- * Change Styles to Favorites Button
+ * @method addEventFavButtonTrendingSearch
+ * @description Event Listener Favorites Button
+ * @param {array}  favoriteGifs Recibe el array de gif con la clase .addFavorites
+ * @returns {}
+*/
+
+const addEventFavModal = (() => {
+  
+  favModal.addEventListener("click",  () => {
+    let gif_id = favModal.getAttribute("data-gif_favIDS");
+      if (existGifIDLocalStorage(gif_id)) {
+          removeGifLocalStorage(gif_id);
+          toogleFavButtonInactive(gif_id);
+      }
+      else{
+          addGifLocalStorage(gif_id);
+          toogleFavButtonActive(gif_id);
+      }
+  }, false);    
+});
+
+
+
+
+  /**
+ * @method _favListener
+ * @description: 
+ * @returns {}
+ */
+
+let _favListener = (() => {
+  let offset = favViewMoreButton.getAttribute("data-offset");
+  loadFavorites(offset);
+}) ;
+
+
+/**
+* @method addEventListenerFavViewMore
+* @description: 
+* @returns {}
+*/
+
+const addEventListenerFavViewMore = (() => {
+  favViewMoreButton.addEventListener("click", _favListener, false);
+});
+
+
+/**
+ * @method refreshFavButton
+ * @description 
+ * @param {}  
+ * @returns {}
+*/
+
+const refreshFavButton = ((gif_id) => {
+  if (existGifIDLocalStorage(gif_id)) {
+    toogleFavButtonActive(gif_id);
+  }
+  else{
+    toogleFavButtonInactive(gif_id);
+  }
+})
+
+
+/**
+ * Change Styles to Favorites Button ♡ ==> ♥ ==> ♡ 
 */
 
 /**
  * @method toogleFavButtonActive
- * @description Activate Favorites button
+ * @description Activate Favorites button ♡ ==> ♥
  * @param {} 
  * @returns {}
 */
 
-const toogleFavButtonActive = (() => {
-  const favButtonON = document.getElementById(favButton-inactive);
-  favButtonON.classList.remove("icon-icon-fav-hover");
-  favButtonON.classList.add("icon-icon-fav-active");
+const toogleFavButtonActive = ((gif_id) => {
+  const favButtonON = document.querySelectorAll("[data-gif_favIDS='" + gif_id +"']");
+  favButtonON.forEach((everyFavButton) =>{
+    everyFavButton.innerHTML= `<span class="icon-icon-fav-active" id="favButton-active"></span>`;
+  })
+  
 });
-
-
-/**
- * Event Listener Favorites Button
-*/
 
 /**
  * @method toogleFavButtonInactive
- * @description Remove active class to favorites button
+ * @description Remove active class to favorites button ♥ ==> ♡ 
  * @param {} 
  * @returns {}
 */
 
-const toogleFavButtonInactive = ((favoriteGifs) => {
-  const favButtonOFF = document.getElementById(favButton-inactive);
-  favButtonOFF.classList.add("icon-icon-fav-hover");
-  favButtonOFF.classList.remove("icon-icon-fav-active"); 
+const toogleFavButtonInactive = ((gif_id) => {
+  const favButtonOFF = document.querySelectorAll("[data-gif_favIDS='" + gif_id +"']");  
+  favButtonOFF.forEach((everyFavButton) =>{
+    everyFavButton.innerHTML= `<span class="icon-icon-fav-hover" id="favButton-inactive"></span>`;
+  })
 });
 
 
+ 
+/**
+ * Error Messages
+*/
+
+ 
+ /**
+ * @method renderMsg
+ * @description Render message on the DOM  revizar
+ * @returns {String}
+ */
+
+const renderMsg = ((msg) => document.querySelector('.gifos-msg').innerHTML = msg );
 
 
-export{loadFavorites};
+export{loadFavorites, addEventFavButton, addEventFavButtonTrendingSearch, addEventListenerFavViewMore, addEventFavModal, refreshFavButton};
 
 //Cambiar el endpoint
 

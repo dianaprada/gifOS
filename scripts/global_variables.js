@@ -15,5 +15,9 @@ const getGIFbyIDURL = 'http://api.giphy.com/v1/gifs';
 
 const LOCAL_STORAGE_FAVORITE_GIFS = "favoriteGifs";
 
+const divFavGridContainer = document.getElementById('favResultsGrid');
 
-export {api_key, searchURL, URLTrending, URLTrendingWords, getGIFbyIDURL, LOCAL_STORAGE_FAVORITE_GIFS}
+const favModal = document.getElementById("favorite-gif-Modal");
+
+
+export {api_key, searchURL, URLTrending, URLTrendingWords, getGIFbyIDURL, LOCAL_STORAGE_FAVORITE_GIFS, divFavGridContainer, favModal}

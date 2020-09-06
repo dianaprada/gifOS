@@ -1,3 +1,9 @@
+/**
+ * Imports
+ */
+
+import {favModal} from './global_variables.js';
+import {refreshFavButton} from './favorites.js';
 
 /**
  * Global variables
@@ -6,6 +12,7 @@
 /* Modal Popup */
 
 const modal = document.getElementById("myModal");
+
 
 
 /**
@@ -35,10 +42,13 @@ const addEventOpenModal = (buttonCards) => {
 */
 
 const toggleModal = (gifId, gifURL, username, title) => {
+    favModal.setAttribute("data-gif_favIDS", gifId);
     document.getElementById("modal_gif_img").src=gifURL;
     document.getElementById("show_title_gif").innerHTML = title;
     document.getElementById("show_username_gif").innerHTML = username;
     modal.classList.toggle("show_modal");
+    refreshFavButton(gifId);
+
 }
 
 /**
@@ -61,6 +71,7 @@ const toggleCloseModal = () => {
 
 const addEventCloseModal = (closeButton) => {
     closeButton.addEventListener("click", toggleCloseModal);
+    
 }
 
-export {addEventOpenModal, addEventCloseModal};
+export {addEventOpenModal, addEventCloseModal, favModal};
