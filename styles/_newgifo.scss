@@ -91,7 +91,7 @@
  
 }
 
-.video {
+.video_conteiner{
     position:relative;
     display: flex;
     align-items: center;
@@ -100,9 +100,29 @@
     width:80%;      
     height: 80%;
     border: 0em;
-    
-    
 }
+
+.record_video__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   
+}
+
+.newVideoInfo {
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width:80%;      
+    height: 80%;
+    border: 0em;
+       
+}
+
+
 
 .record_video__h3 {
     @include h3_laptop();

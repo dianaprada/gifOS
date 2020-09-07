@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="styles/styles.css">
 
 </head>
+
 <body>
 
     <div class="content">
@@ -26,7 +27,7 @@
             <hr class="header__hr">
             <nav class="header__navbar">
                 <a href="index.html" class="header__navbar--logo"></a>
-               
+
 
                 <input class="header__navbar--checkbox" type="checkbox">
                 <img class="header__navbar--ham-menu" src="./assets/burger.svg" alt="Menú">
@@ -46,26 +47,31 @@
 
         <main class="newGifo_main">
 
-            
+
 
             <section class="newGifo_record" id="newGifo_record">
                 <div class="newGifo__cameraImage" id="newGifo_cameraImage">
                     <div class="newGifo__camera"> </div>
-                    <img class="newGifo__light" src="../assets/element-luz-camara.svg"> 
+                    <img class="newGifo__light" src="../assets/element-luz-camara.svg">
                 </div>
-               
-                    <div class="record_video" id="record_video">
-                        <div class="record_video__corners" id="record_video__corners">
-                            <div class="video">
-                            <h3 class="record_video__h3" id="record_video__h3">Aquí podrás <br /> crear tus propios <span class="h1_green">GIFOS</span></h3>
-                            <p class="record_video__p" id="record_video__p">¡Crea tu GIFO en sólo 3 pasos! <br />
-                                (sólo necesitas una cámara para grabar un video)</p>
+
+                <div class="record_video" id="record_video">
+                    <div class="record_video__corners" id="recordVideoCorners">
+                        <div class="video_conteiner" id="divVideoContainer">
+                            <video class="record_video__video hidden" id="videoTag" src="#"></video>
+                            <div class="newVideoInfo" id="newVideoInfo">
+                                <h3 class="record_video__h3" id="record_video__h3">Aquí podrás <br /> crear tus propios
+                                    <span class="h1_green">GIFOS</span></h3>
+                                <p class="record_video__p" id="record_video__p">¡Crea tu GIFO en sólo 3 pasos! <br />
+                                    (sólo necesitas una cámara para grabar un video)</p>
                             </div>
                         </div>
+
                     </div>
+                </div>
             </section>
 
-            <section class="record_steps" id="record_steps"> 
+            <section class="record_steps" id="record_steps">
                 <div class="record_steps__numbers" id="record_steps__numbers">
                     <a class="record_steps__buttons" id="button_numbers__1">1</a>
                     <a class="record_steps__buttons" id="button_numbers__2">2</a>
@@ -73,9 +79,9 @@
                 </div>
             </section>
 
-            <section class="record_hr" id="record_hr"> 
+            <section class="record_hr" id="record_hr">
                 <hr class="record_hr__hr">
-                <div class="record_hr__tape_image" id="tape_image"> </div> 
+                <div class="record_hr__tape_image" id="tape_image"> </div>
             </section>
 
             <section class="record__button">
