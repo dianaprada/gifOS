@@ -1,7 +1,3 @@
-/*   Light Mode Color Variables   */
-/*  Dark Mode Color Variables  */
-/*   Fonts Varibles  */
-/*   Mixins  */
 /* 
 ========================================================================== */
 /* Fonts
@@ -2346,7 +2342,7 @@ body.dark .record__buttons:hover {
           align-items: center;
   border: 1px solid #572EE5;
   width: 45vw;
-  height: 25vw;
+  height: 28vw;
   left: 2%;
 }
 
@@ -2455,7 +2451,7 @@ body.dark .record__buttons:hover {
   z-index: 3;
 }
 
-/*   Nimber Buttons 1 2 3  */
+/*   Number Buttons 1 2 3  */
 .record_steps__numbers {
   position: relative;
   display: -webkit-box;
@@ -2467,6 +2463,10 @@ body.dark .record__buttons:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .record_steps__buttons {
@@ -2500,6 +2500,25 @@ body.dark .record__buttons:hover {
 .record_steps__buttons:hover {
   background-color: #572EE5;
   color: #fff;
+}
+
+/*   Timer & repeat video capture  */
+.timer {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  color: #572EE5;
+  letter-spacing: 0;
+  font-weight: bold;
+  text-align: center;
+  line-height: 25px;
+  position: relative;
+  left: 29vw;
+  font-size: 1.2vw;
+  top: -2vw;
+}
+
+.repeat_capture {
+  border-bottom: 2px solid #50E3C2;
 }
 
 /*   Purple line  */
@@ -2589,18 +2608,6 @@ body.dark .record__buttons:hover {
 .record__buttons:hover {
   color: #fff;
   background-color: #572EE5;
-}
-
-.record {
-  display: none;
-}
-
-.finish {
-  display: none;
-}
-
-.upload {
-  display: none;
 }
 
 /* 

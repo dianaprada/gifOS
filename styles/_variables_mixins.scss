@@ -1,5 +1,5 @@
 
-/*   Light Mode Color Variables   */
+
 $white:#fff;
 $black: black;
 $green: #50E3C2;
@@ -9,22 +9,15 @@ $bg_trending: #F3F5F8;
 $hover_cards: rgba(87,46,229,0.60);
 $active_color:#9CAFC3;
 
-/*  Dark Mode Color Variables  */
-
 $bgc_dark: #37383C;
 $font_color_dark: white;
 $bg_trending_dark: #222326;
-
-
-/*   Fonts Varibles  */
 
 $Proxima-Bold: "ProximaNova-Bold";
 $Proxima-Regular: "ProximaNova-Regular";
 $Roboto: 'Roboto', sans-serif;
 $Montserrat: 'Montserrat', sans-serif;
 $font_gifos: 'gifOs';
-
-/*   Mixins  */
 
 
 @mixin h1_mobile {

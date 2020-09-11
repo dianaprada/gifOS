@@ -62,7 +62,7 @@
     align-items: center;
     border: 1px solid $font_color;
     width: 45vw;
-    height: 25vw;
+    height: 28vw;
     left: 2%;
 }
 
@@ -123,7 +123,6 @@
 }
 
 
-
 .record_video__h3 {
     @include h3_laptop();
     text-align: center;
@@ -138,13 +137,14 @@
     z-index: 3;
 }
 
-/*   Nimber Buttons 1 2 3  */
+/*   Number Buttons 1 2 3  */
 
 .record_steps__numbers {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: row;
 
    
 }
@@ -171,6 +171,22 @@
 .record_steps__buttons:hover {
     background-color: $font_color;
     color: $white;
+}
+
+
+/*   Timer & repeat video capture  */
+
+.timer {
+    @include h3_laptop();
+    position: relative;
+    left: 29vw;
+    font-size: 1.2vw;
+    top: -2vw;
+    
+}
+
+.repeat_capture {
+    border-bottom: 2px solid $green;
 }
 
 /*   Purple line  */
@@ -245,17 +261,7 @@
 
 }
 
-.record {
-    display: none;
-}
 
-.finish {
-    display: none;
-}
-
-.upload {
-    display: none;
-}
 
  /* 
 ========================================================================== */

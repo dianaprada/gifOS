@@ -58,13 +58,15 @@
                 <div class="record_video" id="record_video">
                     <div class="record_video__corners" id="recordVideoCorners">
                         <div class="video_conteiner" id="divVideoContainer">
-                            <video class="record_video__video hidden" id="videoTag" src="#"></video>
+                            <video class="record_video__video hidden" id="videoTag" src="#" controls autoplay playsinline></video>
+        
                             <div class="newVideoInfo" id="newVideoInfo">
                                 <h3 class="record_video__h3" id="record_video__h3">Aquí podrás <br /> crear tus propios
                                     <span class="h1_green">GIFOS</span></h3>
                                 <p class="record_video__p" id="record_video__p">¡Crea tu GIFO en sólo 3 pasos! <br />
                                     (sólo necesitas una cámara para grabar un video)</p>
                             </div>
+
                         </div>
 
                     </div>
@@ -77,6 +79,9 @@
                     <a class="record_steps__buttons" id="button_numbers__2">2</a>
                     <a class="record_steps__buttons" id="button_numbers__3">3</a>
                 </div>
+                <div class="timer" id="timer">
+                    00:00:00
+                </div>
             </section>
 
             <section class="record_hr" id="record_hr">
@@ -85,10 +90,10 @@
             </section>
 
             <section class="record__button">
-                <button class="record__buttons start" id="record__buttons--start">Comenzar</button>
-                <button class="record__buttons record" id="record__buttons--record">Grabar</button>
-                <button class="record__buttons finish" id="record__buttons--finish">Finalizar</button>
-                <button class="record__buttons upload" id="record__buttons--upload">Subir Gifo</button>
+                <button class="record__buttons" id="buttonStart">Comenzar</button>
+                <button class="record__buttons hidden" id="buttonRecord">Grabar</button>
+                <button class="record__buttons hidden" id="buttonFinish">Finalizar</button>
+                <button class="record__buttons hidden" id="ButtonUpload">Subir Gifo</button>
 
             </section>
 
@@ -125,6 +130,9 @@
     </div>
     <div class="gifos-msg"></div>
     <script src="https://kit.fontawesome.com/7396023e43.js" crossorigin="anonymous"></script>
+    <!-- recommended -->
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="https://cdn.WebRTC-Experiment.com/RecordRTC.js"></script>
     <script type="module" src="scripts/main_newgifo.js"></script>
 
 </body>
