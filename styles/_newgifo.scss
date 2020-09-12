@@ -165,10 +165,10 @@
     left: 9vw;
     width: 2.5vw;
     height: 2.5vw;
-
 }
 
-.record_steps__buttons:hover {
+    
+.record_steps__hover {
     background-color: $font_color;
     color: $white;
 }
@@ -181,7 +181,8 @@
     position: relative;
     left: 29vw;
     font-size: 1.2vw;
-    top: -2vw;
+    top: -2.3vw;
+    max-height: 1.5vw;
     
 }
 

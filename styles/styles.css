@@ -2497,7 +2497,7 @@ body.dark .record__buttons:hover {
   height: 2.5vw;
 }
 
-.record_steps__buttons:hover {
+.record_steps__hover {
   background-color: #572EE5;
   color: #fff;
 }
@@ -2514,7 +2514,8 @@ body.dark .record__buttons:hover {
   position: relative;
   left: 29vw;
   font-size: 1.2vw;
-  top: -2vw;
+  top: -2.3vw;
+  max-height: 1.5vw;
 }
 
 .repeat_capture {
