@@ -25,12 +25,17 @@ const recordStep3 = document.getElementById('recordStep2');
 const timer = document.getElementById('timer');
 const repeatRecording = document.getElementById('repeatRecording');
 
+
 /**
  * Global variables
  */
 
 let constraints = { audio: false, video: { width: 426, height: 240 } }; 
+let startTime, mediaRecorder, IdInterval;
 let recorder; 
+let streamCamera; //Object that contain camera
+const imageGif = document.getElementById('previewGif');
+
 
 
 const init = (() =>{
@@ -43,20 +48,18 @@ const init = (() =>{
 
 
   /**
- * @method _startListener
+ * @method getStreamAndRecord
  * @description: 
  * @returns {}
  */
 
-let _startListener = (() => {
-  changeDivNewVideoInfo();
+let getStreamAndRecord = (() => {
   navigator.mediaDevices.getUserMedia(constraints)
   .then(function(mediaStream) {
     hideDivNewVideoInfo();
-    addEventListenerButtonRecord();
     let video = VideoTag;
-    video.srcObject = mediaStream;
-
+    streamCamera = mediaStream;
+    video.srcObject = streamCamera;
     video.onloadedmetadata = function(e) {
       video.play();
     };
@@ -68,6 +71,19 @@ let _startListener = (() => {
 });
 
   /**
+ * @method _startListener
+ * @description: 
+ * @returns {}
+ */
+
+let _startListener = (() => {
+  changeDivNewVideoInfo();
+  getStreamAndRecord();
+  
+});
+
+
+  /**
  * @method _recordListener
  * @description: 
  * @returns {}
@@ -75,9 +91,29 @@ let _startListener = (() => {
 
 let _recordListener = (() => {
   toogleStylesStartRecording();
-  
+  startCounting();
+  recorder = RecordRTC(streamCamera, {
+    type: 'gif',
+    frameRate: 1,
+    quality: 10,
+    width: 360,
+    hidden: 240,
+    onGifRecordingStarted: function() {
+      console.log('Gif recording started.');
+    },
+
+    onGifPreview: function(gifURL) {
+        VideoTag.src = gifURL;
+    }
+  });
+    
+  recorder.startRecording();
+
+  // release camera on stopRecording
+  recorder.camera = streamCamera;
 
 });
+
 
 
   /**
@@ -88,16 +124,91 @@ let _recordListener = (() => {
 
 let  _stopRecordingListener = (() => {
   toogleStylesStopRecording();
-  
-  VideoTag.srcObject = null;
-    
-    let blob = recorder.getBlob();
-    VideoTag.src = URL.createObjectURL(blob);
+  stopCounting();
 
-    recorder.camera.stop();
-    recorder = null;
+  VideoTag.srcObject = null;
+  recorder.camera.stop();
+  let blob = recorder.getBlob();
+  imageGif.src = URL.createObjectURL(blob);
+  VideoTag.classList.add("hidden");
+  imageGif.classList.remove("hidden");
+  recorder = null;
 
 });
+
+  /**
+ * @method _startListener
+ * @description: 
+ * @returns {}
+ */
+
+let _startRepeatCapture = (() => {
+  changeDivNewVideoInfo();
+  toogleStylesRepeatCapture();
+  getStreamAndRecord();
+  
+});
+
+
+
+/**
+ * Timer
+ */
+
+
+  /**
+ * @method secondsToTime
+ * @description: Convert seconds to time format in hours
+ * @returns {}
+ */
+
+const secondsToTime = ((numberOfSeconds) => {
+  let hours = Math.floor(numberOfSeconds / 60 / 60);
+  numberOfSeconds -= hours * 60 * 60;
+  let minutes = Math.floor(numberOfSeconds / 60);
+  numberOfSeconds -= minutes * 60;
+  numberOfSeconds = parseInt(numberOfSeconds);
+  if (hours < 10) hours = "0" + hours;
+  if (minutes < 10) minutes = "0" + minutes;
+  if (numberOfSeconds < 10) numberOfSeconds = "0" + numberOfSeconds;
+
+  return `${hours}:${minutes}:${numberOfSeconds}`;
+});
+
+
+  /**
+ * @method refreshTimer
+ * @description: Refresh Timer
+ * @returns {}
+ */
+const refreshTimer = (() => {
+  timer.textContent = secondsToTime((Date.now() - startTime) / 1000);
+});
+
+  /**
+ * @method startCounting 
+ * @description: start timer
+ * @returns {}
+ */
+
+ // Ayudante para la duración; no ayuda en nada pero muestra algo informativo
+ const startCounting = (() => {
+  startTime = Date.now();
+  IdInterval = setInterval(refreshTimer, 500);
+});
+
+  /**
+ * @method stopCounting 
+ * @description: stop timer
+ * @returns {}
+ */
+
+const stopCounting  = (() => {
+  clearInterval(IdInterval);
+  startTime = null;
+  timer.textContent = "";
+});
+
 
 /**
  * Listeners
@@ -105,7 +216,7 @@ let  _stopRecordingListener = (() => {
 
   /**
  * @method addEventListenerButtonStart
- * @description: Request permission to use camera
+ * @description: Event listener button "Comenzar"
  * @returns {}
  */
 
@@ -116,7 +227,7 @@ const addEventListenerButtonStart = (() => {
 
   /**
  * @method addEventListenerButtonRecord
- * @description: Start video recording
+ * @description: Event listener button "Grabar"
  * @returns {}
  */
 
@@ -127,27 +238,28 @@ const addEventListenerButtonRecord = (() => {
 
   /**
  * @method addEventListenerButtonStop
- * @description: Stop video recording
+ * @description: Event listener button "Finalizar"
  * @returns {}
  */
 
 const addEventListenerButtonStop = (() => {
-  buttonFinish.addEventListener("click", _stopRecordingListener, false);
+  buttonFinish.addEventListener("click", (() => {
+    recorder.stopRecording(_stopRecordingListener);
+    
+  }), false);
+    
 });
-
 
 
   /**
  * @method addEventListenerRepeatRecording
- * @description: Repeat video recording
+ * @description: Event listener button "Repetir Captura"
  * @returns {}
  */
 
 const addEventListenerRepeatRecording = (() => {
-  repeatRecording.addEventListener("click", _startListener, false);
+  repeatRecording.addEventListener("click", _startRepeatCapture, false);
 });
-
-
 
 
 /**
@@ -171,6 +283,7 @@ const changeDivNewVideoInfo = (() => {
   buttonStart.classList.add("hidden");
   recordStep1.classList.add("record_steps__hover");
 });
+
 
 
 /**
@@ -199,9 +312,10 @@ const hideDivNewVideoInfo = (() => {
 */
 
 const toogleStylesStartRecording = (() => {
-  buttonRecord.classList.remove("record__buttons");
   buttonRecord.classList.add("hidden");
   buttonFinish.classList.remove("hidden");
+  repeatRecording.classList.add("hidden");
+
   timer.classList.remove("hidden");
   
 });
@@ -216,11 +330,31 @@ const toogleStylesStartRecording = (() => {
 
 const toogleStylesStopRecording = (() => {
   
-  timer.innerHTML=  `<p>REPETIR CAPTURA</p>`;
-  timer.classList.add("repeat_capture");
+  timer.classList.add("hidden");
   buttonFinish.classList.add("hidden");
   ButtonUpload.classList.remove("hidden");
+  repeatRecording.classList.remove("hidden");
+  repeatRecording.classList.add("repeat_capture");
   
+  
+});
+
+  /**
+ * @method toogleStylesRepeatCapture
+ * @description: 
+ * @returns {}
+ */
+
+const toogleStylesRepeatCapture = (() => {
+  recordStep2.classList.remove("record_steps__hover");
+  imageGif.classList.add("hidden");
+  ButtonUpload.classList.add("hidden");
+  repeatRecording.classList.add("hidden");
+  newVideoInfoConteiner.classList.remove("hidden");
+  newVideoInfoConteiner.innerHTML=  `<h3 class="record_video__h3" id="record_video__h3">¿Nos das acceso 
+                                      <br /> a tu cámara?
+                                      <p class="record_video__p" id="record_video__p">El acceso a tu camara será válido sólo
+                                      <br />por el tiempo en el que estés creando el GIFO. </p>`;
 });
 
 
@@ -246,6 +380,7 @@ init();
 
 /*  Listeners  */
 addEventListenerButtonStart();
+addEventListenerButtonRecord();
 addEventListenerButtonStop();
 addEventListenerRepeatRecording();
 

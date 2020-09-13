@@ -180,7 +180,7 @@
     @include h3_laptop();
     position: relative;
     left: 29vw;
-    font-size: 1.2vw;
+    font-size: 1vw;
     top: -2.3vw;
     max-height: 1.5vw;
     
@@ -188,6 +188,8 @@
 
 .repeat_capture {
     border-bottom: 2px solid $green;
+    
+    cursor: pointer;
 }
 
 /*   Purple line  */

@@ -2513,13 +2513,14 @@ body.dark .record__buttons:hover {
   line-height: 25px;
   position: relative;
   left: 29vw;
-  font-size: 1.2vw;
+  font-size: 1vw;
   top: -2.3vw;
   max-height: 1.5vw;
 }
 
 .repeat_capture {
   border-bottom: 2px solid #50E3C2;
+  cursor: pointer;
 }
 
 /*   Purple line  */

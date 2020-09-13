@@ -58,8 +58,9 @@
                 <div class="record_video" id="record_video">
                     <div class="record_video__corners" id="recordVideoCorners">
                         <div class="video_conteiner" id="divVideoContainer">
-                            <video class="record_video__video hidden" id="videoTag" src="#" controls autoplay playsinline></video>
-        
+                            <video class="record_video__video hidden" id="videoTag" src="#" ></video>
+                            <img class="record_video__video hidden"  id="previewGif" src="#" >
+                            
                             <div class="newVideoInfo" id="newVideoInfo">
                                 <h3 class="record_video__h3" id="record_video__h3">Aquí podrás <br /> crear tus propios
                                     <span class="h1_green">GIFOS</span></h3>
@@ -129,13 +130,15 @@
 
         </footer>
         <hr class="footer__hr">
+        
 
     </div>
     <div class="gifos-msg"></div>
     <script src="https://kit.fontawesome.com/7396023e43.js" crossorigin="anonymous"></script>
     <!-- recommended -->
+    <script src="https://www.webrtc-experiment.com/gif-recorder.js"></script>
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
-    <script src="https://cdn.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <!--<script src="https://cdn.WebRTC-Experiment.com/RecordRTC.js"></script> -->
     <script type="module" src="scripts/main_newgifo.js"></script>
 
 </body>
