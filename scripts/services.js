@@ -46,6 +46,15 @@ const api = {
         .catch((error) => reject(error))
       });
     }),
+
+    uploadGifoData: ((URL, api_key, gifoData) => {
+      return new Promise((resolve, reject) => {
+        fetch(`${URL}?api_key=${api_key}`, { method: 'POST', body: gifoData })
+        .then((response) => resolve(response.json()))
+        .catch((error) => reject(error))
+      });
+    }),
+    
     
   };
   

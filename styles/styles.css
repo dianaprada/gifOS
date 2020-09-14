@@ -1166,6 +1166,10 @@ body.dark .close-button {
   font-size: 0.75em;
 }
 
+.icon-icon-link {
+  font-size: 0.5em;
+}
+
 .card__info--p1 {
   position: relative;
   font-family: "Roboto", sans-serif;
@@ -1342,6 +1346,9 @@ body.dark .close-button {
   }
   .icon-icon-max {
     font-size: 1em;
+  }
+  .icon-icon-link {
+    font-size: 0.7em;
   }
   .card__info--p1 {
     top: 35%;
@@ -2399,14 +2406,6 @@ body.dark .record__buttons:hover {
   border: 0em;
 }
 
-.record_video__video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
 .newVideoInfo {
   position: relative;
   display: -webkit-box;
@@ -2451,6 +2450,81 @@ body.dark .record__buttons:hover {
   z-index: 3;
 }
 
+/* Video Tag & Img Gif */
+.record_video__video {
+  position: relative;
+}
+
+/*   Preview Gifo */
+.preview_gifo {
+  position: absolute;
+}
+
+.preview_gifo__hover {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  color: #fff;
+  background-color: rgba(87, 46, 229, 0.6);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Buttons download and link  */
+.preview_gifo__buttons {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  z-index: 3;
+  top: 0.4em;
+  left: 75%;
+}
+
+/* Uploading and upoaded Gifo Styles */
+.preview_gifo__uploading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 95%;
+}
+
+.icon-loader {
+  position: absolute;
+  left: 50%;
+  font-size: 1.5em;
+  top: -1em;
+}
+
+.icon-check {
+  position: absolute;
+  left: 50%;
+  font-size: 1em;
+  top: -1em;
+}
+
+.preview_gifo__uploading--p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  color: #572EE5;
+  letter-spacing: 0;
+  font-weight: 400;
+  text-align: center;
+  line-height: 25px;
+  color: #fff;
+  width: 100%;
+}
+
+/* END Preview Gifo */
 /*   Number Buttons 1 2 3  */
 .record_steps__numbers {
   position: relative;

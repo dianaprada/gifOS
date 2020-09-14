@@ -55,23 +55,64 @@
                     <img class="newGifo__light" src="../assets/element-luz-camara.svg">
                 </div>
 
+                <!-- Margin and corners of Video Conteiner -->
                 <div class="record_video" id="record_video">
                     <div class="record_video__corners" id="recordVideoCorners">
+                        <!-- Video Conteiner -->
                         <div class="video_conteiner" id="divVideoContainer">
-                            <video class="record_video__video hidden" id="videoTag" src="#" ></video>
-                            <img class="record_video__video hidden"  id="previewGif" src="#" >
-                            
+                            <video class="record_video__video hidden" id="videoTag" src="#"></video>
+
+                            <!-- Preview GIFO -->
+                            <div class="preview_gifo" id="divPreviewGifo">
+                                <img class="record_video__video hidden" id="previewGif" src="#">
+
+                                <!-- Hover Preview GIFO -->
+
+                                <!-- add class preview_gifo__hover - remove class hidden -->
+                                <div class="hidden" id="previewGifoHover">
+
+                                    <!-- add class preview_gifo__buttons - remove class hidden -->
+                                    <div class="hidden" id="buttonsPreviewGifo">
+                                        <button class="card__info--span" id="download-gif">
+                                            <span class="icon-icon-download"></span></button>
+                                        <button class="card__info--span show-modal" id="show-modal">
+                                            <span class="icon-icon-link"></span></button>
+                                    </div>
+
+                                    <!-- add preview_gifo__uploading - remove class hidden -->
+                                    <div class="hidden" id="gifoUploading">
+                                        <div><span class="icon-loader"></span></div>
+                                        <h3 class="preview_gifo__uploading--p">
+                                            Estamos subiendo tu GIFO
+                                        </h3>
+
+                                    </div>
+                                     <!-- add preview_gifo__uploading - remove class hidden -->
+                                     <div class="hidden" id="gifoUploaded">
+                                        <div><span class="icon-check"></span></div>
+                                        <h3 class="preview_gifo__uploading--p">
+                                            GIFO subido con éxito
+                                        </h3>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- END Preview GIFO -->
+
+                            <!-- Intro New GIFO -->
                             <div class="newVideoInfo" id="newVideoInfo">
                                 <h3 class="record_video__h3" id="record_video__h3">Aquí podrás <br /> crear tus propios
                                     <span class="h1_green">GIFOS</span></h3>
                                 <p class="record_video__p" id="record_video__p">¡Crea tu GIFO en sólo 3 pasos! <br />
                                     (sólo necesitas una cámara para grabar un video)</p>
                             </div>
-
+                            <!-- END Intro New GIFO -->
                         </div>
-
+                        <!-- Video Conteiner -->
                     </div>
                 </div>
+                <!-- END Margin and corners of Video Conteiner -->
             </section>
 
             <section class="record_steps" id="recordSteps">
@@ -97,7 +138,7 @@
                 <button class="record__buttons" id="buttonStart">Comenzar</button>
                 <button class="record__buttons hidden" id="buttonRecord">Grabar</button>
                 <button class="record__buttons hidden" id="buttonFinish">Finalizar</button>
-                <button class="record__buttons hidden" id="ButtonUpload">Subir Gifo</button>
+                <button class="record__buttons hidden" id="buttonUpload">Subir Gifo</button>
 
             </section>
 
@@ -130,7 +171,7 @@
 
         </footer>
         <hr class="footer__hr">
-        
+
 
     </div>
     <div class="gifos-msg"></div>

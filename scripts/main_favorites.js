@@ -20,7 +20,7 @@ const divElementContainerCards = document.querySelector('.slideshow__cards');
 const closeButton = document.getElementById("close-button");
 
 
-const prueba = (() => {
+const _listenerCloseModal = (() => {
     loadFavorites(0);
 })
 
@@ -32,7 +32,7 @@ const prueba = (() => {
 */
 
 const addEventListenerCloseModal = (() => {
-    closeButton.addEventListener("click", prueba);
+    closeButton.addEventListener("click", _listenerCloseModal);
   });
   
 
