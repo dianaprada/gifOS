@@ -3,6 +3,7 @@
  */
 
 import api from './services.js';
+import {autocompleteURL} from './global_variables.js';
 
 
 
@@ -10,7 +11,7 @@ import api from './services.js';
  * Global variables
  */
 
-const autocompleteURL = 'http://api.giphy.com/v1/gifs/search/tags';
+
 let allHTMLAutocompleteWords = '';
 
 let autocompleteWordsContainer = document.getElementById('suggestedWords');

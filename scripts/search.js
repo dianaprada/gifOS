@@ -5,7 +5,7 @@ import api from './services.js';
 import {CardsSearchResults} from './cards.js';
 import {addEventOpenModal, addEventTouchModal} from './modal.js';
 import {addEventFavButtonTrendingSearch} from './favorites.js';
-import {api_key, divFavGridContainer} from './global_variables.js';
+import {api_key, divFavGridContainer, searchURL} from './global_variables.js';
 import {addEventDownloadGif} from './download.js';
 
 
@@ -14,7 +14,7 @@ import {addEventDownloadGif} from './download.js';
  * Global variables
  */
 
-const searchURL = 'http://api.giphy.com/v1/gifs/search';
+
 let allHTMLSearchGifs = '';
 
 const viewMoreButton = document.getElementById('searchResults_button');

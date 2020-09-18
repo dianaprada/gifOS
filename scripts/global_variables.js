@@ -11,6 +11,8 @@ const URLTrending = 'https://api.giphy.com/v1/gifs/trending';
 
 const URLTrendingWords = 'https://api.giphy.com/v1/trending/searches';
 
+const autocompleteURL = 'https://api.giphy.com/v1/gifs/search/tags';
+
 const getGIFbyIDURL = 'https://api.giphy.com/v1/gifs';
 
 const uploadGifoURL = 'https://upload.giphy.com/v1/gifs';
@@ -33,6 +35,7 @@ export {api_key,
         URLTrending, 
         URLTrendingWords, 
         getGIFbyIDURL, 
+        autocompleteURL,
         LOCAL_STORAGE_FAVORITE_GIFS, 
         divFavGridContainer, 
         favModal, 
