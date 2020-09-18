@@ -2,7 +2,7 @@
  * Imports
  */
 import api from './services.js';
-
+import {URLTrendingWords} from './global_variables.js';
 
 
 
@@ -10,7 +10,7 @@ import api from './services.js';
  * Global variables
  */
 
-const URLTrendingWords = 'http://api.giphy.com/v1/trending/searches';
+
 
 let divTrendingWordsContainer = document.getElementById('trendingWordsContainer');
 let allHTMLTrendingGifs = '';
