@@ -7,7 +7,8 @@ import {addEventCloseModal} from './modal.js';
 import {changeTheme, verifyTheme} from './darkmode.js';
 import {loadFavorites, addEventListenerFavViewMore} from './favorites.js';
 import {addEventFavModal} from './favorites.js';
-
+import {downloadModal} from './global_variables.js';
+import {addEventDownloadGifModal} from './download.js';
 
 /**
  * Global variables
@@ -70,5 +71,7 @@ addEventCloseModal(closeButton);
 addEventListenerCloseModal();
 addEventListenerFavViewMore();
 changeTheme();
+addEventDownloadGifModal(downloadModal);
+
 
 

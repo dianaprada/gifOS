@@ -4,13 +4,14 @@
 
 import api from './services.js';
 import { getTrendingGif, EventListener_Slideshow } from './trending.js';
-import { addEventOpenModal, addEventCloseModal } from './modal.js';
+import { addEventOpenModal, addEventCloseModal, addEventTouchModal} from './modal.js';
 import { addEventFavButtonTrendingSearch } from './favorites.js';
 import { changeTheme, verifyTheme } from './darkmode.js';
 import { addEventFavModal } from './favorites.js';
 import { CardsFavorites } from './cards.js';
-import { api_key, getGIFbyIDURL, divMyGifosContainer } from './global_variables.js';
-import { getAllGifLocalStorage, existGifIDLocalStorage } from './new_gifo_localstorage.js';
+import { api_key, getGIFbyIDURL, divMyGifosContainer, downloadModal} from './global_variables.js';
+import { getAllGifLocalStorage } from './new_gifo_localstorage.js';
+import {addEventDownloadGif, addEventDownloadGifModal} from './download.js';
 
 
 
@@ -105,7 +106,9 @@ const getGIFbyIDJson = ((allMyGifs) => {
     });
     divMyGifosContainer.innerHTML += innerHTMLResult;
     addEventOpenModal(divMyGifosContainer.querySelectorAll('.show-modal'));
-    addEventFavButtonTrendingSearch(divMyGifosContainer.querySelectorAll('.addFavorite'))
+    addEventFavButtonTrendingSearch(divMyGifosContainer.querySelectorAll('.addFavorite'));
+    addEventDownloadGif(divMyGifosContainer.querySelectorAll('.downloadGifo'));
+    addEventTouchModal(divMyGifosContainer.querySelectorAll('.resultsCard__info'));
 
 });
 
@@ -284,5 +287,6 @@ addEventFavModal();
 addEventCloseModal(closeButton);
 changeTheme();
 addEventListenerMyGifosViewMore();
+addEventDownloadGifModal(downloadModal);
 
 

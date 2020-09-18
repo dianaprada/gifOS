@@ -4,8 +4,9 @@
 
 import { changeTheme, verifyTheme } from './darkmode.js';
 import api from './services.js';
-import {api_key, uploadGifoURL} from './global_variables.js';
+import {api_key, uploadGifoURL, getGIFbyIDURL, downloadModal} from './global_variables.js';
 import {addGifLocalStorage, getAllGifLocalStorage, existGifIDLocalStorage} from './new_gifo_localstorage.js';
+import {addEventDownloadGifModal} from './download.js';
 
 /**
  * Declaration of DOM elements
@@ -27,11 +28,16 @@ const recordStep3 = document.getElementById('recordStep3');
 const timer = document.getElementById('timer');
 const repeatRecording = document.getElementById('repeatRecording');
 
+const newGifoURL = document.getElementById('linkNewGifo');
+
+const imageGif = document.getElementById('previewGif');
+
 /* Uploading and upoaded Gifo Styles */
 const showPreviewGifoHover = document.getElementById('previewGifoHover');
 const showPreviewGifoButtons = document.getElementById('buttonsPreviewGifo');
 const showGifoUploading = document.getElementById('gifoUploading');
 const showGifoUploaded = document.getElementById('gifoUploaded');
+
 
 
 /**
@@ -43,9 +49,12 @@ let startTime, IdInterval;
 let recorder;
 let form;
 let streamCamera; //Object that contain camera
-const imageGif = document.getElementById('previewGif');
 
-
+/**
+* @method init
+* @description: Validate that the browser supports the creation of the Gifo
+* @returns {}
+*/
 
 
 const init = (() => {
@@ -59,7 +68,7 @@ const init = (() => {
 
 /**
 * @method getStreamAndRecord
-* @description: 
+* @description: request for permission to use the webcam
 * @returns {}
 */
 
@@ -71,9 +80,6 @@ let getStreamAndRecord = (() => {
       streamCamera = mediaStream;
       video.srcObject = streamCamera;
       video.play();
-      // video.onloadedmetadata = function (e) {
-      //   video.play();
-      // };
     })
     .catch((error) => {
       renderMsg(error);
@@ -143,12 +149,17 @@ let _stopRecordingListener = (() => {
   form.append('file', blob, 'myGif.gif');
   console.log(form.get('file'));
 
-
 });
 
 /**
+* @method _stopRecordingListener
+* @description: Stop recording
+* @returns {}
+*/
+
+/**
 * @method _startRepeatCapture
-* @description: 
+* @description: Repeat the video capture
 * @returns {}
 */
 
@@ -160,11 +171,9 @@ let _startRepeatCapture = (() => {
 });
 
 
-
-
 /**
- * @method getTrendingGif
- * @description LLamado a la función
+ * @method uploadGifo
+ * @description Upload Gifo
  * @param {}
  * @returns {}
  */
@@ -175,18 +184,32 @@ const uploadGifo = (() => {
   .then((response) => {
     console.log(response.data.id);
     addGifLocalStorage(response.data.id);
+    getGifByID(response.data.id);
     toogleStylesUploadedGifo();
   }).catch((error) => {
     renderMsg(error);
   });
 });
 
+//EXPERIMENTO BORRAR
+  /**
+ * @method getGifByID
+ * @description Recorre uno por uno el array de gifs del response.data
+ * @param {array} allgif
+ * @returns {}
+ */
 
-/**
-* @method _uploadGifoListener
-* @description: 
-* @returns {}
-*/
+const getGifByID = ((gifID) => {
+  const { gifByIDData } = api;
+  gifByIDData(getGIFbyIDURL, gifID, api_key)
+  .then((response) => {
+      newGifoURL.href = response.data.url;
+      downloadModal.setAttribute("data-gif_url", response.data.images.original.url);
+  }).catch((error) => {
+    renderMsg(error);
+  });
+});
+
 
 let _uploadGifoListener = (() => {
   toogleStylesUploadingGifo();
@@ -482,6 +505,7 @@ addEventListenerButtonRecord();
 addEventListenerButtonStop();
 addEventListenerRepeatRecording();
 addEventListenerUploadGifo();
+addEventDownloadGifModal(downloadModal);
 
 /*  DarkMode  */
 verifyTheme();

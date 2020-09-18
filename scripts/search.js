@@ -3,9 +3,10 @@
  */
 import api from './services.js';
 import {CardsSearchResults} from './cards.js';
-import {addEventOpenModal} from './modal.js';
+import {addEventOpenModal, addEventTouchModal} from './modal.js';
 import {addEventFavButtonTrendingSearch} from './favorites.js';
 import {api_key, divFavGridContainer} from './global_variables.js';
+import {addEventDownloadGif} from './download.js';
 
 
 
@@ -59,6 +60,8 @@ const getSearchResultsGif = ((keyword, offset) => {
     divSearchResultsContainer.innerHTML += innerHTMLResult;
     addEventOpenModal(divSearchResultsContainer.querySelectorAll('.show-modal'));
     addEventFavButtonTrendingSearch(divSearchResultsContainer.querySelectorAll('.addFavorite'));
+    addEventDownloadGif(divSearchResultsContainer.querySelectorAll('.downloadGifo'));
+    addEventTouchModal(divSearchResultsContainer.querySelectorAll('.resultsCard__info'));
  });
 
 

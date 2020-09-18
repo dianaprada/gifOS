@@ -7,10 +7,10 @@
 
  import api from './services.js';
  import {CardsFavorites} from './cards.js';
- import {addEventOpenModal} from './modal.js';
+ import {addEventOpenModal, addEventTouchModal} from './modal.js';
  import {api_key, getGIFbyIDURL, divFavGridContainer, favModal} from './global_variables.js';
  import {addGifLocalStorage, removeGifLocalStorage, getAllGifLocalStorage, existGifIDLocalStorage} from './favorites_localstorage.js';
-
+ import {addEventDownloadGif} from './download.js';
 
  /**
  * Global variables
@@ -103,7 +103,9 @@ const getGIFbyIDJson= ((allFavoritesGifs) => {
   });
   divFavGridContainer.innerHTML += innerHTMLResult;
   addEventOpenModal(divFavGridContainer.querySelectorAll('.show-modal'));
-  addEventFavButton(divFavGridContainer.querySelectorAll('.addFavorite'))
+  addEventFavButton(divFavGridContainer.querySelectorAll('.addFavorite'));
+  addEventDownloadGif(divFavGridContainer.querySelectorAll('.downloadGifo'));
+  addEventTouchModal(divFavGridContainer.querySelectorAll('.resultsCard__info'));
 
 });
 

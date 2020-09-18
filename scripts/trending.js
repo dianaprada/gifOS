@@ -3,9 +3,10 @@
  */
 import api from './services.js';
 import {CardsTrending} from './cards.js';
-import {addEventOpenModal} from './modal.js';
+import {addEventOpenModal, addEventTouchModal, addEventTouchTrendingModal} from './modal.js';
 import {api_key, URLTrending} from './global_variables.js';
 import {addEventFavButtonTrendingSearch} from './favorites.js';
+import {addEventDownloadGif} from './download.js';
 
 
 /**
@@ -13,6 +14,8 @@ import {addEventFavButtonTrendingSearch} from './favorites.js';
  */
 
 let allHTMLTrendingGifs = '';
+let posInit = 0;
+
 
 
 /* Slideshow Trending */
@@ -52,6 +55,11 @@ const getTrendingGif = ((divTrendingContainer) => {
     });
     addEventOpenModal(divTrendingContainer.querySelectorAll('.show-modal'));
     addEventFavButtonTrendingSearch(divTrendingContainer.querySelectorAll('.addFavorite'));
+    addEventDownloadGif(divTrendingContainer.querySelectorAll('.downloadGifo'));
+    //addEventTouchModal(divTrendingContainer.querySelectorAll('.card__info'));
+    EventTouchStart_Slideshow(divTrendingContainer.querySelectorAll('.card__info'));
+    EventTouchEnd_Slideshow(divTrendingContainer.querySelectorAll('.card__info'), divTrendingContainer);
+
  });
 
   /**
@@ -84,6 +92,48 @@ const EventListener_Slideshow = ((divElementContainerCards) => {
           divElementContainerCards.scrollLeft += -280;
         }
     );
+});
+
+/**
+ * @method EventTouchStart_Slideshow
+ * @description Slideshow Trending
+ * @param {}
+ * @returns {}
+*/
+
+const EventTouchStart_Slideshow = ((slideGifos) => {
+    slideGifos.forEach((gifo) => {
+        gifo.addEventListener("touchstart", (e) => {
+            posInit = e.touches[0].clientX;
+          });       
+    });
+
+});
+
+
+/**
+ * @method EventTouchEnd_Slideshow
+ * @description Slideshow Trending
+ * @param {}
+ * @returns {}
+*/
+
+const EventTouchEnd_Slideshow = ((slideGifos, divTrendingContainer) => {
+    slideGifos.forEach((gifo) => {
+        gifo.addEventListener("touchend", (e) => {
+          let posEnd = e.changedTouches[0].clientX;
+          if (posInit > posEnd + 5) {
+            divTrendingContainer.scrollLeft += 208;  
+          }
+          else if (posInit < posEnd - 5) {
+            divTrendingContainer.scrollLeft += -208;
+          }
+          else{
+            addEventTouchTrendingModal(gifo);
+          }
+          });       
+    });
+
 });
 
 

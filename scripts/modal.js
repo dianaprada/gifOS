@@ -2,8 +2,9 @@
  * Imports
  */
 
-import {favModal} from './global_variables.js';
+import {favModal, downloadModal} from './global_variables.js';
 import {refreshFavButton} from './favorites.js';
+import {addEventDownloadGif} from './download.js';
 
 /**
  * Global variables
@@ -30,8 +31,48 @@ const addEventOpenModal = (buttonCards) => {
         let gif_title = buttonCard.getAttribute("data-gif_title");
         buttonCard.addEventListener("click",  () => {
             toggleModal(gif_id, gif_img, gif_username, gif_title);
-        }, false);    
+        }, false); 
+       
 });
+}
+
+
+/**
+ * @method addEventOpenModal
+ * @description Show Modal Popup
+ * @param {} 
+ * @returns {}
+*/
+
+const addEventTouchModal = (imgCards) => {
+    imgCards.forEach(imgCard => {
+        let gif_id = imgCard.getAttribute("data-gif_id");
+        let gif_img = imgCard.getAttribute("data-gif_img");
+        let gif_username = imgCard.getAttribute("data-gif_username");
+        let gif_title = imgCard.getAttribute("data-gif_title");
+        
+        imgCard.addEventListener("touchstart",  () => {
+            toggleModal(gif_id, gif_img, gif_username, gif_title);
+        }, false);   
+});
+}
+
+
+
+/**
+ * @method addEventTouchTrendingModal
+ * @description Show Modal Popup
+ * @param {} 
+ * @returns {}
+*/
+
+const addEventTouchTrendingModal = (imgCard) => {
+        let gif_id = imgCard.getAttribute("data-gif_id");
+        let gif_img = imgCard.getAttribute("data-gif_img");
+        let gif_username = imgCard.getAttribute("data-gif_username");
+        let gif_title = imgCard.getAttribute("data-gif_title");
+        toggleModal(gif_id, gif_img, gif_username, gif_title);
+          
 }
 
 /**
@@ -48,6 +89,8 @@ const toggleModal = (gifId, gifURL, username, title) => {
     document.getElementById("show_username_gif").innerHTML = username;
     modal.classList.toggle("show_modal");
     refreshFavButton(gifId);
+    downloadModal.setAttribute("data-gif_url", gifURL);
+    
 
 }
 
@@ -74,4 +117,4 @@ const addEventCloseModal = (closeButton) => {
     
 }
 
-export {addEventOpenModal, addEventCloseModal, favModal};
+export {addEventOpenModal, addEventCloseModal, favModal, addEventTouchModal, addEventTouchTrendingModal};

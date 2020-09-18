@@ -9,6 +9,9 @@ import {addEventFavModal} from './favorites.js';
 import {getSearchResultsGif, searchGlobalParam, addEventListenerViewMore, hideDivNoSearchResults, cleaninputSearch} from './search.js';
 import {getTrendingWords, getTrendingWordsPromise} from './trending_words.js';
 import {getAutocompleteWord, toggleActiveSearchStyles, toggleInactiveSearchStyles} from './autocomplete.js';
+import {addEventDownloadGifModal} from './download.js';
+import {downloadModal} from './global_variables.js';
+
 
 
 
@@ -289,6 +292,7 @@ addEventListenerViewMore();
 addEventListenerSearch();
 addEventListenerAutocomplete();
 changeTheme();
+addEventDownloadGifModal(downloadModal);
 
 /**
  * Exports

@@ -23,6 +23,8 @@ const favModal = document.getElementById("favorite-gif-Modal");
 
 const divMyGifosContainer = document.getElementById('myGifosResultsGrid');
 
+const downloadModal = document.getElementById("download-gif-Modal");
+
 const LOCAL_STORAGE_MY_GIFOS = "myGifos";
 
 
@@ -36,4 +38,5 @@ export {api_key,
         favModal, 
         divMyGifosContainer, 
         uploadGifoURL, 
+        downloadModal,
         LOCAL_STORAGE_MY_GIFOS}
