@@ -13,7 +13,7 @@ import {addEventDownloadGif} from './download.js';
 /* Modal Popup */
 
 const modal = document.getElementById("myModal");
-
+let posInit = 0;
 
 
 /**
@@ -38,22 +38,36 @@ const addEventOpenModal = (buttonCards) => {
 
 
 /**
- * @method addEventOpenModal
+ * @method addEventTouchModal
  * @description Show Modal Popup
- * @param {} 
+ * @param {array} 
  * @returns {}
 */
 
-const addEventTouchModal = (imgCards) => {
+const addEventTouchModal = (imgCards, divScrollModal) => {
     imgCards.forEach(imgCard => {
         let gif_id = imgCard.getAttribute("data-gif_id");
         let gif_img = imgCard.getAttribute("data-gif_img");
         let gif_username = imgCard.getAttribute("data-gif_username");
         let gif_title = imgCard.getAttribute("data-gif_title");
         
-        imgCard.addEventListener("touchstart",  () => {
-            toggleModal(gif_id, gif_img, gif_username, gif_title);
-        }, false);   
+        imgCard.addEventListener("touchstart",  (e) => {
+            posInit = e.touches[0].clientY;
+        }, false);  
+
+        imgCard.addEventListener("touchend", (e) => {
+            let posEnd = e.changedTouches[0].clientY;
+            if (posInit > posEnd + 5) {
+                divScrollModal.scrollLeft += 208;  
+            }
+            else if (posInit < posEnd - 5) {
+                divScrollModal.scrollLeft += -208;
+            }
+            else{
+                toggleModal(gif_id, gif_img, gif_username, gif_title);
+            }
+            });  
+
 });
 }
 

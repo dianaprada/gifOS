@@ -25,7 +25,7 @@ async function downloadBlobAsFile(url) {
 /**
  * @method addEventDownloadGif
  * @description 
- * @param {} 
+ * @param {array} 
  * @returns {}
 */
 

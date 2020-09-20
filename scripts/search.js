@@ -61,7 +61,7 @@ const getSearchResultsGif = ((keyword, offset) => {
     addEventOpenModal(divSearchResultsContainer.querySelectorAll('.show-modal'));
     addEventFavButtonTrendingSearch(divSearchResultsContainer.querySelectorAll('.addFavorite'));
     addEventDownloadGif(divSearchResultsContainer.querySelectorAll('.downloadGifo'));
-    addEventTouchModal(divSearchResultsContainer.querySelectorAll('.resultsCard__info'));
+    addEventTouchModal(divSearchResultsContainer.querySelectorAll('.resultsCard__info'), divSearchResultsContainer);
  });
 
 

@@ -105,7 +105,7 @@ const getGIFbyIDJson= ((allFavoritesGifs) => {
   addEventOpenModal(divFavGridContainer.querySelectorAll('.show-modal'));
   addEventFavButton(divFavGridContainer.querySelectorAll('.addFavorite'));
   addEventDownloadGif(divFavGridContainer.querySelectorAll('.downloadGifo'));
-  addEventTouchModal(divFavGridContainer.querySelectorAll('.resultsCard__info'));
+  addEventTouchModal(divFavGridContainer.querySelectorAll('.resultsCard__info'), divFavGridContainer);
 
 });
 
