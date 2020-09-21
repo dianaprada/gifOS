@@ -14,15 +14,19 @@ import {autocompleteURL} from './global_variables.js';
 
 let allHTMLAutocompleteWords = '';
 
-let autocompleteWordsContainer = document.getElementById('suggestedWords');
 
+/**
+ * Declaration of DOM elements
+ */
+
+let autocompleteWordsContainer = document.getElementById('suggestedWords');
 const inputSearch = document.getElementById('searchInput');
 
 
 
  /**
  * @method getAutocompleteWord
- * @description LLamado a la función
+ * @description Call to the promises of endpoints
  * @param {}
  * @returns {}
  */
@@ -41,8 +45,8 @@ const getAutocompleteWord = ((api_key, keyword) => {
 
  /**
  * @method getAutocompleteJson
- * @description Recorre uno por uno el array de words del response.data
- * @param {array} allHTMLAutocompleteWords
+ * @description Go through the array of words in response.data one by one
+ * @param {array} allSuggestedWords 
  * @returns {}
  */
 
@@ -61,7 +65,7 @@ const getAutocompleteJson = ((allSuggestedWords) => {
 /**
  * @method addEventSuggestedWord
  * @description Add Event Click suggested words
- * @param {} 
+ * @param {array} 
  * @returns {}
 */
 
@@ -79,7 +83,7 @@ const addEventSuggestedWord = (suggested_words) => {
 
   /**
  * @method autocompleteWords
- * @description Crea el HTML
+ * @description Create the HTML of suggested words
  * @param {array} allTrendingWords
  * @returns {}
  */
@@ -139,5 +143,9 @@ const toggleInactiveSearchStyles = (() => {
 
 const renderMsg = ((msg) => document.querySelector('.gifos-msg').innerHTML = msg );
 
+
+/**
+ * Exports
+ */
 
 export {getAutocompleteWord, toggleActiveSearchStyles, toggleInactiveSearchStyles};

@@ -21,6 +21,10 @@ import {downloadModal} from './global_variables.js';
 
 const api_key = 'FXvt5yHvROwhxmFNSs87LoAAc6qhfrwz';
 
+/**
+ * Declaration of DOM elements
+ */
+
 /* Trending Cards and Slideshow Trending */
 const divElementContainerCards = document.querySelector('.slideshow__cards');
 const divSearchResultsContainer = document.querySelector('.resultsGrid');
@@ -216,7 +220,7 @@ const addEventListenerSearch = (() => {
 
  /**
  * @method addEventListenerAutocomplete
- * @description: 
+ * @description: Event Listener Autocomplete 
  * @returns {}
  */
 
@@ -234,7 +238,7 @@ const addEventListenerAutocomplete = (() => {
 
   /**
  * @method addEventListenerCloseAutocomplete
- * @description: 
+ * @description:  Event Listener close autocomplete
  * @returns {}
  */
 

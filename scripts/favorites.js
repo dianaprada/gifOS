@@ -1,5 +1,3 @@
-//Cargar el trending, necesito api_key 
-//
 
 /**
  * Imports
@@ -17,10 +15,12 @@
  */
 
 let allHTMLFavResults;
-const favViewMoreButton = document.getElementById('favResultsButton');
 const maxGifsToShow = 12;
 
-
+/**
+ * Declaration of DOM elements
+ */
+const favViewMoreButton = document.getElementById('favResultsButton');
 
 
 /**
@@ -154,7 +154,7 @@ const favoritesPagination = ((total_count, topOffset) => {
 
  /**
 * @method setAttributeViewMore
-* @description: 
+* @description: Set Attribute Offset to view more button
 * @returns {}
 */
 

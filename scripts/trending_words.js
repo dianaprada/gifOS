@@ -10,15 +10,19 @@ import {URLTrendingWords} from './global_variables.js';
  * Global variables
  */
 
+let allHTMLTrendingGifs = '';
 
+/**
+ * Declaration of DOM elements
+ */
 
 let divTrendingWordsContainer = document.getElementById('trendingWordsContainer');
-let allHTMLTrendingGifs = '';
+
 
 
 /**
  * @method getTrendingWords
- * @description LLamado a la función
+ * @description Call to the promises of endpoints
  * @param {}
  * @returns {}
  */
@@ -31,7 +35,7 @@ const getTrendingWords = ((api_key) => {
 
   /**
  * @method getTrendingWordsPromise
- * @description LLamado a la función
+ * @description Call to the promises of endpoints
  * @param {}
  * @returns {}
  */
@@ -54,7 +58,7 @@ const getTrendingWords = ((api_key) => {
   
   /**
  * @method getTrendingWordsJson
- * @description Recorre uno por uno el array de Trending Search Terms del response.data
+ * @description Go through the array of gifs of the response.data that the API gave us one by one
  * @param {array} allTrendingWords
  * @returns {}
  */
@@ -69,7 +73,7 @@ const getTrendingWords = ((api_key) => {
 
   /**
  * @method trendingWords
- * @description Crea el HTML
+ * @description Trending words marking method
  * @param {array} 
  * @returns {}
  */

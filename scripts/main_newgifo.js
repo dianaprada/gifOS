@@ -194,7 +194,7 @@ const uploadGifo = (() => {
 //EXPERIMENTO BORRAR
   /**
  * @method getGifByID
- * @description Recorre uno por uno el array de gifs del response.data
+ * @description Go through the array  in response.data one by one
  * @param {array} allgif
  * @returns {}
  */
@@ -418,7 +418,7 @@ const toogleStylesStopRecording = (() => {
 
 /**
 * @method toogleStylesRepeatCapture
-* @description: 
+* @description: change styles Repeat Capture Button
 * @returns {}
 */
 

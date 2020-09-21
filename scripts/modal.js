@@ -10,10 +10,15 @@ import {addEventDownloadGif} from './download.js';
  * Global variables
  */
 
+let posInit = 0;
+
+/**
+ * Declaration of DOM elements
+ */
 /* Modal Popup */
 
 const modal = document.getElementById("myModal");
-let posInit = 0;
+
 
 
 /**
@@ -39,7 +44,7 @@ const addEventOpenModal = (buttonCards) => {
 
 /**
  * @method addEventTouchModal
- * @description Show Modal Popup
+ * @description Show Modal Popup Mobile Search - Favorites - My Gifos
  * @param {array} 
  * @returns {}
 */
@@ -75,7 +80,7 @@ const addEventTouchModal = (imgCards, divScrollModal) => {
 
 /**
  * @method addEventTouchTrendingModal
- * @description Show Modal Popup
+ * @description Show Modal Popup Mobile Trending
  * @param {} 
  * @returns {}
 */

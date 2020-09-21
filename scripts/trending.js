@@ -16,7 +16,9 @@ import {addEventDownloadGif} from './download.js';
 let allHTMLTrendingGifs = '';
 let posInit = 0;
 
-
+/**
+ * Declaration of DOM elements
+ */
 
 /* Slideshow Trending */
 const before_slideshow = document.getElementById("slideshow__before");
@@ -24,7 +26,7 @@ const after_slideshow = document.getElementById("slideshow__after");
 
 /**
  * @method getTrendingGif
- * @description LLamado a la función
+ * @description Call to the promises of endpoints
  * @param {}
  * @returns {}
  */
@@ -44,7 +46,7 @@ const getTrendingGif = ((divTrendingContainer) => {
   
   /**
  * @method getTrendingJson
- * @description Recorre uno por uno el array de gifs del response.data
+ * @description Go through the array of gifs of the response.data that the API gave us one by one
  * @param {array} allgif
  * @returns {}
  */
@@ -64,7 +66,7 @@ const getTrendingGif = ((divTrendingContainer) => {
 
   /**
  * @method allCards
- * @description: Extraer la información para crear el HTML
+ * @description: Extract the information to create the HTML
  * @returns {}
  */
 

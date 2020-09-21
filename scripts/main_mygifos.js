@@ -22,6 +22,10 @@ import {addEventDownloadGif, addEventDownloadGifModal} from './download.js';
 let allHTMLMyGifosResults;
 const maxGifsToShow = 12;
 
+/**
+ * Declaration of DOM elements
+ */
+
 const divElementContainerCards = document.querySelector('.slideshow__cards');
 
 const noGifos = document.getElementById('myGifosNoContent');
@@ -130,7 +134,7 @@ const allFavoriteCards = ((onlyOneFavGif) => {
 
   /**
  * @method _myGifosListener
- * @description: 
+ * @description: Listener 
  * @returns {}
  */
 
@@ -142,7 +146,7 @@ let _myGifosListener = (() => {
   
   /**
   * @method addEventListenerMyGifosViewMore
-  * @description: 
+  * @description: Event Listener My Gifos View More
   * @returns {}
   */
   
@@ -181,7 +185,7 @@ const myGifosPagination = ((total_count, topOffset) => {
 
 /**
 * @method setAttributeViewMore
-* @description: 
+* @description: Set attribute offset to view more button
 * @returns {}
 */
 

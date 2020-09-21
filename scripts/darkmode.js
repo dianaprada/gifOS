@@ -3,6 +3,10 @@
  */
 
 let darkMode = localStorage.getItem('darkMode'); 
+
+/**
+ * Declaration of DOM elements
+ */
 const darkModeToggle = document.querySelector('.dark_mode');
 
 /**

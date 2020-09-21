@@ -1,7 +1,7 @@
 
   /**
  * @method downloadBlobAsFile
- * @description
+ * @description function that downloads the gif
  * @param {string} 
  * @returns {}
  */
@@ -24,7 +24,7 @@ async function downloadBlobAsFile(url) {
 
 /**
  * @method addEventDownloadGif
- * @description 
+ * @description add click event to download gif 
  * @param {array} 
  * @returns {}
 */
@@ -40,7 +40,7 @@ const addEventDownloadGif = (buttonCards) => {
 
 /**
  * @method addEventDownloadGifModal
- * @description 
+ * @description add click event to download gif in the modal popup
  * @param {} 
  * @returns {}
 */
@@ -53,6 +53,8 @@ const addEventDownloadGifModal = (button) => {
 
 }
 
-
+/**
+ * Exports
+ */
 
   export { addEventDownloadGif, addEventDownloadGifModal };

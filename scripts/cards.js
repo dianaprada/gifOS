@@ -1,6 +1,6 @@
 /**
  * @method CardsTrending
- * @description Crea el HTML de cada Card
+ * @description Card marking method
  * @param {id, img, title, username} 
  * @returns {}
 */
@@ -28,7 +28,7 @@ const CardsTrending = ((id, img, title, username) => {
 
 /**
  * @method CardsSearchResults
- * @description Crea el HTML de cada Card
+ * @description Card marking method
  * @param {id, img, title, username} 
  * @returns {}
 */
@@ -55,7 +55,7 @@ const CardsSearchResults = ((id, img, title, username) => {
 
 /**
  * @method CardsFavorites
- * @description Crea el HTML de cada Card
+ * @description Card marking method
  * @param {id, img, title, username} 
  * @returns {}
 */
@@ -80,5 +80,9 @@ const CardsFavorites = ((id, img, title, username) => {
     );
 });
 
+
+/**
+ * Exports
+ */
 
 export {CardsTrending, CardsSearchResults, CardsFavorites};

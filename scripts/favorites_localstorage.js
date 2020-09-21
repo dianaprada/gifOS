@@ -5,12 +5,6 @@
 import {LOCAL_STORAGE_FAVORITE_GIFS} from './global_variables.js';
 
 
- /**
- * Global variables
- */
-
-
- 
 
 /** Add and remove to Localstorage
 */
@@ -69,5 +63,9 @@ const addGifLocalStorage = ((selectedGif) => {
     }
    });
 
+
+   /**
+ * Exports
+ */
 
    export {addGifLocalStorage, removeGifLocalStorage, getAllGifLocalStorage, existGifIDLocalStorage};

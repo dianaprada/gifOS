@@ -20,6 +20,11 @@ const divElementContainerCards = document.querySelector('.slideshow__cards');
 /* Modal Popup */
 const closeButton = document.getElementById("close-button");
 
+/**
+* @method _listenerCloseModal
+* @description: Listener Close Modal 
+* @returns {}
+*/
 
 const _listenerCloseModal = (() => {
     loadFavorites(0);
@@ -28,7 +33,7 @@ const _listenerCloseModal = (() => {
 
 /**
 * @method addEventListenerCloseModal
-* @description: 
+* @description: Event Listener Close Modal 
 * @returns {}
 */
 

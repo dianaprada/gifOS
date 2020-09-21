@@ -16,15 +16,19 @@ import {addEventDownloadGif} from './download.js';
 
 
 let allHTMLSearchGifs = '';
-
-const viewMoreButton = document.getElementById('searchResults_button');
-
 const searchGlobalParam = {api_key: undefined, divSearchResultsContainer: undefined};
 
 /**
+ * Declaration of DOM elements
+ */
+
+const viewMoreButton = document.getElementById('searchResults_button');
+
+
+
+/**
  * @method getSearchResultsGif
- * @description 
- * @param {}
+ * @description Call to the promises of endpoints
  * @returns {}
  */
 
@@ -47,7 +51,7 @@ const getSearchResultsGif = ((keyword, offset) => {
    
   /**
  * @method getSearchResultsJson
- * @description Recorre uno por uno el array de gifs del response.data
+ * @description Go through the array of gifs of the response.data that the API gave us one by one
  * @param {array} allgif
  * @returns {}
  */
@@ -68,7 +72,7 @@ const getSearchResultsGif = ((keyword, offset) => {
 
   /**
  * @method allSearchResultsCards
- * @description: Extraer la información para crear el HTML
+ * @description: Extract the information to create the HTML
  * @returns {}
  */
 
@@ -199,7 +203,7 @@ const cleaninputSearch = (() => {
 
   /**
  * @method _listener
- * @description: 
+ * @description: Listener view More Button
  * @returns {}
  */
 
@@ -212,7 +216,7 @@ let _listener = (() => {
 
   /**
  * @method addEventListenerViewMore
- * @description: 
+ * @description:  Event Listener view More Button
  * @returns {}
  */
 
@@ -222,7 +226,7 @@ let _listener = (() => {
 
    /**
  * @method setAttributeViewMore
- * @description: 
+ * @description:  Set Attribute Offset to view more button
  * @returns {}
  */
 

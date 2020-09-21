@@ -49,5 +49,9 @@ const addGifLocalStorage = ((selectedGif) => {
     }
    });
 
+   /**
+ * Exports
+ */
+
 
    export {addGifLocalStorage, getAllGifLocalStorage, existGifIDLocalStorage};
