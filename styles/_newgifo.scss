@@ -132,6 +132,7 @@
 
 .record_video__video {
     position: relative;
+    z-index: 99;
     
    
 }
@@ -154,6 +155,7 @@
     color: $white;
     background-color: $hover_cards;
     transition: all 0.3s ease-in-out;
+    z-index: 100;
 }
 
 /* Buttons download and link  */
@@ -167,7 +169,7 @@
     left: 75%;
 }
 
-/* Uploading and upoaded Gifo Styles */
+/* Uploading Gifo Styles */
 
 .preview_gifo__uploading{
     position: absolute;

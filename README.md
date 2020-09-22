@@ -19,6 +19,7 @@ La app tiene diferentes funcionalidades, todas basadas en la obtención y envío
   - **Responsive design**.
   - SASS.
   - Flexbox.
+  - Grid.
 
 - **Javascript**: 
   - Condicionales, arrays, iteraciones.

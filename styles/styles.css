@@ -2456,6 +2456,7 @@ body.dark .record__buttons:hover {
 /* Video Tag & Img Gif */
 .record_video__video {
   position: relative;
+  z-index: 99;
 }
 
 /*   Preview Gifo */
@@ -2474,6 +2475,7 @@ body.dark .record__buttons:hover {
   background-color: rgba(87, 46, 229, 0.6);
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  z-index: 100;
 }
 
 /* Buttons download and link  */
@@ -2491,7 +2493,7 @@ body.dark .record__buttons:hover {
   left: 75%;
 }
 
-/* Uploading and upoaded Gifo Styles */
+/* Uploading Gifo Styles */
 .preview_gifo__uploading {
   position: absolute;
   top: 50%;
